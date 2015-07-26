@@ -93,7 +93,9 @@
 
 	  //https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT+B,+C,+D,+F+WHERE+C+%3E+10000000&pli=1
 	  
-      function initialize() {
+	//var map;  
+	  
+    function initialize() {
         var mapCanvas = document.getElementById('map-canvas');
         var mapOptions = {
           center: new google.maps.LatLng(20.258028, 13.959507),
@@ -101,8 +103,80 @@
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
         var map = new google.maps.Map(mapCanvas, mapOptions)
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
+		console.log( "ready in map initialise!" );
+		
+		
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+			// do something only the first time the map is loaded
+			console.log( "map has initialised!" );
+			getMarkers();
+		});
+    }
+    
+	google.maps.event.addDomListener(window, 'load', initialize);
+	
+	var sheetsQuery = 'https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT+B,+C,+D,+F+WHERE+C+%3E+10000000&pli=1';
+	
+	function getMarkers() {
+		$.getJSON(sheetsQuery, function(data) {
+			console.log(data.feed.entry.length);
+			for (var i = 0; i < data.feed.entry.length; i++) {
+			 
+				var id = data.feed.entry[i].gsx$benchid.$t;
+				var photo = data.feed.entry[i].gsx$photourl.$t;
+				var caption = data.feed.entry[i].gsx$captionoptional.$t;
+				var string = '<img src="' + photo + '"><p>' + caption + '</p>';
+				 
+				var lat = data.feed.entry[i].gsx$lat.$t;
+				var lng = data.feed.entry[i].gsx$long.$t;
+				 
+				createMarker(lat, lng);
+				createInfoWindow(id, string);
+			}
+		});	
+	}
+
+	/* Initialize a blank array to store all the markers
+	 * that we're going to place on the map
+	 */
+	var markers = [];
+	 
+	/* Function takes in a latitude and longitude coordinate
+	 * and constructs a marker object, then pushes it on
+	 * the marker array we just created.
+	 */
+	function createMarker(lat, long) {
+	 
+		var lol = new google.maps.LatLng(lat, long);
+	 
+		var marker = new google.maps.Marker({
+			position: lol,
+			icon: "overlays/bench-icon.png",
+			map: map,
+			visible: true
+		});
+	 
+		markers.push(marker);
+	 
+	}
+	 
+	/* Function takes in the Bench ID and caption we constructed
+	 * in $.getJSON's callback function, then creates an InfoWindow
+	 * object and displays it on the map.
+	 */
+	function createInfoWindow(id, contentString) {
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+	 
+		google.maps.event.addListener(markers[id], 'click', function() {
+			infowindow.open(map,markers[id]);
+		}); 
+	}
+	  
+	$( document ).ready(function() {
+		console.log( "ready in jquery!" );
+	});
     </script>
   <script>
   $(function() {
