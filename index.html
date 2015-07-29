@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <style>
 	body {
 		overflow: hidden;
@@ -90,8 +91,8 @@
 		var direction = split[1];
 		var split = split[0].split("\'"); // break off seconds
 		var seconds = split[1];
-		console.log('degrees: ' + split[0] + ', ' + split[1] + '. match degree symbol: ' + split[0].match('°').length);
-		var split = split[0].split("°"); // break off minutes // THIS DEGREES SYMBOL DIDN'T WORK ON HOSTED VERSION
+		console.log('degrees: ' + split[0] + ', ' + split[1] + '. match degree symbol: ' + split[0].match('°'));
+		var split = split[0].split("°"); // break off minutes // THIS DEGREES SYMBOL DIDN'T WORK ON HOSTED VERSION ?
 		var minutes = split[1];
 		var degrees = split[0];
 		
