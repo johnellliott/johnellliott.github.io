@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
   <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -61,8 +61,8 @@
 	
     <script>
 	
-//	36�57'9" N  = 36.9525000
-//	110�4'21" W = -110.0725000
+//	36°57'9" N  = 36.9525000
+//	110°4'21" W = -110.0725000
 
 	// convert from old-school lat/long to decimal
 	function ConvertDMSToDD(degrees, minutes, seconds, direction) {
@@ -74,7 +74,7 @@
 		return dd;
 	}
 	
-	// parse old-school lat/long in format 36�57'9" N 110�4'21" W
+	// parse old-school lat/long in format 36°57'9" N 110°4'21" W
 	// and return decimal comma-separated lat/long.
 	function ParseDMS(input) {
 		var parts = input.split(/[^\d\w]+/);
@@ -84,15 +84,15 @@
 		return lat + "," + lng;
 	}
 	
-	//Expects [31�0\'18.0\" N], without square brackets 
+	//Expects [31°0\'18.0\" N], without square brackets 
 	function ParseDMS2(input) {
 		//var parts = input.split(/[^\d\w]+/);
 		var split = input.split('\" '); // break off direction
 		var direction = split[1];
 		var split = split[0].split("\'"); // break off seconds
 		var seconds = split[1];
-		console.log('degrees: ' + split[0] + ', ' + split[1] + '. match degree symbol: ' + split[0].match('�'));
-		var split = split[0].split("�"); // break off minutes // THIS DEGREES SYMBOL DIDN'T WORK ON HOSTED VERSION ?
+		console.log('degrees: ' + split[0] + ', ' + split[1] + '. match degree symbol: ' + split[0].match('°'));
+		var split = split[0].split("°"); // break off minutes // THIS DEGREES SYMBOL DIDN'T WORK ON HOSTED VERSION ?
 		var minutes = split[1];
 		var degrees = split[0];
 		
@@ -101,11 +101,11 @@
 		return parsed;
 	}
 	
-	var blah = ParseDMS("36�57'9\" N 110�4'21\" W");
+	var blah = ParseDMS("36°57'9\" N 110°4'21\" W");
 	
 	
 	
-	var parts = '31�0\'18.0\" N 121�24\'32.4\" E'.split(/[((�|'|(\"\s)|\s)\s)]/);
+	var parts = '31°0\'18.0\" N 121°24\'32.4\" E'.split(/[((°|'|(\"\s)|\s)\s)]/);
 	
 	console.log('part:'+ parts[0]);
 	
@@ -161,8 +161,8 @@
 					var cityName = jsonObj.table.rows[i].c[1].v;
 					var population = jsonObj.table.rows[i].c[2].v;
 					
-					var lat = jsonObj.table.rows[i].c[5].v; //'31�0\'18.0\" N' 
-					var lng = jsonObj.table.rows[i].c[6].v; //'121�24\'32.4\" E'
+					var lat = jsonObj.table.rows[i].c[5].v; //'31°0\'18.0\" N' 
+					var lng = jsonObj.table.rows[i].c[6].v; //'121°24\'32.4\" E'
 					
 					lat = ParseDMS2(lat);
 					lng = ParseDMS2(lng);
