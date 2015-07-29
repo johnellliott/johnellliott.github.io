@@ -83,6 +83,22 @@
 		return lat + "," + lng;
 	}
 	
+	//Expects [31°0\'18.0\" N], without square brackets 
+	function ParseDMS2(input) {
+		//var parts = input.split(/[^\d\w]+/);
+		var split = input.split('\" '); // break off direction
+		var direction = split[1];
+		var split = split[0].split("\'"); // break off seconds
+		var seconds = split[1];
+		var split = split[0].split("°"); // break off minutes
+		var minutes = split[1];
+		var degrees = split[0];
+		
+		var parsed = ConvertDMSToDD(degrees, minutes, seconds, direction);
+		
+		return parsed;
+	}
+	
 	var blah = ParseDMS("36°57'9\" N 110°4'21\" W");
 	
 	
@@ -98,7 +114,7 @@
 
 	  //https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT+B,+C,+D,+F+WHERE+C+%3E+10000000&pli=1
 	  
-	//var map;  
+	var map;  
 	  
     function initialize() {
         var mapCanvas = document.getElementById('map-canvas');
@@ -107,7 +123,7 @@
           zoom: 2,
           mapTypeId: google.maps.MapTypeId.ROADMAP
         }
-        var map = new google.maps.Map(mapCanvas, mapOptions)
+        map = new google.maps.Map(mapCanvas, mapOptions)
 		console.log( "ready in map initialise!" );
 		
 		
@@ -127,7 +143,7 @@
     
 	google.maps.event.addDomListener(window, 'load', initialize);
 	
-	var sheetsQuery = 'https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT%20B,%20C,%20D,%20F,%20G%20WHERE%20C%20%3E%201000000&pli=1';
+	var sheetsQuery = 'https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT%20B,%20C,%20D,%20F,%20G%20WHERE%20C%20%3E%208&pli=1';
 	
 	function getMarkers() {
 		$.ajax({
@@ -143,15 +159,19 @@
 					var cityName = jsonObj.table.rows[i].c[0].v;
 					var population = jsonObj.table.rows[i].c[1].v;
 					
-					var lat = jsonObj.table.rows[i].c[3].v;
-					var lng = jsonObj.table.rows[i].c[4].v;
+					var lat = jsonObj.table.rows[i].c[3].v; //'31°0\'18.0\" N' 
+					var lng = jsonObj.table.rows[i].c[4].v; //'121°24\'32.4\" E'
 					
-					var latLngDec = ParseDMS(lat + ' ' + lng);
+					lat = ParseDMS2(lat);
+					lng = ParseDMS2(lng);
 					
+					//ConvertDMSToDD(degrees, minutes, seconds, direction)
+					
+					//var latLngDec = ParseDMS(lat + ' ' + lng);
 					
 					//var id = jsonObj.table.rows[i];
 					//console.log(latLngDec);
-					//createMarker(lat, lng);
+					createMarker(lat, lng);
 					//createInfoWindow(id, string);
 				}
 				
@@ -179,7 +199,7 @@
 	 
 		var marker = new google.maps.Marker({
 			position: lol,
-			icon: "overlays/bench-icon.png",
+			//icon: "overlays/bench-icon.png",
 			map: map,
 			visible: true
 		});
