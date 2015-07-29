@@ -291,12 +291,7 @@
 		google.maps.event.addListener(marker, 'click', function() {
 			infowindow.open(map,marker);
 		});
-		
-		var ctaLayer = new google.maps.KmlLayer({
-			url: 'http://johnellliott.github.io/simplified.kml'
-		});
-		ctaLayer.setMap(map);
-	 
+
 		markers.push(marker);
 	 
 	}
