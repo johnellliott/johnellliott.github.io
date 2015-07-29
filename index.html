@@ -158,8 +158,13 @@
 				
 				for (var i = 0; i < jsonObj.table.rows.length; i++) {
 			 
-					var cityName = jsonObj.table.rows[i].c[1].v;
-					var population = jsonObj.table.rows[i].c[2].v;
+					var cityInfo = {
+						name: jsonObj.table.rows[i].c[1].v,
+						population: jsonObj.table.rows[i].c[2].v
+					}
+			 
+					//var cityName = jsonObj.table.rows[i].c[1].v;
+					//var population = jsonObj.table.rows[i].c[2].v;
 					
 					var lat = jsonObj.table.rows[i].c[5].v; //'31°0\'18.0\" N' 
 					var lng = jsonObj.table.rows[i].c[6].v; //'121°24\'32.4\" E'
@@ -173,7 +178,10 @@
 					
 					//var id = jsonObj.table.rows[i];
 					//console.log(latLngDec);
-					createMarker(lat, lng);
+					
+					
+					
+					createMarker(lat, lng, cityInfo);
 					//createInfoWindow(id, string);
 				}
 				
@@ -186,6 +194,51 @@
 		});
 	}
 
+	var markerImages = [];
+	
+	// pass in a number from 1-10
+	function createMarkerImage(size) {
+		try {
+			size = parseInt(size);
+			if (size > 10) console.log('Error creating marker image with size ' + size);
+			else if (size < 0) console.log('Error creating marker image with size ' + size);
+			
+			if (markerImages[size] != null) return markerImages[size];
+			
+			var imageSize = size * 3;
+			
+			var markerImage = {
+				url: 'marker.png',
+				// This marker is 20 pixels wide by 32 pixels tall.
+				//size: new google.maps.Size(30, 30),
+				// The origin for this image is 0,0.
+				origin: new google.maps.Point(0, 0),
+				// Make this half of the size
+				anchor: new google.maps.Point(imageSize/2, imageSize/2),
+				
+				scaledSize: new google.maps.Size(imageSize, imageSize)
+			};
+			
+			markerImages[size] = markerImage;
+			
+			return markerImage;
+		} catch(err) {
+			console.log('Error creating marker image with size ' + size + '. Error: ' + err);
+		}
+	}
+	
+	var markerImage = {
+		url: 'marker.png',
+		// This marker is 20 pixels wide by 32 pixels tall.
+		size: new google.maps.Size(30, 30),
+		// The origin for this image is 0,0.
+		origin: new google.maps.Point(0, 0),
+		// The anchor for this image is the base of the flagpole at 0,32.
+		anchor: new google.maps.Point(5, 5),
+		
+		scaledSize: new google.maps.Size(10, 10)
+	};
+	
 	/* Initialize a blank array to store all the markers
 	 * that we're going to place on the map
 	 */
@@ -195,16 +248,54 @@
 	 * and constructs a marker object, then pushes it on
 	 * the marker array we just created.
 	 */
-	function createMarker(lat, long) {
+	function createMarker(lat, lng, cityInfo) {
 	 
-		var lol = new google.maps.LatLng(lat, long);
+		var lol = new google.maps.LatLng(lat, lng);
+		
+		var contentString = '<div id="content">'+
+			'<div id="siteNotice">'+
+			'</div>'+
+			'<h1 id="firstHeading" class="firstHeading">' + cityInfo.name + '</h1>'+
+			'<div id="bodyContent">'+
+			'<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+			'sandstone rock formation in the southern part of the '+
+			'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+			'south west of the nearest large town, Alice Springs; 450&#160;km '+
+			'(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+			'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+			'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+			'Aboriginal people of the area. It has many springs, waterholes, '+
+			'rock caves and ancient paintings. Uluru is listed as a World '+
+			'Heritage Site.</p>'+
+			'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+			'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+			'(last visited June 22, 2009).</p>'+
+			'</div>'+
+			'</div>';
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+		
+		// pass a value between 1-10 to scale marker
+		var image = createMarkerImage(3);
 	 
 		var marker = new google.maps.Marker({
 			position: lol,
-			//icon: "overlays/bench-icon.png",
+			icon: image,
 			map: map,
-			visible: true
+			visible: true//,
+			//label: cityInfo.name
 		});
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+		});
+		
+		var ctaLayer = new google.maps.KmlLayer({
+			url: 'http://johnellliott.github.io/Koeppen-Geiger-GE.kmz'
+		});
+		ctaLayer.setMap(map);
 	 
 		markers.push(marker);
 	 
@@ -228,22 +319,7 @@
 		console.log( "ready in jquery!" );
 	});
     </script>
-	<google-sheets key="1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0" published></google-sheets>
-<script>
-  var sheet = document.querySelector('google-sheets');
 
-  sheet.addEventListener('google-sheet-data', function(e) {
-   // this.spreadsheets - list of the user's spreadsheets
-   // this.tab - information on the tab that was fetched
-   // this.rows - cell row information for the tab that was fetched
-  });
-
-  sheet.addEventListener('error', function(e) {
-   // e.detail.response
-  });
-</script>
-	
-	
   <script>
   $(function() {
 
