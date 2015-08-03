@@ -1,0 +1,347 @@
+﻿<!DOCTYPE html>
+<html>
+  <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+	body {
+		overflow: hidden;
+		margin: 0;
+		font-family: verdana, ariel, tahoma, sans-serif;
+	}
+	
+    #map-canvas {
+        width: 100%;
+        height: 100vh;
+    }
+	
+	#mapControls {
+		position: absolute;
+		bottom: 0px;
+		right: 0px;
+		z-index: 99;
+		background-color: rgba(0, 0, 0, 0.3);
+		width: 100%;
+	}
+	
+	#mapControls #siteName {
+		float: left;
+		margin: 6px 10px 6px 4px;
+		padding: 6px 12px 6px 12px;
+		background-color: rgba(0, 0, 0, 0.5);
+		height: 32px;
+		color: white;
+		vertical-align:middle;
+	}
+	
+	#mapControls fieldset {
+		float: right;
+		margin: 0 0 0 0;
+		padding: 6px 4px 2px 4px;
+	}
+	
+	
+	
+    fieldset {
+      border: 0;
+    }
+    label {
+      display: block;
+      margin: 30px 0 0 0;
+    }
+    select {
+      width: 200px;
+    }
+    .overflow {
+      height: 200px;
+    }	
+    </style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+	<link rel="stylesheet" href="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.deep_purple-indigo.min.css" /> 
+	<script src="https://storage.googleapis.com/code.getmdl.io/1.0.2/material.min.js"></script>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+	
+    <script>
+	
+//	36°57'9" N  = 36.9525000
+//	110°4'21" W = -110.0725000
+
+	// convert from old-school lat/long to decimal
+	function ConvertDMSToDD(degrees, minutes, seconds, direction) {
+		var dd = parseInt(degrees) + parseInt(minutes)/60 + parseInt(seconds)/(60*60);
+
+		if (direction == "S" || direction == "W") {
+			dd = parseFloat(dd) * -1;
+		} // Don't do anything for N or E
+		return dd;
+	}
+	
+	// parse old-school lat/long in format 36°57'9" N 110°4'21" W
+	// and return decimal comma-separated lat/long.
+	function ParseDMS(input) {
+		var parts = input.split(/[^\d\w]+/);
+		var lat = ConvertDMSToDD(parts[0], parts[1], parts[2], parts[3]);
+		var lng = ConvertDMSToDD(parts[4], parts[5], parts[6], parts[7]);
+		
+		return lat + "," + lng;
+	}
+	
+	//Expects [31°0\'18.0\" N], without square brackets 
+	function ParseDMS2(input) {
+		//var parts = input.split(/[^\d\w]+/);
+		var split = input.split('\" '); // break off direction
+		var direction = split[1];
+		var split = split[0].split("\'"); // break off seconds
+		var seconds = split[1];
+		console.log('degrees: ' + split[0] + ', ' + split[1] + '. match degree symbol: ' + split[0].match('\u00B0'));
+		var split = split[0].split("\u00B0"); // break off minutes // THIS DEGREES SYMBOL DIDN'T WORK ON HOSTED VERSION ?
+		var minutes = split[1];
+		var degrees = split[0];
+		
+		var parsed = ConvertDMSToDD(degrees, minutes, seconds, direction);
+		
+		return parsed;
+	}
+	
+	var blah = ParseDMS("36°57'9\" N 110°4'21\" W");
+	
+	
+	
+	var parts = '31°0\'18.0\" N 121°24\'32.4\" E'.split(/[((°|'|(\"\s)|\s)\s)]/);
+	
+	console.log('part:'+ parts[0]);
+	
+	  //https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/pubhtml
+	  //https://docs.google.com/spreadsheet/ccc?key=1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0&usp=drive_web#gid=0
+	  
+	  //https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:html&tq=SELECT+B,+C,+D,+F+WHERE+C+%3E+10000000&pli=1
+
+	  //https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT+B,+C,+D,+F+WHERE+C+%3E+10000000&pli=1
+	  
+	var map;  
+	  
+    function initialize() {
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+          center: new google.maps.LatLng(20.258028, 13.959507),
+          zoom: 2,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        map = new google.maps.Map(mapCanvas, mapOptions)
+		console.log( "ready in map initialise!" );
+		
+		
+		google.maps.event.addListenerOnce(map, 'idle', function(){
+			// do something only the first time the map is loaded
+			console.log( "map has initialised!" );
+			getMarkers();
+		});
+
+    }
+	
+	function trimResponse(response) {
+		var trimmed = response.replace("google.visualization.Query.setResponse(", "");
+		trimmed = trimmed.replace(");", "");
+		return trimmed;
+	}
+    
+	google.maps.event.addDomListener(window, 'load', initialize);
+	
+	var sheetsQuery = 'http://cors.io/?u=https://docs.google.com/spreadsheets/d/1Hgfakt0q0hO3A2FVuNxLGlz_-Dfcx1rIwvBGypL1Uq0/gviz/tq?tqx=out:json&tq=SELECT%20B,%20C,%20D,%20F,%20G%20WHERE%20C%20%3E%208&pli=1';
+	
+	function getMarkers() {
+		$.ajax({
+			url: sheetsQuery,
+			dataType: 'text',
+			success: function( data) {
+				jsonString = trimResponse(data);
+				var jsonObj = JSON.parse(jsonString);
+				console.log(jsonObj.table.rows.length);
+				
+				for (var i = 0; i < jsonObj.table.rows.length; i++) {
+			 
+					var cityInfo = {
+						name: jsonObj.table.rows[i].c[1].v,
+						population: jsonObj.table.rows[i].c[2].v
+					}
+			 
+					//var cityName = jsonObj.table.rows[i].c[1].v;
+					//var population = jsonObj.table.rows[i].c[2].v;
+					
+					var lat = jsonObj.table.rows[i].c[5].v; //'31°0\'18.0\" N' 
+					var lng = jsonObj.table.rows[i].c[6].v; //'121°24\'32.4\" E'
+					
+					lat = ParseDMS2(lat);
+					lng = ParseDMS2(lng);
+					
+					//ConvertDMSToDD(degrees, minutes, seconds, direction)
+					
+					//var latLngDec = ParseDMS(lat + ' ' + lng);
+					
+					//var id = jsonObj.table.rows[i];
+					//console.log(latLngDec);
+					
+					
+					
+					createMarker(lat, lng, cityInfo);
+					//createInfoWindow(id, string);
+				}
+				
+				//console.log(trimResponse(data));
+				//console.log( 'SUCCESS: ' + data );
+			},
+			error: function( data, textStatus, errorThrown ) {
+				console.log('textStatus: ' + textStatus + ', errorThrown: ' + errorThrown + ', ERROR: ', data );
+			}
+		});
+	}
+
+	var markerImages = [];
+	
+	// pass in a number from 1-10
+	function createMarkerImage(size) {
+		try {
+			size = parseInt(size);
+			if (size > 10) console.log('Error creating marker image with size ' + size);
+			else if (size < 0) console.log('Error creating marker image with size ' + size);
+			
+			if (markerImages[size] != null) return markerImages[size];
+			
+			var imageSize = size * 3;
+			
+			var markerImage = {
+				url: 'marker.png',
+				// This marker is 20 pixels wide by 32 pixels tall.
+				//size: new google.maps.Size(30, 30),
+				// The origin for this image is 0,0.
+				origin: new google.maps.Point(0, 0),
+				// Make this half of the size
+				anchor: new google.maps.Point(imageSize/2, imageSize/2),
+				
+				scaledSize: new google.maps.Size(imageSize, imageSize)
+			};
+			
+			markerImages[size] = markerImage;
+			
+			return markerImage;
+		} catch(err) {
+			console.log('Error creating marker image with size ' + size + '. Error: ' + err);
+		}
+	}
+	
+	var markerImage = {
+		url: 'marker.png',
+		// This marker is 20 pixels wide by 32 pixels tall.
+		size: new google.maps.Size(30, 30),
+		// The origin for this image is 0,0.
+		origin: new google.maps.Point(0, 0),
+		// The anchor for this image is the base of the flagpole at 0,32.
+		anchor: new google.maps.Point(5, 5),
+		
+		scaledSize: new google.maps.Size(10, 10)
+	};
+	
+	/* Initialize a blank array to store all the markers
+	 * that we're going to place on the map
+	 */
+	var markers = [];
+	 
+	/* Function takes in a latitude and longitude coordinate
+	 * and constructs a marker object, then pushes it on
+	 * the marker array we just created.
+	 */
+	function createMarker(lat, lng, cityInfo) {
+	 
+		var lol = new google.maps.LatLng(lat, lng);
+		
+		var contentString = '<div id="content">'+
+			'<div id="siteNotice">'+
+			'</div>'+
+			'<h1 id="firstHeading" class="firstHeading">' + cityInfo.name + '</h1>'+
+			'<div id="bodyContent">'+
+			'<p><b>Uluru</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+			'sandstone rock formation in the southern part of the '+
+			'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+			'south west of the nearest large town, Alice Springs; 450&#160;km '+
+			'(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+			'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+			'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+			'Aboriginal people of the area. It has many springs, waterholes, '+
+			'rock caves and ancient paintings. Uluru is listed as a World '+
+			'Heritage Site.</p>'+
+			'<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+			'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+			'(last visited June 22, 2009).</p>'+
+			'</div>'+
+			'</div>';
+
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+		
+		// pass a value between 1-10 to scale marker
+		var image = createMarkerImage(3);
+	 
+		var marker = new google.maps.Marker({
+			position: lol,
+			icon: image,
+			map: map,
+			visible: true//,
+			//label: cityInfo.name
+		});
+		
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.open(map,marker);
+		});
+
+		markers.push(marker);
+	 
+	}
+	 
+	/* Function takes in the Bench ID and caption we constructed
+	 * in $.getJSON's callback function, then creates an InfoWindow
+	 * object and displays it on the map.
+	 */
+	function createInfoWindow(id, contentString) {
+		var infowindow = new google.maps.InfoWindow({
+			content: contentString
+		});
+	 
+		google.maps.event.addListener(markers[id], 'click', function() {
+			infowindow.open(map,markers[id]);
+		}); 
+	}
+	  
+	$( document ).ready(function() {
+		console.log( "ready in jquery!" );
+	});
+    </script>
+	<title>Cities with Similar Weather - Interactive Map</title>
+  </head>
+  <body>
+	<div id="header">
+		Test
+	</div>  
+	<div id="mapWrapper">
+		<div id="map-canvas"></div>
+	</div>
+	<div id="mapControls">
+		<div id="siteName">
+			Cities with Similar Weather
+		</div>
+		<fieldset>
+			<select name="gdp" id="gdp">
+			  <option>High-income</option>
+			  <option>Upper-middle</option>
+			  <option>Lower-middle</option>
+			  <option>Low-income</option>
+			  <option selected="selected">All incomes</option>
+			</select>
+		</fieldset>
+	</div>
+    
+
+  </body>
+</html>
