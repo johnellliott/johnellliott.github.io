@@ -161,9 +161,12 @@
 	
 	//https://docs.google.com/spreadsheets/d/1kw8_ng5R8aNqvPOaN-nCCj3zsWIjo2amfqoR9n8CAQw/pubhtml
 	//var sheetsQuery = 'http://cors.io/?u=https://docs.google.com/spreadsheets/d/1kw8_ng5R8aNqvPOaN-nCCj3zsWIjo2amfqoR9n8CAQw/gviz/tq?tqx=out:json&tq=SELECT%20A,%20B,%20C,%20D,%20F,%20G,%20H,%20I%20WHERE%20H%20%3D%201&pli=1';
-	var sheetsQuery = 'https://docs.google.com/spreadsheets/d/1kw8_ng5R8aNqvPOaN-nCCj3zsWIjo2amfqoR9n8CAQw/gviz/tq?tqx=out:json&tq=SELECT%20A,%20B,%20C,%20D,%20F,%20G,%20H,%20I%20WHERE%20H%20%3D%201&pli=1';
 
-	
+//https://docs.google.com/a/YOURDOMAIN.com/forms/d/15QFO2VE44-9gAwcJeTPPWvxAX7v_1Ye9qmjdX2VzLBw/formResponse
+//https://docs.google.com/a/johnellliott.github.io/forms/d/1kw8_ng5R8aNqvPOaN-nCCj3zsWIjo2amfqoR9n8CAQw/gviz/tq?tqx=out:json&tq=SELECT%20A,%20B,%20C,%20D,%20F,%20G,%20H,%20I%20WHERE%20H%20%3D%201&pli=1';
+	var sheetsQuery = 'https://docs.google.com/spreadsheets/d/1kw8_ng5R8aNqvPOaN-nCCj3zsWIjo2amfqoR9n8CAQw/gviz/tq?tqx=out:json&tq=SELECT%20A,%20B,%20C,%20D,%20F,%20G,%20H,%20I%20WHERE%20H%20%3D%201&pli=1&callback=googleDocCallback';
+
+	window.googleDocCallback = function () { return true; };
 	
 //header("Access-Control-Allow-Credentials: true ");
 //header("Access-Control-Allow-Methods: OPTIONS, GET, POST");
