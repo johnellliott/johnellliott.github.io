@@ -37,6 +37,44 @@ html, body {
 	margin-left: 0px;
 }
 
+.popupHeading {
+	font-size: 25px;
+	font-weight: bold;
+	margin: 15px 0px;
+}
+
+.popupNotes {
+	font-size: 20px;
+}
+
+.demo-card-wide.mdl-card {
+	min-width: 320px;
+	margin: 0px auto;
+	top: 150px;
+}
+.demo-card-wide > .mdl-card__title {
+	color: #fff;
+	height: 176px;
+	background: url('images/welcome_card2.jpg') center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+	color: #fff;
+}
+
+#bodyContent .country {
+	font-weight: bold;
+}
+
+#aboutButton {
+	position: fixed;
+	display: block;
+	right: 0;
+	bottom: 0;
+	margin-right: 40px;
+	margin-bottom: 40px;
+	z-index: 900;
+}
+  
 .demo-layout .demo-header .mdl-textfield {
   padding-top: 27px;
 }
