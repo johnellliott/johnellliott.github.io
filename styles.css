@@ -47,6 +47,10 @@ html, body {
 	font-size: 20px;
 }
 
+#siteInfo, #welcomeCard {
+	z-index: 10001;
+}
+
 .demo-card-wide.mdl-card {
 	min-width: 320px;
 	margin: 0px auto;
@@ -70,7 +74,7 @@ html, body {
 	display: block;
 	right: 0;
 	bottom: 0;
-	margin-right: 40px;
+	margin-right: 10px;
 	margin-bottom: 40px;
 	z-index: 900;
 }

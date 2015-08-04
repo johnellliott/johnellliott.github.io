@@ -151,7 +151,6 @@
 		return trimmed;
 	}
 
-	
 
 	function getMarkers() {
 	
@@ -171,6 +170,12 @@
 					var values = lines[i].split("|");
 					//console.log(values[0]);
 					
+					var lat = values[5]; //'31°0\'18.0\" N' 
+					var lng = values[6]; //'121°24\'32.4\" E'
+					
+					lat = ParseDMS2(lat);
+					lng = ParseDMS2(lng);
+					
 					var cityInfo = {
 						key: values[0],
 						name: values[1],
@@ -180,15 +185,16 @@
 						type: values[7], // 1=Alpha city, 2=normal city, 3=POI
 						notes: values[8],
 						cityCol: values[9], // the column in the CSV row data that is associated with this city
+						lat: lat,
+						lng: lng,
 					}
-
-					var lat = values[5]; //'31°0\'18.0\" N' 
-					var lng = values[6]; //'121°24\'32.4\" E'
 					
-					lat = ParseDMS2(lat);
-					lng = ParseDMS2(lng);
+					citiesByRef[cityInfo.key] = cityInfo;
+					citiesByIndex[cityInfo.cityCol] = cityInfo;
 
-					createMarker(lat, lng, cityInfo);			
+
+
+					createMarker(lat, lng, cityInfo, -1); // -1 means no score		
 				}			
 
 			},
@@ -201,7 +207,7 @@
 	var markerImages = [];
 	
 	// pass in a number from 1-10
-	function createMarkerImage(size) {
+	function createMarkerImage(size, type) {
 		try {
 			size = parseInt(size);
 			if (size > 10) console.log('Error creating marker image with size ' + size);
@@ -211,8 +217,34 @@
 			
 			var imageSize = size * 3;
 			
+			var imageUrl;
+			/*
+			if (type == 1) {
+				imageUrl = 'images/marker-green-50px.png';
+			} else if (type == 2) {
+				imageUrl = 'images/marker-blue-50px.png';
+			} else if (type == 3) {
+				imageUrl = 'images/marker-purple-50px.png';
+			}*/
+			
+			if (size >= 9) {
+				imageUrl = 'images/marker-10.png';
+			} else if (size >= 8) {
+				imageUrl = 'images/marker-9.png';
+			} else if (size >= 7) {
+				imageUrl = 'images/marker-7.png';
+			} else if (size >= 6) {
+				imageUrl = 'images/marker-6.png';
+			} else if (size >= 5) {
+				imageUrl = 'images/marker-5.png';
+			} else if (size >= 4) {
+				imageUrl = 'images/marker-4.png';
+			} else {
+				imageUrl = 'images/marker-low.png';
+			} 
+			
 			var markerImage = {
-				url: 'marker.png',
+				url: imageUrl,
 				// This marker is 20 pixels wide by 32 pixels tall.
 				//size: new google.maps.Size(30, 30),
 				// The origin for this image is 0,0.
@@ -231,6 +263,7 @@
 		}
 	}
 	
+	/*
 	var markerImage = {
 		url: 'marker.png',
 		// This marker is 20 pixels wide by 32 pixels tall.
@@ -241,7 +274,7 @@
 		anchor: new google.maps.Point(5, 5),
 		
 		scaledSize: new google.maps.Size(10, 10)
-	};
+	};*/
 	
 	/* Initialize a blank array to store all the markers
 	 * that we're going to place on the map
@@ -252,7 +285,7 @@
 	 * and constructs a marker object, then pushes it on
 	 * the marker array we just created.
 	 */
-	function createMarker(lat, lng, cityInfo) {
+	function createMarker(lat, lng, cityInfo, similarityScore) {
 	 
 		var lol = new google.maps.LatLng(lat, lng);
 		
@@ -261,17 +294,32 @@
 		'<h1 class="popupHeading">' + cityInfo.name + '</h1>' +
 		'<div id="bodyContent">' + 
 		'<p class="country">' + cityInfo.country + '</p>' + 
-		'<p>' + cityInfo.notes + '</p>' + 
+		'<p>' + cityInfo.notes + '</p>' +
+		'<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btnSelectCity" id="btnSelectCity__' + cityInfo.key + '">' +
+		'Select City' +
+		'</button>' +
+		'&nbsp;' +
+		'<button class="mdl-button mdl-js-button mdl-button--primary btnWikipedia" style="float:right;" id="btnWikipedia__' + cityInfo.key + '">' +
+		'Wikipedia' +
+		'</button>' +		
 		'</div>' +
 		'</div>';
-		
 
 		var infowindow = new google.maps.InfoWindow({
 			content: contentString
 		});
 		
 		// pass a value between 1-10 to scale marker
-		var image = createMarkerImage(3);
+		
+		var size;
+		
+		if (similarityScore === undefined || similarityScore < 0) {
+			size = 3;
+		} else {
+			size = parseInt(similarityScore / 10);
+		}
+		
+		var image = createMarkerImage(size, cityInfo.type);
 	 
 		var marker = new google.maps.Marker({
 			position: lol,
@@ -283,12 +331,76 @@
 		
 		google.maps.event.addListener(marker, 'click', function() {
 			infowindow.open(map,marker);
+			$(".btnSelectCity").click(function() {
+				var ref = this.id.split('__')[1];
+				selectCity(ref);
+			});
+			
+			$(".btnWikipedia").click(function() {
+				var ref = this.id.split('__')[1];
+				window.open("https://en.wikipedia.org/wiki/" + ref + "#Climate", '_blank');
+			});
 		});
 
 		markers.push(marker);
-	 
 	}
-	 
+	
+	// Sets the map on all markers in the array.
+	function setAllMap(map) {
+	  for (var i = 0; i < markers.length; i++) {
+		markers[i].setMap(map);
+	  }
+	}
+
+	// Removes the markers from the map, but keeps them in the array.
+	function clearMarkers() {
+	  setAllMap(null);
+	}
+
+	// Shows any markers currently in the array.
+	function showMarkers() {
+	  setAllMap(map);
+	}
+
+	// Deletes all markers in the array by removing references to them.
+	function deleteMarkers() {
+	  clearMarkers();
+	  markers = [];
+	}
+
+	var citiesByRef = {}; // uses key e.g. Kuala_Lumpur
+	var citiesByIndex = {}; // uses numeric index for city key e.g. 231
+
+	function selectCity(cityRef) {
+		var cityInfo = citiesByRef[cityRef];
+		$("#selectedCityName").html(cityInfo.name);
+		
+		var cityCol = parseInt(cityInfo.cityCol);
+		cityCol = cityCol+1;
+		
+		$.ajax({
+			url: "http://johnellliott.github.io/data/disk" + cityCol + ".csv",
+			dataType: 'text',
+			encoding:"UTF-8",
+			success: function( data) {
+				console.log(data);
+				clearMarkers();
+				var values = data.split("|"); // single row of weather similarity scores, split by pipe delimiter
+				
+				for (var i = 1; i < values.length; i++) { // skip first line
+					compareCityInfo = citiesByIndex[i]; // grab the comparison city, pre-populated earlier with the matching index from the City_Col_Index column
+					//values[i]
+
+					createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
+				}
+			},
+			error: function( data, textStatus, errorThrown ) {
+				console.log('textStatus: ' + textStatus + ', errorThrown: ' + errorThrown + ', ERROR: ', data );
+			}
+		});		
+		
+	}
+	
 	/* Function takes in the Bench ID and caption we constructed
 	 * in $.getJSON's callback function, then creates an InfoWindow
 	 * object and displays it on the map.
@@ -305,7 +417,8 @@
 	  
 	$( document ).ready(function() {
 		$("#siteInfo").hide();
-		$("#aboutButton").prop("disabled",true);
+		$("#welcomeCard").hide(); // remove this when ready to go-live
+		//$("#aboutButton").prop("disabled",true); // uncomment this
 		$("#welcomeClose").click(function() {
 			$("#welcomeCard").fadeOut();
 			$("#aboutButton").prop("disabled",false);
@@ -318,6 +431,17 @@
 			$("#siteInfo").fadeIn();
 			$("#aboutButton").prop("disabled",true);
 		});
+		
+		$("#btnSelectCity").click(function() {
+			$("#siteInfo").fadeIn();
+			$("#aboutButton").prop("disabled",true);
+		});
+		
+		$(".btnWikipedia").click(function() {
+			console.log('blah');
+			alert(this.id);
+			//window.location.href = "https://en.wikipedia.org/wiki/Glasgow#Climate";
+		});
 	});
     </script>	
 
@@ -326,9 +450,9 @@
     <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
       <header class="demo-header mdl-layout__header mdl-color--white mdl-color--grey-100 mdl-color-text--grey-600" id="customHeader">
         <div class="mdl-layout__header-row">
-          <span class="mdl-layout-title" id="locationTitle">Weather Matcher</span>
+          <span class="mdl-layout-title" id="locationTitle">MWC</span>
           <div class="mdl-layout-spacer"></div>
-		  <span class="mdl-layout-title" id="filterName">Global Cities</span>
+		  <span class="mdl-layout-title" id="selectedCityName">Global Cities</span>
 		  <div>&nbsp;&nbsp;&nbsp;</div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn2">
             <i class="material-icons">location_disabled</i>
@@ -413,7 +537,7 @@
 			<h2 class="mdl-card__title-text">Welcome</h2>
 		  </div>
 		  <div class="mdl-card__supporting-text">
-			Pick a city to find other cities with matching weather.
+			Welcome to <b>Matching Weather Cities</b>. Pick a city to find other cities with similar weather.
 		  </div>
 		  <div class="mdl-card__actions mdl-card--border">
 			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="welcomeClose">
@@ -434,11 +558,12 @@
 			 *<br/>
 			 * <b>Matching Weather Cities</b><br/>
 			 *<br/>	
-			 * Data grabbed using the Java library<br/>
-			 * <a href="http://jsoup.org/" target="_blank">jsoup</a>. Predictive modelling done<br/>
-			 * in R. Web app written in HTML, jQuery<br/>
-			 * and using Google API. Site hosted on<br/>
-			 * Github.<br/>
+			 * Weather data grabbed using the Java<br/> 
+			 * library <a href="http://jsoup.org/" target="_blank">jsoup</a>. Predictive modelling<br/>
+			 * of location weather similarity done<br/>
+			 * using <a href="https://www.r-project.org/about.html">R</a>. Web app written in HTML,<br/>
+			 * jQuery and using Google API. Site<br/>
+			 * hosted on <a href="https://github.com/">Github</a>.<br/>
 			 *<br/>
 			 * By <a href="https://au.linkedin.com/in/johnrobertelliott" target="_blank">John Elliott</a><br/>
 			 *<br/>			 
