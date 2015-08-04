@@ -177,21 +177,12 @@
 	function getMarkers() {
 	
 		$.ajax({
-			type:"GET", // access control issue if using POST
-			url: sheetsQuery,
-			beforeSend: function (request) // converts request to POST
-            {
-                request.setRequestHeader('Authorization', 'Bearer ' + oauthToken);
-				request.setRequestHeader('Access-Control-Allow-Credentials', 'true');
-				//request.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-                //request.setRequestHeader("Access-Control-Allow-Origin", "*");
-                //request.setRequestHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
-                //request.setRequestHeader("Content-Type", "text/plain");
-                //request.setRequestHeader("Access-Control-Allow-Credentials", "true");
-				//request.setRequestHeader("Access-Control-Allow-Credentials", authorizationToken);
-            },
+			//type:"GET", // access control issue if using POST
+			//url: "data/core_city_data.csv",
+			url: "http://johnellliott.github.io/data/core_city_data.csv",
 			dataType: 'text',
 			success: function( data) {
+				/*
 				jsonString = trimResponse(data);
 				var jsonObj = JSON.parse(jsonString);
 				//console.log(jsonObj.table.rows.length);
@@ -227,6 +218,7 @@
 				
 				//console.log(trimResponse(data));
 				//console.log( 'SUCCESS: ' + data );
+				*/
 			},
 			error: function( data, textStatus, errorThrown ) {
 				console.log('textStatus: ' + textStatus + ', errorThrown: ' + errorThrown + ', ERROR: ', data );
