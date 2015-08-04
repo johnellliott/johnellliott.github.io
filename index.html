@@ -1,25 +1,9 @@
 <!doctype html>
-<!--
-  Material Design Lite
-  Copyright 2015 Google Inc. All rights reserved.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-      https://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License
--->
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Matches cities with other Matching Weather Cities.">
+    <meta name="description" content="Matches city weather with other global cities.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Matching Weather Cities</title>
 
@@ -207,7 +191,7 @@
 	var markerImages = [];
 	
 	// pass in a number from 1-10
-	function createMarkerImage(size, type) {
+	function createMarkerImage(size, type, selectedCity) {
 		try {
 			size = parseInt(size);
 			if (size > 10) console.log('Error creating marker image with size ' + size);
@@ -218,16 +202,10 @@
 			var imageSize = size * 3;
 			
 			var imageUrl;
-			/*
-			if (type == 1) {
-				imageUrl = 'images/marker-green-50px.png';
-			} else if (type == 2) {
-				imageUrl = 'images/marker-blue-50px.png';
-			} else if (type == 3) {
-				imageUrl = 'images/marker-purple-50px.png';
-			}*/
-			
-			if (size >= 9) {
+
+			if (selectedCity) {
+				imageUrl = 'images/marker-selected.png';
+			} else if (size >= 9) {
 				imageUrl = 'images/marker-10.png';
 			} else if (size >= 8) {
 				imageUrl = 'images/marker-9.png';
@@ -263,23 +241,11 @@
 		}
 	}
 	
-	/*
-	var markerImage = {
-		url: 'marker.png',
-		// This marker is 20 pixels wide by 32 pixels tall.
-		size: new google.maps.Size(30, 30),
-		// The origin for this image is 0,0.
-		origin: new google.maps.Point(0, 0),
-		// The anchor for this image is the base of the flagpole at 0,32.
-		anchor: new google.maps.Point(5, 5),
-		
-		scaledSize: new google.maps.Size(10, 10)
-	};*/
-	
 	/* Initialize a blank array to store all the markers
 	 * that we're going to place on the map
 	 */
 	var markers = [];
+	var markersByCityKey = {};
 	 
 	/* Function takes in a latitude and longitude coordinate
 	 * and constructs a marker object, then pushes it on
@@ -319,7 +285,11 @@
 			size = parseInt(similarityScore / 10);
 		}
 		
-		var image = createMarkerImage(size, cityInfo.type);
+		if(cityInfo.key == selectedCity) {
+			var image = createMarkerImage(size, cityInfo.type, true);
+		} else {
+			var image = createMarkerImage(size, cityInfo.type, false);
+		}
 	 
 		var marker = new google.maps.Marker({
 			position: lol,
@@ -329,20 +299,30 @@
 			//label: cityInfo.name
 		});
 		
+		cityInfo.marker = marker;
+		cityInfo.infowindow = infowindow;
+		
 		google.maps.event.addListener(marker, 'click', function() {
-			infowindow.open(map,marker);
-			$(".btnSelectCity").click(function() {
-				var ref = this.id.split('__')[1];
-				selectCity(ref);
-			});
-			
-			$(".btnWikipedia").click(function() {
-				var ref = this.id.split('__')[1];
-				window.open("https://en.wikipedia.org/wiki/" + ref + "#Climate", '_blank');
-			});
+			openInfoWindowAndBind(infowindow, marker);
 		});
 
 		markers.push(marker);
+		markersByCityKey[cityInfo.key] = marker;
+	}
+	
+	function openInfoWindowAndBind(infowindow, marker) {
+		infowindow.open(map,marker);
+		$(".btnSelectCity").click(function() {
+			var ref = this.id.split('__')[1];
+			selectCity(ref, false);
+		});
+		
+		$(".btnWikipedia").click(function() {
+			var ref = this.id.split('__')[1];
+			window.open("https://en.wikipedia.org/wiki/" + ref + "#Climate", '_blank');
+		});
+		
+		$("#btnSelectCity__" + selectedCity).prop("disabled",true);
 	}
 	
 	// Sets the map on all markers in the array.
@@ -370,10 +350,12 @@
 
 	var citiesByRef = {}; // uses key e.g. Kuala_Lumpur
 	var citiesByIndex = {}; // uses numeric index for city key e.g. 231
+	var selectedCity;
 
-	function selectCity(cityRef) {
+	function selectCity(cityRef, displayInfoWindow) {
 		var cityInfo = citiesByRef[cityRef];
 		$("#selectedCityName").html(cityInfo.name);
+		selectedCity = cityInfo.key;
 		
 		var cityCol = parseInt(cityInfo.cityCol);
 		cityCol = cityCol+1;
@@ -383,15 +365,17 @@
 			dataType: 'text',
 			encoding:"UTF-8",
 			success: function( data) {
-				console.log(data);
+				//console.log(data);
 				clearMarkers();
 				var values = data.split("|"); // single row of weather similarity scores, split by pipe delimiter
 				
 				for (var i = 1; i < values.length; i++) { // skip first line
 					compareCityInfo = citiesByIndex[i]; // grab the comparison city, pre-populated earlier with the matching index from the City_Col_Index column
-					//values[i]
-
 					createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
+				}
+				
+				if (displayInfoWindow) {
+					openInfoWindowAndBind(cityInfo.infowindow, cityInfo.marker);
 				}
 			},
 			error: function( data, textStatus, errorThrown ) {
@@ -436,11 +420,14 @@
 			$("#siteInfo").fadeIn();
 			$("#aboutButton").prop("disabled",true);
 		});
-		
-		$(".btnWikipedia").click(function() {
-			console.log('blah');
-			alert(this.id);
-			//window.location.href = "https://en.wikipedia.org/wiki/Glasgow#Climate";
+
+		$(".cityShortcut").click(function() {
+			var cityInfo = citiesByRef[this.id];
+			var infowindow = cityInfo.infowindow;
+			var marker = cityInfo.marker;
+			openInfoWindowAndBind(infowindow, marker);
+			selectCity(this.id, true);
+			
 		});
 	});
     </script>	
@@ -452,26 +439,24 @@
         <div class="mdl-layout__header-row">
           <span class="mdl-layout-title" id="locationTitle">MWC</span>
           <div class="mdl-layout-spacer"></div>
-		  <span class="mdl-layout-title" id="selectedCityName">Global Cities</span>
-		  <div>&nbsp;&nbsp;&nbsp;</div>
-          <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn2">
-            <i class="material-icons">location_disabled</i>
-          </button>		 
+		  <span class="mdl-layout-title" id="selectedCityName">None</span> 
 		  <div>&nbsp;&nbsp;&nbsp;</div>
           <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">
             <i class="material-icons">location_searching</i>
           </button>
           <ul class="mdl-menu mdl-js-menu mdl-js-ripple-effect mdl-menu--bottom-right" for="hdrbtn">
-			<li class="mdl-menu__item">Africa</li>
-			<li class="mdl-menu__item">Antarctica</li>
-			<li class="mdl-menu__item">Central Asia</li>
-			<li class="mdl-menu__item">Europe</li>
-			<li class="mdl-menu__item">North America</li>
-			<li class="mdl-menu__item">North-East Asia</li>
-			<li class="mdl-menu__item">Russia</li>
-			<li class="mdl-menu__item">South America</li>
-			<li class="mdl-menu__item">South Asia</li>
-			<li class="mdl-menu__item">South-East Asia</li>
+			<li class="mdl-menu__item cityShortcut" id="Abu_Dhabi">Abu Dhabi</li>
+			<li class="mdl-menu__item cityShortcut" id="Chicago">Chicago</li>
+			<li class="mdl-menu__item cityShortcut" id="Hong_Kong">Hong Kong</li>
+			<li class="mdl-menu__item cityShortcut" id="London">London</li>
+			<li class="mdl-menu__item cityShortcut" id="Los_Angeles">Los Angeles</li>
+			<li class="mdl-menu__item cityShortcut" id="Buenos_Aires">Buenos Aires</li>
+			<li class="mdl-menu__item cityShortcut" id="Sao_Paulo">Singapore</li>
+			<li class="mdl-menu__item cityShortcut" id="Tokyo">Tokyo</li>
+			
+			
+			
+			
           </ul>
         </div>
       </header>
@@ -565,6 +550,14 @@
 			 * jQuery and using Google API. Site<br/>
 			 * hosted on <a href="https://github.com/">Github</a>.<br/>
 			 *<br/>
+			 *<br/>	
+			 * Weather is matched on temperature,<br/> 
+			 * rainfall, humidity, and climate<br/>
+			 * classification. Variables are<br/>
+			 * matched based on mean, variance,<br/>
+			 * maxima and minima and seasonality<br/>
+			 * via multivariate modelling.<br/>		
+			 * <br/>
 			 * By <a href="https://au.linkedin.com/in/johnrobertelliott" target="_blank">John Elliott</a><br/>
 			 *<br/>			 
 			 */<br/>
@@ -583,5 +576,15 @@
 		</div>	  		
 	  
 	  <script src="material.min.js"></script>
+	  <script>
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		  ga('create', 'UA-65946158-1', 'auto');
+		  ga('send', 'pageview');
+
+	  </script>
   </body>
 </html>
