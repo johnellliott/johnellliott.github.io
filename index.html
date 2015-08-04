@@ -156,6 +156,8 @@
 	}
     
 	function init() {
+		oauthToken = gapi.auth.getToken();
+		console.log('Got token ' + oauthToken);
 		google.maps.event.addDomListener(window, 'load', initialize);
 	}
 	
@@ -167,7 +169,7 @@
 	var sheetsQuery = 'https://docs.google.com/spreadsheets/d/1kw8_ng5R8aNqvPOaN-nCCj3zsWIjo2amfqoR9n8CAQw/gviz/tq?tqx=out:json&tq=SELECT%20A,%20B,%20C,%20D,%20F,%20G,%20H,%20I%20WHERE%20H%20%3D%201&pli=1&callback=googleDocCallback';
 
 	window.googleDocCallback = function () { return true; };
-	
+	var oauthToken = null;
 //header("Access-Control-Allow-Credentials: true ");
 //header("Access-Control-Allow-Methods: OPTIONS, GET, POST");
 //header("Access-Control-Allow-Headers: Content-Type, Depth, User-Agent, X-File-Size, X-Requested-With, If-Modified-Since, X-File-Name, Cache-Control");
@@ -179,7 +181,9 @@
 			url: sheetsQuery,
 			beforeSend: function (request) // converts request to POST
             {
-                //request.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+                request.setRequestHeader('Authorization', 'Bearer ' + oauthToken);
+				request.setRequestHeader('Access-Control-Allow-Credentials', 'true');
+				//request.setRequestHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
                 //request.setRequestHeader("Access-Control-Allow-Origin", "*");
                 //request.setRequestHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
                 //request.setRequestHeader("Content-Type", "text/plain");
@@ -190,7 +194,7 @@
 			success: function( data) {
 				jsonString = trimResponse(data);
 				var jsonObj = JSON.parse(jsonString);
-				console.log(jsonObj.table.rows.length);
+				//console.log(jsonObj.table.rows.length);
 				
 				for (var i = 0; i < jsonObj.table.rows.length; i++) {
 			 
