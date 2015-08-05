@@ -69,6 +69,10 @@ html, body {
 	font-weight: bold;
 }
 
+#bodyContent p {
+	margin-bottom: 10px;
+}
+
 #aboutButton {
 	position: fixed;
 	display: block;
@@ -91,6 +95,31 @@ html, body {
 
 .mdl-menu__container {
 	z-index: 9000;
+}
+
+.markerPopup {
+	max-width: 500px;
+}
+
+.weatherFacts, .weatherFacts div {
+	float:left;
+}
+
+.weatherFacts {
+	padding-top: 8px;
+	margin: 2px 0px 15px 0px;
+	border-top: 1px solid #C0C0C0;
+}
+
+.weatherFacts div {
+	margin: 5px 0px 10px 0px;
+}
+
+.tempFactValue {
+	padding: 5px 8px;
+	border: 1px solid #C0C0C0;
+	margin-right:10px;
+	margin-left: 4px;
 }
 
 .demo-drawer {

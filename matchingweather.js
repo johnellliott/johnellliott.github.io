@@ -1,6 +1,6 @@
-	
-//	36�57'9" N  = 36.9525000
-//	110�4'21" W = -110.0725000
+﻿	
+//	36°57'9" N  = 36.9525000
+//	110°4'21" W = -110.0725000
 
 	// convert from old-school lat/long to decimal
 	function ConvertDMSToDD(degrees, minutes, seconds, direction) {
@@ -12,7 +12,7 @@
 		return dd;
 	}
 	
-	//Expects [31�0\'18.0\" N], without square brackets 
+	//Expects [31°0\'18.0\" N], without square brackets 
 	function ParseDMS2(input) {
 		//var parts = input.split(/[^\d\w]+/);
 		if (input != null && input !== undefined) {
@@ -40,7 +40,7 @@
 
 	}
 
-	var parts = '31�0\'18.0\" N 121�24\'32.4\" E'.split(/[((�|'|(\"\s)|\s)\s)]/);
+	var parts = '31°0\'18.0\" N 121°24\'32.4\" E'.split(/[((°|'|(\"\s)|\s)\s)]/);
 		
 	var map;  
 	
@@ -95,8 +95,8 @@
 					var values = lines[i].split("|");
 					//console.log(values[0]);
 					
-					var lat = values[5]; //'31�0\'18.0\" N' 
-					var lng = values[6]; //'121�24\'32.4\" E'
+					var lat = values[5]; //'31°0\'18.0\" N' 
+					var lng = values[6]; //'121°24\'32.4\" E'
 					
 					lat = ParseDMS2(lat);
 					lng = ParseDMS2(lng);
@@ -206,18 +206,21 @@
 		var lol = new google.maps.LatLng(lat, lng);
 		
 		var contentString = 
-		'<div>' +
+		'<div class="markerPopup">' +
 		'<h1 class="popupHeading">' + cityInfo.name + '</h1>' +
 		'<div id="bodyContent">' + 
 		'<p class="country">' + cityInfo.country + '</p>' + 
 		'<p>' + cityInfo.notes + '</p>' +
+		tempFactsHTML(cityInfo.aht, cityInfo.ahtMax, cityInfo.ahtMin, cityInfo.arTotal) + 
+		'<div>' +
 		'<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btnSelectCity" id="btnSelectCity__' + cityInfo.key + '">' +
 		'Select City' +
 		'</button>' +
 		'&nbsp;' +
 		'<button class="mdl-button mdl-js-button mdl-button--primary btnWikipedia" style="float:right;" id="btnWikipedia__' + cityInfo.key + '">' +
 		'Wikipedia' +
-		'</button>' +		
+		'</button>' +
+		'</div>' +
 		'</div>' +
 		'</div>';
 
@@ -260,6 +263,83 @@
 		markersByCityKey[cityInfo.key] = marker;
 	}
 	
+	function tempFactsHTML(aht, ahtMax, ahtMin, arTotal) {
+		if (!isNumeric(aht)) aht = "";
+		if (!isNumeric(ahtMax)) ahtMax = "";
+		if (!isNumeric(ahtMin)) ahtMin = "";
+		if (!isNumeric(arTotal)) arTotal = "";
+		
+		var html = "<div class='weatherFacts'>";
+		html = html + "<div><span class='tempFactLabel'>";
+		html = html + "Mean daytime (°C):";
+		html = html + "</span>";
+		html = html + "<span class='tempFactValue' style='background-color:" + getTempColour(aht) + "'>";
+		html = html + aht;
+		html = html + "</span></div>";
+		
+		html = html + "<div><span class='tempFactLabel'>";
+		html = html + "Maximum daytime (°C):";
+		html = html + "</span>";
+		html = html + "<span class='tempFactValue' style='background-color:" + getTempColour(ahtMax) + "'>";
+		html = html + ahtMax;
+		html = html + "</span></div>";
+
+		html = html + "<div><span class='tempFactLabel'>";
+		html = html + "Minimum daytime (°C):";
+		html = html + "</span>";
+		html = html + "<span class='tempFactValue' style='background-color:" + getTempColour(ahtMin) + "'>";
+		html = html + ahtMin;
+		html = html + "</span></div>";
+
+		html = html + "<div><span class='tempFactLabel'>";
+		html = html + "Annual rainfall (mm):";
+		html = html + "</span>";
+		html = html + "<span class='tempFactValue' style='background-color:" + getRainColour(arTotal) + "'>";
+		html = html + arTotal;
+		html = html + "</span></div>";		
+		
+		html = html + "</div>";
+		
+		return html;
+	}
+	
+	/**
+	 * Gets an HTML colour for a specified temperature (in celsius)
+	 */
+	function getTempColour(temp) {
+		if (temp > 35) return "#ff0000";
+		else if (temp > 30) return "#ff4800";
+		else if (temp > 25) return "#ff8400";
+		else if (temp > 20) return "#ffd200"; // orange
+		else if (temp > 15) return "#deff00"; // orange yellow
+		else if (temp > 10) return "#aeff00"; // yellow-green
+		else if (temp > 5) return "#0cff00"; // green
+		else if (temp > 0) return "#00ff72"; // green-blue
+		else if (temp > -5) return "#00ffd8";
+		else if (temp > -10) return "#00c6ff";
+		else if (temp > -20) return "#007eff";
+		else if (temp > -30) return "#001eff";
+	}
+	
+	/**
+	 * Gets an HTML colour for a specified rainfall (in mm)
+	 */
+	function getRainColour(rainfall) {
+		if (rainfall > 3000) return "#359a32";
+		else if (rainfall > 2500) return "#47b244";
+		else if (rainfall > 2000) return "#4fbd4c";
+		else if (rainfall > 1500) return "#5bc958"; // orange
+		else if (rainfall > 1000) return "#6edc6b"; // orange yellow
+		else if (rainfall > 700) return "#86ed84"; // yellow-green
+		else if (rainfall > 500) return "#99f597"; // green
+		else if (rainfall > 250) return "#b5fbb3"; // green-blue
+		else if (rainfall >= 0) return "#daffd9";
+	}	
+	
+	function isNumeric(n) {
+		return !isNaN(parseFloat(n)) && isFinite(n);
+	}
+
 	function openInfoWindowAndBind(infowindow, marker) {
 		infowindow.open(map,marker);
 		$(".btnSelectCity").click(function() {
