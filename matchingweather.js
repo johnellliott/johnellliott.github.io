@@ -110,6 +110,10 @@
 						type: values[7], // 1=Alpha city, 2=normal city, 3=POI
 						notes: values[8],
 						cityCol: values[9], // the column in the CSV row data that is associated with this city
+						aht: values[11],
+						ahtMax: values[12],
+						ahtMin: values[13],
+						arTotal: values[14],
 						lat: lat,
 						lng: lng,
 					}
