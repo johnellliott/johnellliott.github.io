@@ -278,14 +278,14 @@
 		html = html + "</span></div>";
 		
 		html = html + "<div><span class='tempFactLabel'>";
-		html = html + "Maximum daytime (°C):";
+		html = html + "Max. daytime (°C):";
 		html = html + "</span>";
 		html = html + "<span class='tempFactValue' style='background-color:" + getTempColour(ahtMax) + "'>";
 		html = html + ahtMax;
 		html = html + "</span></div>";
 
 		html = html + "<div><span class='tempFactLabel'>";
-		html = html + "Minimum daytime (°C):";
+		html = html + "Min. daytime (°C):";
 		html = html + "</span>";
 		html = html + "<span class='tempFactValue' style='background-color:" + getTempColour(ahtMin) + "'>";
 		html = html + ahtMin;
