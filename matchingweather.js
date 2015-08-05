@@ -95,6 +95,12 @@
 					var values = lines[i].split("|");
 					//console.log(values[0]);
 					
+					if (values[5] === undefined || values[6] === undefined || values[11] === undefined || values[14] === undefined) {
+						continue;
+					}
+					var rainfall = parseInt(values[14]);
+					if (rainfall == 0) continue;
+					
 					var lat = values[5]; //'31°0\'18.0\" N' 
 					var lng = values[6]; //'121°24\'32.4\" E'
 					
@@ -121,9 +127,8 @@
 					citiesByRef[cityInfo.key] = cityInfo;
 					citiesByIndex[cityInfo.cityCol] = cityInfo;
 
-
-
 					createMarker(lat, lng, cityInfo, -1); // -1 means no score		
+					
 				}			
 
 			},
