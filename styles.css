@@ -37,11 +37,54 @@ html, body {
 	margin-left: 0px;
 }
 
-.popupHeading {
-	font-size: 25px;
-	font-weight: bold;
-	margin: 15px 0px;
+@media (min-width: 10px) and (max-width: 600px) {
+	.desktop {
+	  display: none;
+	}
+
+	.smartphone {
+	  display: block-inline;
+	}
+	
+
+	.popupHeading {
+		font-size: 18px;
+		font-weight: bold;
+		margin: 8px 0px;
+	}	
+	
+	#bodyContent p {
+		font-size: 12px;
+		margin-bottom: 7px;
+	}
+	
+	.tempFactValue, .tempFactLabel {
+		font-size: 11px;
+	}
 }
+
+@media (min-width: 600px) {
+	.desktop {
+	  display: block-inline;
+	  
+	}
+	
+	.smartphone {
+	  display: none;
+	}
+	
+	
+	#bodyContent p {
+		margin-bottom: 10px;
+	}
+	
+	.popupHeading {
+		font-size: 25px;
+		font-weight: bold;
+		margin: 15px 0px;
+	}
+}
+
 
 .popupNotes {
 	font-size: 20px;
@@ -69,9 +112,6 @@ html, body {
 	font-weight: bold;
 }
 
-#bodyContent p {
-	margin-bottom: 10px;
-}
 
 #aboutButton {
 	position: fixed;

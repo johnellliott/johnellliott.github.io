@@ -406,7 +406,8 @@
 				
 				for (var i = 1; i < values.length; i++) { // skip first line
 					compareCityInfo = citiesByIndex[i]; // grab the comparison city, pre-populated earlier with the matching index from the City_Col_Index column
-					createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
+					if (compareCityInfo !== undefined) 
+						createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
 				}
 				
 				if (displayInfoWindow) {
