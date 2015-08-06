@@ -567,6 +567,7 @@
 	}
 	
 	function openMatchInfo(cityKey) {
+		$("#welcomeCard").hide();
 		var cityInfo = citiesByRef[selectedCity];
 		$('#cityName').html(cityInfo.name);
 		findTopMatches(africaMatches, "africa");
@@ -580,6 +581,16 @@
 		$(".matchInfoNA.data").hide();
 		$(".matchInfoSA.data").hide();
 		$('#matchInfo').fadeIn();
+	}
+	
+	/**
+	 * Gets a querystring parameter
+	 */
+	function getParameterByName(name) {
+		name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+		var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+			results = regex.exec(location.search);
+		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
 	  
 	$( document ).ready(function() {
