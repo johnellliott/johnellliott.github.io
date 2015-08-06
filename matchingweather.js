@@ -227,6 +227,7 @@
 		'</button>' +
 		'</div>' +
 		'</div>' +
+		renderScore(similarityScore) +
 		'</div>';
 
 		var infowindow = new google.maps.InfoWindow({
@@ -266,6 +267,14 @@
 
 		markers.push(marker);
 		markersByCityKey[cityInfo.key] = marker;
+	}
+	
+	function renderScore(similarityScore) {
+		var html = "";
+		
+		html = html + "<span class='similarityScore'><span class='val'>" + similarityScore + "</span></span>";
+		
+		return html;
 	}
 	
 	function tempFactsHTML(aht, ahtMax, ahtMin, arTotal) {
@@ -358,8 +367,49 @@
 			window.open("https://en.wikipedia.org/wiki/" + ref + "#Climate", '_blank');
 		});
 		
+		var similarityScore = parseInt($(".similarityScore .val").text());
+		if (similarityScore > 0) {
+			$(".similarityScore").show();
+			$(".similarityScore").css("background-color", getScoreCircleColor(similarityScore));
+			$(".similarityScore").css("color", getScoreCircleColorFont(similarityScore));
+			if (similarityScore >= 100)
+				$(".similarityScore .val").css("left", "6px");
+			else 
+				$(".similarityScore .val").css("left", "10px");
+		} else {
+			$(".similarityScore").hide();
+		}
+		
 		$("#btnSelectCity__" + selectedCity).prop("disabled",true);
 	}
+	
+	function getScoreCircleColor(similarityScore) {
+			if (similarityScore >= 95) {
+				return "#921a1a";
+			} else if (similarityScore >= 90) {
+				return "#f03030";
+			} else if (similarityScore >= 80) {
+				return "f06430";
+			} else if (similarityScore >= 70) {
+				return "#f09630";
+			} else if (similarityScore >= 60) {
+				return "#f0c330";
+			} else if (similarityScore >= 50) {
+				return "#edf030";
+			} else if (similarityScore >= 40) {
+				return "#c1f030";
+			} else {
+				return "#96f030";
+			} 
+	}
+	
+	function getScoreCircleColorFont(similarityScore) {
+			if (similarityScore >= 95) {
+				return "white";
+			} else {
+				return "black";
+			} 
+	}	
 	
 	// Sets the map on all markers in the array.
 	function setAllMap(map) {
@@ -396,7 +446,8 @@
 
 	function selectCity(cityRef, displayInfoWindow) {
 		var cityInfo = citiesByRef[cityRef];
-		$("#selectedCityName").html(cityInfo.name);
+		var cityName = cityInfo.name.split(",")[0];
+		$("#selectedCityName").html(cityName);
 		selectedCity = cityInfo.key;
 		
 		var cityCol = parseInt(cityInfo.cityCol);

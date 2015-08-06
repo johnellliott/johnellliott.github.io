@@ -90,6 +90,26 @@ html, body {
 	font-size: 20px;
 }
 
+.similarityScore {
+	position: absolute;
+	right: 15px;
+	top: 15px;
+    width: 36px;
+    height: 36px;
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px; 
+	background-color: white;
+	z-index: 11000;
+}
+
+.similarityScore .val {
+	position: relative;
+	left: 10px;
+	top: 8px;
+	font-weight: bold;
+}
+
 #siteInfo, #welcomeCard, #matchInfo {
 	z-index: 10001;
 }
