@@ -90,8 +90,54 @@ html, body {
 	font-size: 20px;
 }
 
-#siteInfo, #welcomeCard {
+#siteInfo, #welcomeCard, #matchInfo {
 	z-index: 10001;
+}
+
+#matchInfoClose {
+	position: absolute;
+	right: 5px;
+	top: 5px;
+	z-index: 10010;
+}
+
+#matchInfo {
+	min-width: auto;
+	top: 50px;
+	display: none;
+}
+
+#matchInfo h4 {
+	margin: 0px 0px 10px 0px;
+}
+
+#matchInfoTable > tbody > .data {
+	display: none;
+}
+
+#matchInfoTable, #matchInfoTable .mdl-data-table {
+	width: 100%;
+}
+
+#matchInfoTable td {
+	font-style: italic;
+}
+
+#matchInfoTable table, #matchInfoTable table > tbody > tr > td{
+	font-style: normal;
+}
+
+#matchInfoTable > tbody > .data > td {
+	padding: 0px;
+}
+
+
+#matchInfoTable > tbody > .header, .cityRow {
+	cursor: pointer; cursor: hand;
+}
+
+th > .mdl-checkbox {
+	display: none;
 }
 
 .demo-card-wide.mdl-card {

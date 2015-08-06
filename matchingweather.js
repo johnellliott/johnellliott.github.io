@@ -350,6 +350,7 @@
 		$(".btnSelectCity").click(function() {
 			var ref = this.id.split('__')[1];
 			selectCity(ref, false);
+			
 		});
 		
 		$(".btnWikipedia").click(function() {
@@ -386,6 +387,12 @@
 	var citiesByRef = {}; // uses key e.g. Kuala_Lumpur
 	var citiesByIndex = {}; // uses numeric index for city key e.g. 231
 	var selectedCity;
+	
+	var africaMatches = {};
+	var asiaMatches = {};
+	var europeMatches = {};
+	var naMatches = {};
+	var saMatches = {};
 
 	function selectCity(cityRef, displayInfoWindow) {
 		var cityInfo = citiesByRef[cityRef];
@@ -402,16 +409,41 @@
 			success: function( data) {
 				//console.log(data);
 				clearMarkers();
+				africaMatches = {};
+				asiaMatches = {};
+				europeMatches = {};
+				naMatches = {};
+				saMatches = {};
+				
 				var values = data.split("|"); // single row of weather similarity scores, split by pipe delimiter
 				
 				for (var i = 1; i < values.length; i++) { // skip first line
 					compareCityInfo = citiesByIndex[i]; // grab the comparison city, pre-populated earlier with the matching index from the City_Col_Index column
-					if (compareCityInfo !== undefined) 
+					if (compareCityInfo !== undefined) { // we have found a city match result
+						compareCityInfo.score = values[i];
 						createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
+						if (compareCityInfo.region == "Africa" || compareCityInfo.region == "Central Asia") {
+							groupRegionCounter(africaMatches, compareCityInfo, values[i])
+						} else if (compareCityInfo.region == "South-East Asia" || compareCityInfo.region == "North-East Asia" || compareCityInfo.region == "South Asia") {
+							groupRegionCounter(asiaMatches, compareCityInfo, values[i])
+						} else if (compareCityInfo.region == "Europe") {
+							groupRegionCounter(europeMatches, compareCityInfo, values[i])
+						} else if (compareCityInfo.region == "North America") {
+							groupRegionCounter(naMatches, compareCityInfo, values[i])
+						} else if (compareCityInfo.region == "South America") {
+							groupRegionCounter(saMatches, compareCityInfo, values[i])
+						}
+						
+						
+					}
 				}
+				
+				$('#cityMatchInfo').prop("disabled",false);
 				
 				if (displayInfoWindow) {
 					openInfoWindowAndBind(cityInfo.infowindow, cityInfo.marker);
+				} else {
+					openMatchInfo(selectedCity); // all cities loaded, now can open match window
 				}
 			},
 			error: function( data, textStatus, errorThrown ) {
@@ -419,6 +451,17 @@
 			}
 		});		
 		
+	}
+	
+	function groupRegionCounter(regionMatchingObject, compareCityInfo, score) {
+		var cityGroup = []; // create new score grouping array, use later if needed
+		if (regionMatchingObject[score] != null) {
+			cityGroup = regionMatchingObject[score]; // if array has previously been created, grab the old one
+		}
+		if (compareCityInfo.key != selectedCity)
+			cityGroup.push(compareCityInfo); // push city with score to array
+		regionMatchingObject[score] = cityGroup; // update matches object with grouping array
+		console.log('Added ' + compareCityInfo.name + ' to African counter with score ' + score);
 	}
 	
 	/* Function takes in the Bench ID and caption we constructed
@@ -435,3 +478,121 @@
 		}); 
 	}
 	  
+	function createCityMatchRow(cityInfo, prefix, rowNumber) {
+		$('#' + prefix + 'Row' + rowNumber).html('<td class="mdl-data-table__cell--non-numeric">' + cityInfo.name +'</td><td>' + cityInfo.score +'</td><td style="display:none;" id="' + prefix + 'Row' + rowNumber + 'Key">' + cityInfo.key +'</td>');
+	}
+	
+	function findTopMatches(regionArray, regionName) {
+		var limit = 3; // max 3 per region
+		var found = [];
+		//if (region == "africa") {
+			for (var i=100; i > 0; i--) {
+				cityGroup = regionArray[i];
+				if (cityGroup != null) {
+					for (var j=0; j<cityGroup.length; j++) {
+						cityInfo = cityGroup[j];
+						found.push(cityInfo);
+						createCityMatchRow(cityInfo, regionName, found.length)
+						if (found.length > 3) {
+							return found;
+						}
+					}
+				}
+			}
+		//}
+	}
+	
+	/**
+	 * Selects a city and centres map, based on cityInfo object
+	 * passed in as a parameter
+	 */
+	function openCity(cityInfo) {
+		var infowindow = cityInfo.infowindow;
+		var marker = cityInfo.marker;
+		selectCity(cityInfo.key, false);
+		var latLng = marker.getPosition(); // returns LatLng object
+		map.setCenter(latLng); // setCenter takes a LatLng object
+		//openMatchInfo(cityInfo.key);
+	}
+	
+	function openMatchInfo(cityKey) {
+		var cityInfo = citiesByRef[selectedCity];
+		$('#cityName').html(cityInfo.name);
+		findTopMatches(africaMatches, "africa");
+		findTopMatches(asiaMatches, "asia");
+		findTopMatches(europeMatches, "europe");
+		findTopMatches(naMatches, "na");
+		findTopMatches(saMatches, "sa");
+		$(".matchInfoAsia.data").hide();
+		$(".matchInfoAfrica.data").hide();
+		$(".matchInfoEurope.data").hide();
+		$(".matchInfoNA.data").hide();
+		$(".matchInfoSA.data").hide();
+		$('#matchInfo').fadeIn();
+	}
+	  
+	$( document ).ready(function() {
+		$('.cityRow').click(function() {
+			var row = $(this).attr('id');
+			$("#" + row + "Key").text();
+			var clickedKey = $("#" + row + "Key").text();
+			var cityInfo = citiesByRef[clickedKey];
+			
+			$('#matchInfo').fadeOut();
+			openCity(cityInfo);
+			
+			
+			//console.log(row + " | "+ $("#" + row + "Key").text());
+		});
+		
+		$('#cityMatchInfo').prop("disabled",true);
+		
+		$('#cityMatchInfo').click(function() {
+			openMatchInfo(selectedCity);
+		});
+	
+		$("#matchInfoClose").click(function() {
+			$('#matchInfo').fadeOut();
+		});
+	
+		$(".matchInfoAsia.header").click(function() {
+			$(".matchInfoAsia.data").toggle();
+			$(".matchInfoAfrica.data").hide();
+			$(".matchInfoEurope.data").hide();
+			$(".matchInfoNA.data").hide();
+			$(".matchInfoSA.data").hide();
+		});
+		
+		$(".matchInfoAfrica.header").click(function() {
+			$(".matchInfoAsia.data").hide();
+			$(".matchInfoAfrica.data").toggle();
+			$(".matchInfoEurope.data").hide();
+			$(".matchInfoNA.data").hide();
+			$(".matchInfoSA.data").hide();			
+		});
+		
+		$(".matchInfoEurope.header").click(function() {
+			$(".matchInfoAsia.data").hide();
+			$(".matchInfoAfrica.data").hide();
+			$(".matchInfoEurope.data").toggle();
+			$(".matchInfoNA.data").hide();
+			$(".matchInfoSA.data").hide();			
+		});
+		
+		$(".matchInfoNA.header").click(function() {
+			$(".matchInfoAsia.data").hide();
+			$(".matchInfoAfrica.data").hide();
+			$(".matchInfoEurope.data").hide();
+			$(".matchInfoNA.data").toggle();
+			$(".matchInfoSA.data").hide();			
+		});
+		
+		$(".matchInfoSA.header").click(function() {
+			$(".matchInfoAsia.data").hide();
+			$(".matchInfoAfrica.data").hide();
+			$(".matchInfoEurope.data").hide();
+			$(".matchInfoNA.data").hide();
+			$(".matchInfoSA.data").toggle();		
+		});
+	
+	});
