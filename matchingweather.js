@@ -43,6 +43,7 @@
 	var parts = '31°0\'18.0\" N 121°24\'32.4\" E'.split(/[((°|'|(\"\s)|\s)\s)]/);
 		
 	var map;  
+	var heatmap;
 	
 	google.maps.event.addDomListener(window, 'load', initialize);
 	  
@@ -58,6 +59,7 @@
         }
         map = new google.maps.Map(mapCanvas, mapOptions)
 		console.log( "ready in map initialise!" );
+		
 		
 		
 		google.maps.event.addListenerOnce(map, 'idle', function(){
@@ -238,6 +240,8 @@
 		// pass a value between 1-10 to scale marker
 		
 		var size;
+		
+		similarityScore = 20; // fix the size, remove this for dynamic sizing (15 August)
 		
 		if (similarityScore === undefined || similarityScore < 0) {
 			size = 3;
@@ -444,6 +448,14 @@
 	var europeMatches = {};
 	var naMatches = {};
 	var saMatches = {};
+	
+	// pass in array of google.maps.LatLng(37.782551, -122.445368)
+	function initHeatmap(data) {
+		heatmap = new google.maps.visualization.HeatmapLayer({
+			data: getPoints(),
+			map: map
+		});
+	}
 
 	function selectCity(cityRef, displayInfoWindow) {
 		var cityInfo = citiesByRef[cityRef];
@@ -469,11 +481,19 @@
 				
 				var values = data.split("|"); // single row of weather similarity scores, split by pipe delimiter
 				
+				var heatmapPoints = [];
+				
 				for (var i = 1; i < values.length; i++) { // skip first line
 					compareCityInfo = citiesByIndex[i]; // grab the comparison city, pre-populated earlier with the matching index from the City_Col_Index column
 					if (compareCityInfo !== undefined) { // we have found a city match result
 						compareCityInfo.score = values[i];
+						//createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
 						createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
+						var weight = values[i] / 10;
+						heatmapPoints[i] = {location: new google.maps.LatLng(compareCityInfo.lat, compareCityInfo.lng), weight: weight};
+						
+						//heatmapPoints[i] = new google.maps.LatLng(compareCityInfo.lat, compareCityInfo.lng);
+						
 						if (compareCityInfo.region == "Africa" || compareCityInfo.region == "Central Asia") {
 							groupRegionCounter(africaMatches, compareCityInfo, values[i])
 						} else if (compareCityInfo.region == "South-East Asia" || compareCityInfo.region == "North-East Asia" || compareCityInfo.region == "South Asia") {
@@ -485,10 +505,16 @@
 						} else if (compareCityInfo.region == "South America") {
 							groupRegionCounter(saMatches, compareCityInfo, values[i])
 						}
-						
-						
 					}
 				}
+				
+				heatmap = new google.maps.visualization.HeatmapLayer({
+					data: heatmapPoints,
+					dissipating: true,
+					maxIntensity: 10,
+					radius: 15,
+					map: map
+				});
 				
 				$('#cityMatchInfo').prop("disabled",false);
 				
