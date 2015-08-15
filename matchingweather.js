@@ -130,9 +130,11 @@
 					citiesByRef[cityInfo.key] = cityInfo;
 					citiesByIndex[cityInfo.cityCol] = cityInfo;
 
-					createMarker(lat, lng, cityInfo, -1); // -1 means no score		
+					createMarker(lat, lng, cityInfo, -1, true); // -1 means no score		
 					
 				}			
+				
+				selectCity("Barcelona", false, false);
 
 			},
 			error: function( data, textStatus, errorThrown ) {
@@ -144,7 +146,7 @@
 	var markerImages = [];
 	
 	// pass in a number from 1-10
-	function createMarkerImage(size, type, selectedCity) {
+	function createMarkerImage(size, type, selectedCity, fixedSize) {
 		try {
 			size = parseFloat(size);
 			if (size > 10) console.log('Error creating marker image with size ' + size);
@@ -156,26 +158,30 @@
 			
 			var imageUrl;
 
-			if (selectedCity) {
-				imageUrl = 'images/marker-selected.png';
-				imageSize = imageSize *2;
-			} else if (size >= 9.5) {
-				imageUrl = 'images/marker-10.png';
-			} else if (size >= 9) {
-				imageUrl = 'images/marker-9.png';
-			} else if (size >= 8) {
-				imageUrl = 'images/marker-7.png';
-			} else if (size >= 7) {
-				imageUrl = 'images/marker-6.png';
-			} else if (size >= 6) {
-				imageUrl = 'images/marker-5.png';
-			} else if (size >= 5) {
-				imageUrl = 'images/marker-4.png';
-			} else if (size >= 4) {
-				imageUrl = 'images/marker-4.png';
+			if (fixedSize) {
+				imageUrl = 'images/marker-transparent.png';
 			} else {
-				imageUrl = 'images/marker-low.png';
-			} 
+				if (selectedCity) {
+					imageUrl = 'images/marker-selected.png';
+					imageSize = imageSize *2;
+				} else if (size >= 9.5) {
+					imageUrl = 'images/marker-10.png';
+				} else if (size >= 9) {
+					imageUrl = 'images/marker-9.png';
+				} else if (size >= 8) {
+					imageUrl = 'images/marker-7.png';
+				} else if (size >= 7) {
+					imageUrl = 'images/marker-6.png';
+				} else if (size >= 6) {
+					imageUrl = 'images/marker-5.png';
+				} else if (size >= 5) {
+					imageUrl = 'images/marker-4.png';
+				} else if (size >= 4) {
+					imageUrl = 'images/marker-4.png';
+				} else {
+					imageUrl = 'images/marker-low.png';
+				} 
+			}
 			
 			size = parseInt(size);
 			
@@ -209,7 +215,7 @@
 	 * and constructs a marker object, then pushes it on
 	 * the marker array we just created.
 	 */
-	function createMarker(lat, lng, cityInfo, similarityScore) {
+	function createMarker(lat, lng, cityInfo, similarityScore, fixedSize) {
 	 
 		var lol = new google.maps.LatLng(lat, lng);
 		
@@ -240,8 +246,8 @@
 		// pass a value between 1-10 to scale marker
 		
 		var size;
-		
-		similarityScore = 20; // fix the size, remove this for dynamic sizing (15 August)
+		if (fixedSize)
+			similarityScore = 20; // fix the size, remove this for dynamic sizing (15 August)
 		
 		if (similarityScore === undefined || similarityScore < 0) {
 			size = 3;
@@ -250,9 +256,9 @@
 		}
 		
 		if(cityInfo.key == selectedCity) {
-			var image = createMarkerImage(size, cityInfo.type, true);
+			var image = createMarkerImage(size, cityInfo.type, true, fixedSize);
 		} else {
-			var image = createMarkerImage(size, cityInfo.type, false);
+			var image = createMarkerImage(size, cityInfo.type, false, fixedSize);
 		}
 	 
 		var marker = new google.maps.Marker({
@@ -363,7 +369,7 @@
 		infowindow.open(map,marker);
 		$(".btnSelectCity").click(function() {
 			var ref = this.id.split('__')[1];
-			selectCity(ref, false);
+			selectCity(ref, false, true);
 			
 		});
 		
@@ -442,6 +448,7 @@
 	var citiesByRef = {}; // uses key e.g. Kuala_Lumpur
 	var citiesByIndex = {}; // uses numeric index for city key e.g. 231
 	var selectedCity;
+	var heatmapMode = false;
 	
 	var africaMatches = {};
 	var asiaMatches = {};
@@ -457,7 +464,7 @@
 		});
 	}
 
-	function selectCity(cityRef, displayInfoWindow) {
+	function selectCity(cityRef, displayInfoWindow, displayMatchWindow) {
 		var cityInfo = citiesByRef[cityRef];
 		var cityName = cityInfo.name.split(",")[0];
 		$("#selectedCityName").html(cityName);
@@ -488,12 +495,15 @@
 					if (compareCityInfo !== undefined) { // we have found a city match result
 						compareCityInfo.score = values[i];
 						//createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
-						createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i]);	
-						var weight = values[i] / 10;
-						heatmapPoints[i] = {location: new google.maps.LatLng(compareCityInfo.lat, compareCityInfo.lng), weight: weight};
 						
-						//heatmapPoints[i] = new google.maps.LatLng(compareCityInfo.lat, compareCityInfo.lng);
-						
+						if (heatmapMode) {
+							createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i], true); // fixed size marker
+							var weight = values[i] / 10;
+							heatmapPoints[i] = {location: new google.maps.LatLng(compareCityInfo.lat, compareCityInfo.lng), weight: weight};
+						} else {
+							createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i], false); // fixed size marker
+						}
+							
 						if (compareCityInfo.region == "Africa" || compareCityInfo.region == "Central Asia") {
 							groupRegionCounter(africaMatches, compareCityInfo, values[i])
 						} else if (compareCityInfo.region == "South-East Asia" || compareCityInfo.region == "North-East Asia" || compareCityInfo.region == "South Asia") {
@@ -507,20 +517,22 @@
 						}
 					}
 				}
-				
-				heatmap = new google.maps.visualization.HeatmapLayer({
-					data: heatmapPoints,
-					dissipating: true,
-					maxIntensity: 10,
-					radius: 15,
-					map: map
-				});
+				if (heatmapMode) {
+					heatmap = new google.maps.visualization.HeatmapLayer({
+						data: heatmapPoints,
+						dissipating: true,
+						maxIntensity: 10,
+						radius: 15,
+						radius: 15,
+						map: map
+					});
+				}
 				
 				$('#cityMatchInfo').prop("disabled",false);
 				
 				if (displayInfoWindow) {
 					openInfoWindowAndBind(cityInfo.infowindow, cityInfo.marker);
-				} else {
+				} else if (displayMatchWindow) {
 					openMatchInfo(selectedCity); // all cities loaded, now can open match window
 				}
 			},
@@ -587,7 +599,7 @@
 	function openCity(cityInfo) {
 		var infowindow = cityInfo.infowindow;
 		var marker = cityInfo.marker;
-		selectCity(cityInfo.key, false);
+		selectCity(cityInfo.key, false, true);
 		var latLng = marker.getPosition(); // returns LatLng object
 		map.setCenter(latLng); // setCenter takes a LatLng object
 		//openMatchInfo(cityInfo.key);

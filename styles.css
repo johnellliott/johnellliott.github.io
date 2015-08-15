@@ -179,6 +179,10 @@ th > .mdl-checkbox {
 }
 
 
+#menu {
+	width: 200px;
+}
+
 #aboutButton {
 	position: fixed;
 	display: block;
