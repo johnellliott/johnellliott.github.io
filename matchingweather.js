@@ -96,6 +96,7 @@
 					//console.log(values[0]);
 					
 					if (values[5] === undefined || values[6] === undefined || values[11] === undefined || values[14] === undefined) {
+						console.log('Missing data for city ' + values[0]);
 						continue;
 					}
 					var rainfall = parseInt(values[14]);
