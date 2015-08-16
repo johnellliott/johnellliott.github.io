@@ -98,7 +98,7 @@
 					//console.log(values[0]);
 					
 					if (values[5] === undefined || values[6] === undefined || values[11] === undefined || values[14] === undefined) {
-						console.log('Missing data for city ' + values[0]);
+						console.log('Missing data for city ' + values[0] + ' (index: ' + i + ')');
 						continue;
 					}
 					var rainfall = parseInt(values[14]);
@@ -190,7 +190,7 @@
 			var markerImage = {
 				url: imageUrl,
 				// This marker is 20 pixels wide by 32 pixels tall.
-				//size: new google.maps.Size(30, 30),
+				size: new google.maps.Size(50, 50),
 				// The origin for this image is 0,0.
 				origin: new google.maps.Point(0, 0),
 				// Make this half of the size
