@@ -562,7 +562,7 @@
 		if (compareCityInfo.key != selectedCity)
 			cityGroup.push(compareCityInfo); // push city with score to array
 		regionMatchingObject[score] = cityGroup; // update matches object with grouping array
-		console.log('Added ' + compareCityInfo.name + ' to African counter with score ' + score);
+		//console.log('Added ' + compareCityInfo.name + ' to African counter with score ' + score);
 	}
 	
 	/* Function takes in the Bench ID and caption we constructed
