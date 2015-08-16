@@ -296,6 +296,11 @@
 		if (!isNumeric(ahtMin)) ahtMin = "";
 		if (!isNumeric(arTotal)) arTotal = "";
 		
+		aht = parseInt(aht);
+		ahtMax = parseInt(ahtMax);
+		ahtMin = parseInt(ahtMin);
+		arTotal = parseInt(arTotal);
+		
 		var html = "<div class='weatherFacts'>";
 		html = html + "<div><span class='tempFactLabel'>";
 		html = html + "Mean daytime (°C):";
