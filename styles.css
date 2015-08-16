@@ -183,6 +183,16 @@ th > .mdl-checkbox {
 	width: 200px;
 }
 
+#legend {
+	position: fixed;
+	display: block;
+	right: 0;
+	bottom: 0;
+	margin-right: 25px;
+	margin-bottom: 120px;
+	z-index: 900;
+}
+
 #aboutButton {
 	position: fixed;
 	display: block;

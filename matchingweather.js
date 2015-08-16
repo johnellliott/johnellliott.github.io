@@ -398,21 +398,25 @@
 	
 	function getScoreCircleColor(similarityScore) {
 			if (similarityScore >= 95) {
-				return "#921a1a";
+				return "#ed1c1c";
 			} else if (similarityScore >= 90) {
-				return "#f03030";
+				return "#ed1c1c";
+			} else if (similarityScore >= 85) {
+				return "#ed531c";	
 			} else if (similarityScore >= 80) {
-				return "f06430";
+				return "#ed8d1c";
 			} else if (similarityScore >= 70) {
-				return "#f09630";
+				return "#edbf1c";
 			} else if (similarityScore >= 60) {
-				return "#f0c330";
+				return "#ebed1c";
 			} else if (similarityScore >= 50) {
-				return "#edf030";
+				return "#baed1c";
 			} else if (similarityScore >= 40) {
 				return "#c1f030";
+			} else if (similarityScore >= 30) {
+				return "#a3bd50";	
 			} else {
-				return "#96f030";
+				return "#898989";
 			} 
 	}
 	
