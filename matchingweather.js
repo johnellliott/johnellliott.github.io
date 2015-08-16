@@ -168,6 +168,8 @@
 					imageUrl = 'images/marker-10.png';
 				} else if (size >= 9) {
 					imageUrl = 'images/marker-9.png';
+				} else if (size >= 8.5) {
+					imageUrl = 'images/marker-8.png';	
 				} else if (size >= 8) {
 					imageUrl = 'images/marker-7.png';
 				} else if (size >= 7) {
@@ -177,7 +179,7 @@
 				} else if (size >= 5) {
 					imageUrl = 'images/marker-4.png';
 				} else if (size >= 4) {
-					imageUrl = 'images/marker-4.png';
+					imageUrl = 'images/marker-3.png';
 				} else {
 					imageUrl = 'images/marker-low.png';
 				} 
