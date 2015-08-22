@@ -84,7 +84,7 @@
 		$.ajax({
 			//type:"GET", // access control issue if using POST
 			//url: "data/core_city_data.csv",
-			url: "http://similar.city/data/core_city_data.csv",
+			url: "http://similar.city/datav3/core_city_data.csv",
 			dataType: 'text',
 			encoding:"UTF-8",
 			success: function( data) {
@@ -485,7 +485,7 @@
 		cityCol = cityCol+1;
 		
 		$.ajax({
-			url: "http://similar.city/data/disk" + cityCol + ".csv",
+			url: "http://similar.city/datav3/disk" + cityCol + ".csv",
 			dataType: 'text',
 			encoding:"UTF-8",
 			success: function( data) {
