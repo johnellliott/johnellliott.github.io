@@ -296,10 +296,10 @@
 		if (!isNumeric(ahtMin)) ahtMin = "";
 		if (!isNumeric(arTotal)) arTotal = "";
 		
-		aht = parseInt(aht);
-		ahtMax = parseInt(ahtMax);
-		ahtMin = parseInt(ahtMin);
-		arTotal = parseInt(arTotal);
+		aht = Math.round(aht);
+		ahtMax = Math.round(ahtMax);
+		ahtMin = Math.round(ahtMin);
+		arTotal = Math.round(arTotal);
 		
 		var html = "<div class='weatherFacts'>";
 		html = html + "<div><span class='tempFactLabel'>";

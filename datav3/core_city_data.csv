@@ -245,7 +245,7 @@ Gujranwala|Gujranwala|South Asia|250|Pakistan|"32°8'60.0"" N"|"74°10'59.9"" E"
 Gulbarga|Gulbarga|South Asia|470|India|"17°19'59.9"" N"|"76°49'59.9"" E"|2|Hot desert climate|244|MS|32.4|38.5|29|777.4|
 Guntur|Guntur|South Asia|36|India|"16°18'0.0"" N"|"80°27'0.0"" E"|2|Tropical monsoon climate|245|MT|34|47.3|29.2|905|
 Guwahati|Guwahati|South Asia|33|India|"26°10'59.9"" N"|"91°43'59.9"" E"|2|Humid subtropical (dry winter, wet summer) / tropical monsoon climate|246|MU|29.2|32.1|23.6|1722|
-Gwalior|Gwalior|South Asia|271|India|"26°13'25.0"" N"|"78°10'45.1"" E"|2|Humid subtropical climate|247|MV|33.6|48.6|22.9|896.9|
+Gwalior|Gwalior|South Asia|271|India|"26°13'25.0"" N"|"78°10'45.1"" E"|2|Humid subtropical (dry winter, wet summer) climate|247|MV|33.6|48.6|22.9|896.9|
 Ha_Noi|Ha Noi|South-East Asia|26|Viet Nam|"21°1'59.9"" N"|"105°50'60.0"" E"|2|Humid subtropical (dry winter, wet summer) climate|248|MW|27|32.9|19.3|1676.2|
 Hai_Phong|Hai Phong|South-East Asia|3|Viet Nam|"20°51'22.0"" N"|"106°40'55.2"" E"|2|Humid subtropical climate|249|MX|27.3|33|20|1577|
 Haikou|Haikou|North-East Asia|1909|China|"20°2'44.9"" N"|"110°20'31.2"" E"|2|Humid subtropical (dry winter, wet summer) climate|250|MY|28|33.1|21|1652.1|
@@ -264,7 +264,7 @@ Hargeisa|Hargeisa|Africa|947|Somalia|"9°34'60.0"" N"|"44°4'0.1"" E"|2|Hot semi
 Havana|Havana|North America|5|Cuba|"23°7'54.8"" N"|"82°21'51.1"" W"|2|Tropical monsoon climate|263|NL|28.8|31.6|25.8|1189.2|
 Hefei|Hefei|North-East Asia|18|China|"31°51'50.0"" N"|"117°16'51.6"" E"|2|Humid subtropical climate|264|NM|20.3|32|6.8|995.2|
 Hegang|Hegang|North-East Asia|197|China|"47°23'60.0"" N"|"130°22'1.2"" E"|2|Humid continental (hot summer, dry winter) / subarctic (cool summer, wet all year) climate|265|NN|8.4|26.5|-12.7|612.4|-34.5
-Helsinki|Helsinki|Europe|23|Finland|"60°10'32.2"" N"|"24°56'3.1"" E"|2|Humid continental (mild summer, wet all year) / subarctic (cool summer, wet all year) climate|266|NO|9|21.5|-1.9|655|-34.3
+Helsinki|Helsinki|Europe|23|Finland|"60°10'32.2"" N"|"24°56'3.1"" E"|2|Humid continental (mild summer, wet all year) / subpolar oceanic climate|266|NO|9|21.5|-1.9|655|-34.3
 Hengyang|Hengyang|North-East Asia|78|China|"26°53'17.2"" N"|"112°36'54.0"" E"|2|Humid subtropical climate|267|NP|22.1|34.3|9|1351.6|
 Hermosillo|Hermosillo|North America|195|Mexico|"29°4'0.1"" N"|"110°58'1.2"" W"|2|Hot desert climate|268|NQ|32.8|42|24|192|50
 Himeji|Himeji|North-East Asia|11|Japan|"34°49'0.1"" N"|"134°41'60.0"" E"|2|Humid subtropical climate|269|NR|19.6|31.5|8.8|1318|
@@ -392,7 +392,7 @@ Luoyang|Luoyang|North-East Asia|122|China|"34°41'1.0"" N"|"112°27'14.4"" E"|2|
 Lusaka|Lusaka|Africa|1279|Zambia|"15°25'0.1"" S"|"28°16'59.9"" E"|2|Humid subtropical (dry winter, wet summer) climate|391|SJ|27.5|31.7|23.8|882.1|
 Luxor|Luxor|Africa|99|Egypt|"25°41'0"" N"|"32°39'0"" E"|2|Hot desert climate|392|SK|33.4|41.4|23|1|48.5
 Lvov|Lvov|Europe|296|Ukraine|"49°49'59.9"" N"|"24°0'0.0"" E"|2|Humid continental (mild summer, wet all year) climate|393|SL|12.3|23.9|-0.1|748|-29.5
-Lyon|Lyon|Europe|173|France|"45°45'0.0"" N"|"4°50'60.0"" E"|2|Oceanic / hot summer Mediterranean climate|394|SM|16.9|27.7|6.4|831.9|-24.6
+Lyon|Lyon|Europe|173|France|"45°45'0.0"" N"|"4°50'60.0"" E"|2|Oceanic / humid subtropical climate|394|SM|16.9|27.7|6.4|831.9|-24.6
 Maanshan|Maanshan|North-East Asia|20|China|"31°43'59.9"" N"|"118°28'58.8"" E"|2|Humid subtropical climate|395|SN|20.8|33|7|1058.4|
 Maceio|Maceio|South America|1|Brazil|"9°40'0.0"" S"|"35°43'0.1"" W"|2|Tropical monsoon climate|396|SO|28.9|30.4|27|2070.7|
 Macquarie_Island|Macquarie Island|Australia & New Zealand|200|Australia|"54°37'0.12"" S"|"158°51'0"" E"|3|Tundra climate|397|SP|6.6|8.8|4.9|967.8|
@@ -512,7 +512,7 @@ Phitsanulok|Phitsanulok|South-East Asia|321|Thailand|"16°49'59.9"" N"|"100°15'
 Phnom_Penh|Phnom Penh|Africa|18|Cambodia|"11°33'0.0"" N"|"104°55'1.2"" E"|2|Tropical monsoon climate|511|WZ|32.5|34.9|29.9|1635.6|
 Phoenix,_Arizona|Phoenix, Arizona|North America|340|United States of America|"33°26'53.9"" N"|"112°4'22.8"" W"|2|Hot desert climate|512|XA|30.3|41.2|18.9|203.96|50
 Pietermaritzburg|Pietermaritzburg|Africa|596|South Africa|"29°37'0.1"" S"|"30°22'59.9"" E"|2|Humid subtropical / subtropical highland climate|513|XB|25.6|28|22|832|
-Port_Elizabeth|Port Elizabeth|Africa|67|South Africa|"33°58'0.1"" S"|"25°34'59.9"" E"|2|Humid continental (hot summer, wet all year) / oceanic climate|514|XC|22.3|25.4|19.6|624|
+Port_Elizabeth|Port Elizabeth|Africa|67|South Africa|"33°58'0.1"" S"|"25°34'59.9"" E"|2|Humid subtropical / oceanic climate|514|XC|22.3|25.4|19.6|624|
 Port_Harcourt|Port Harcourt|Africa|463|Nigeria|"4°47'21.0"" N"|"6°59'55.0"" E"|2|Tropical monsoon climate|515|XD|31|33|29|2294|
 Port_Moresby|Port Moresby|South-East Asia|35|Papua New Guinea|"9°30'49.1"" S"|"147°13'7.7"" E"|2|Tropical monsoon climate|516|XE|30.2|32|28|1012|
 Port-au-prince|Port-au-prince|North America|124|Haiti|"18°32'21.1"" N"|"72°20'6.0"" W"|2|Tropical monsoon climate|517|XF|32.8|35|31|1353|
@@ -542,7 +542,7 @@ Ranchi|Ranchi|South Asia|621|India|"23°21'0.0"" N"|"85°19'59.9"" E"|2|Tropical
 Rasht|Rasht|Middle East|1|Iran|"37°16'45.8"" N"|"49°35'8.9"" E"|2|Humid subtropical climate|541|YD|20.5|30.5|10.8|1355.5|
 Rawalpindi|Rawalpindi|South Asia|484|Pakistan|"33°36'0.0"" N"|"73°4'0.1"" E"|2|Humid subtropical (dry winter, wet summer) / continental Mediterranean climate|542|YE|28.7|39.5|17|941|
 Recife|Recife|South America|1|Brazil|"8°3'0.0"" S"|"34°53'60.0"" W"|2|Tropical monsoon climate|543|YF|29.1|30.2|27.3|2417.7|
-Reykjavik|Reykjavik|Europe|44|Iceland|"64°08'0"" N"|"21°56'0"" W"|2|Subarctic (cool summer, wet all year) climate|544|YG|8.4|15.2|3.3|842.1|-24.5
+Reykjavik|Reykjavik|Europe|44|Iceland|"64°08'0"" N"|"21°56'0"" W"|2|Subpolar oceanic / subarctic (cool summer, wet all year) climate|544|YG|8.4|15.2|3.3|842.1|-24.5
 Reynosa|Reynosa|North America|35|Mexico|"26°4'59.9"" N"|"98°16'59.9"" W"|2|Hot semi-arid climate|545|YH|30.6|36.9|21.9|452.5|44
 Riga|Riga|Europe|1|Latvia|"56°57'0.0"" N"|"24°6'0.0"" E"|2|Humid continental (mild summer, wet all year) climate|546|YI|10.8|22|2.6|621.9|-34.9
 Rio_De_Janeiro|Rio De Janeiro|South America|1|Brazil|"22°53'60.0"" S"|"43°13'59.9"" W"|2|Tropical monsoon climate|547|YJ|27.3|30.2|25|1069.2|
@@ -553,21 +553,21 @@ Rosario|Rosario|South America|11|Argentina|"32°57'4.0"" S"|"60°39'59.0"" W"|2|
 Rostov-na-donu|Rostov-na-donu|Europe|80|Russian Federation|"47°14'11.0"" N"|"39°42'50.0"" E"|2|Humid continental (hot summer, wet all year) climate|552|YO|14.6|29.2|-0.1|643|-31.9
 Rotterdam|Rotterdam|Europe|0|Netherlands|"51°55'0.1"" N"|"4°30'0.0"" E"|2|Oceanic climate|553|YP|14|22.2|6|855.6|
 Sacramento|Sacramento|North America|5|United States of America|"38°34'54.1"" N"|"121°29'34.8"" W"|2|Hot summer Mediterranean climate|554|YQ|23.1|33.4|12.1|470.41|46.1
-Saint_Petersburg|Saint Petersburg|Europe|5|Russian Federation|"59°53'39.8"" N"|"30°15'51.1"" E"|2|Humid continental (mild summer, wet all year) / subarctic (cool summer, wet all year) climate|555|YR|9.1|23|-3|662|-35.9
-Saint_Pierre_and_Miquelon|Saint Pierre and Miquelon|North America|8|France|"46°47'0"" N"|"56°10'0"" W"|3|Subarctic (cool summer, wet all year) climate|556|YS|8.1|18.5|-0.7|1312.2|
+Saint_Petersburg|Saint Petersburg|Europe|5|Russian Federation|"59°53'39.8"" N"|"30°15'51.1"" E"|2|Humid continental (mild summer, wet all year) / subpolar oceanic climate|555|YR|9.1|23|-3|662|-35.9
+Saint_Pierre_and_Miquelon|Saint Pierre and Miquelon|North America|8|France|"46°47'0"" N"|"56°10'0"" W"|3|Humid continental (mild summer, wet all year) climate|556|YS|8.1|18.5|-0.7|1312.2|
 Saint-Denis,_Réunion|Saint-Denis, Réunion|Africa|50|Réunion|"20°52'59.9"" S"|"55°31'59.9"" E"|2|Tropical savanna climate|557|YT|27.7|30.1|25.2|1658.6|
 Sakon_Nakhon|Sakon Nakhon|South-East Asia|205|Thailand|"17°4'59.9"" N"|"104°2'60.0"" E"|2|Tropical savanna climate|558|YU|31.7|35.1|28.6|1645|
 Salta|Salta|South America|1200|Argentina|"24°46'59.9"" S"|"65°25'0.1"" W"|2|Subtropical highland climate|559|YV|24.1|27.8|19.1|754.7|
 Saltillo|Saltillo|North America|1600|Mexico|"25°25'0.1"" N"|"101°0'0.0"" W"|2|Hot semi-arid climate|560|YW|25.6|30.2|19.7|369.3|
 Salvador,_Bahia|Salvador, Bahia|South America|1|Brazil|"12°58'59.9"" S"|"38°31'0.1"" W"|2|Tropical rainforest climate|561|YX|28.2|30|26.2|2144.1|
 San_Antonio|San Antonio|North America|196|United States of America|"29°25'26.0"" N"|"98°29'35.9"" W"|2|Humid subtropical climate|562|YY|26.8|35.6|17.2|819.65|43.9
-San_Diego|San Diego|North America|26|United States of America|"32°42'55.1"" N"|"117°9'21.6"" W"|2|Hot semi-arid / hot summer Mediterranean climate|563|YZ|20.9|24.7|18.2|262.63|43.9
+San_Diego|San Diego|North America|26|United States of America|"32°42'55.1"" N"|"117°9'21.6"" W"|2|Hot semi-arid / warm summer Mediterranean climate|563|YZ|20.9|24.7|18.2|262.63|43.9
 San_Francisco|San Francisco|North America|60|United States of America|"37°46'30.0"" N"|"122°25'4.8"" W"|1|Warm summer Mediterranean / oceanic climate|564|ZA|17.7|21.2|13.8|600.68|
 San_Jose,_California|San Jose, California|North America|24|United States of America|"37°20'21.8"" N"|"121°53'38.4"" W"|2|Warm summer Mediterranean / cold semi-arid climate|565|ZB|21.5|27.7|14.4|401.82|
 San_Miguel_de_Tucumán|San Miguel de Tucumán|South America|437|Argentina|"26°49'0.1"" S"|"65°13'0.1"" W"|2|Humid subtropical (dry winter, wet summer) climate|566|ZC|25.7|31.3|18.2|966.3|
 San_Pedro_Sula|San Pedro Sula|North America|84|Honduras|"15°30'0.0"" N"|"88°1'59.9"" W"|2|Tropical savanna climate|567|ZD|30.8|33|28|1180|
 San_Salvador|San Salvador|North America|452|El Salvador|"13°42'31.0"" N"|"89°12'11.2"" W"|2|Tropical monsoon climate|568|ZE|30|32.2|28|1734|
-Sana%27a|Sana%27a|Middle East|2250|Yemen|"15°21'16.9"" N"|"44°12'24.1"" E"|2|Cold desert climate|569|ZF|24.3|28.2|20.3|265|
+Sana%27a|Sana'a|Middle East|2250|Yemen|"15°21'16.9"" N"|"44°12'24.1"" E"|2|Cold desert climate|569|ZF|24.3|28.2|20.3|265|
 Santa_Marta|Santa Marta|South America|9|Colombia|"11°14'49.9"" N"|"74°12'6.1"" W"|2|Tropical monsoon climate|570|ZG|32.6|33.7|31.5|499.3|
 Sao_Bernardo_Do_Campo|Sao Bernardo Do Campo|South America|763|Brazil|"23°41'60.0"" S"|"46°32'60.0"" W"|2|Humid subtropical climate|571|ZH|24.6|27.7|20.3|1531.5|
 Sao_Luis|Sao Luis|South America|1|Brazil|"2°31'0.0"" S"|"44°16'0.1"" W"|2|Tropical monsoon climate|572|ZI|30.4|31.4|29.4|2290.2|
@@ -602,9 +602,9 @@ Songkhla|Songkhla|South-East Asia|164|Thailand|"7°7'60.0"" N"|"100°31'58.8"" E
 Sorocaba|Sorocaba|South America|600|Brazil|"23°28'59.9"" S"|"47°27'0.0"" W"|2|Humid subtropical climate|601|AA|27.8|30|24|1235|
 Soweto|Soweto|Africa|1632|South Africa|"26°16'0.1"" S"|"27°52'0.1"" E"|2|Subtropical highland climate|602|AA|22.7|26.4|16.9|750|
 Srinagar|Srinagar|South Asia|1600|India|"34°5'31.9"" N"|"74°48'7.9"" E"|2|Humid subtropical / continental Mediterranean climate|603|AAN|19.7|30.1|7|710|
-St._John%27s,_Newfoundland_and_Labrador|St. John%27s, Newfoundland and Labrador|North America|15|Canada|"47°34'3"" N"|"52°42'26"" W"|2|Humid continental (mild summer, wet all year) climate|604|AAO|9|20.7|-1.1|1534.3|-23.8
+St._John%27s,_Newfoundland_and_Labrador|St. John's, Newfoundland and Labrador|North America|15|Canada|"47°34'3"" N"|"52°42'26"" W"|2|Humid continental (mild summer, wet all year) climate|604|AAO|9|20.7|-1.1|1534.3|-23.8
 Stanley,_Falkland_Islands|Stanley, Falkland Islands|South America|20|British Overseas Territory|"51°41'31.56"" S"|"57°51'32.04"" W"|3|Subpolar oceanic climate|605|AAP|9.9|14.1|5.1|543|
-Stockholm|Stockholm|Europe|20|Sweden|"59°19'59.9"" N"|"18°3'0.0"" E"|1|Humid continental (mild summer, wet all year) / subarctic (cool summer, wet all year) climate|606|AAQ|11.3|23.9|0.4|539|-32
+Stockholm|Stockholm|Europe|20|Sweden|"59°19'59.9"" N"|"18°3'0.0"" E"|1|Humid continental (mild summer, wet all year) / subpolar oceanic climate|606|AAQ|11.3|23.9|0.4|539|-32
 Stuttgart|Stuttgart|Europe|359|Germany|"48°46'0.1"" N"|"9°10'60.0"" E"|2|Oceanic / humid continental (mild summer, wet all year) climate|607|AAR|15.6|26.8|3.7|713.7|-25.5
 Suphan_Buri|Suphan Buri|South-East Asia|13|Thailand|"14°28'0.1"" N"|"100°7'1.2"" E"|2|Tropical savanna climate|608|AAS|33.7|37|30.8|975.4|
 Surabaya|Surabaya|South-East Asia|1|Indonesia|"7°14'57.0"" S"|"112°45'3.6"" E"|2|Tropical monsoon climate|609|AAT|31.8|33.4|30.1|1751|
@@ -633,7 +633,7 @@ Thane|Thane|South Asia|11|India|"19°11'60.0"" N"|"72°58'0.1"" E"|2|Tropical mo
 The_Hague|The Hague|Europe|7|Netherlands|"52°4'59.9"" N"|"4°17'60.0"" E"|2|Oceanic climate|632|ABQ|13.5|21.5|5.9|841.2|
 Thiruvananthapuram|Thiruvananthapuram|South Asia|1|India|"8°30'25.0"" N"|"76°57'24.8"" E"|2|Tropical monsoon climate|633|ABR|31.3|33.2|29.8|1754.1|
 Tianjin|Tianjin|North-East Asia|4|China|"39°8'31.9"" N"|"117°10'37.2"" E"|2|Humid continental (hot summer, dry winter) climate|634|ABS|18.1|31|1.8|544.3|
-Tijuana|Tijuana|North America|32|Mexico|"32°31'59.9"" N"|"117°1'1.2"" W"|2|Hot semi-arid / hot summer Mediterranean climate|635|ABT|23.9|28.1|20.3|230.9|49
+Tijuana|Tijuana|North America|32|Mexico|"32°31'59.9"" N"|"117°1'1.2"" W"|2|Hot semi-arid / warm summer Mediterranean climate|635|ABT|23.9|28.1|20.3|230.9|49
 Timbuktu|Timbuktu|Africa|261|Mali|"16°46'33"" N"|"3°00'34"" W"|3|Hot desert climate|636|ABU|36.8|42.2|30|182.8|48
 Tiruchchirappalli|Tiruchchirappalli|South Asia|76|India|"10°48'18.0"" N"|"78°41'8.2"" E"|2|Tropical monsoon climate|637|ABV|34.2|38.1|29.1|862.2|43.9
 Tokyo|Tokyo|North-East Asia|20|Japan|"35°41'6.0"" N"|"139°45'3.6"" E"|1|Humid subtropical / humid continental (hot summer, wet all year) climate|638|ABW|19.8|30.8|9.6|1528.8|
@@ -691,7 +691,7 @@ Xuchang|Xuchang|North-East Asia|73|China|"34°1'0.1"" N"|"113°49'1.2"" E"|2|Hum
 Xuzhou|Xuzhou|North-East Asia|45|China|"34°16'0.8"" N"|"117°11'31.2"" E"|2|Humid subtropical (dry winter, wet summer) climate|690|ADW|19.7|31.4|5.2|831.6|
 Yakutsk|Yakutsk|Russia & Central Asia|99|Russian Federation|"62°02'0"" N"|"129°44'0"" E"|3|Subarctic (cold winter, wet all year) climate|691|ADX|-3.4|25.5|-35.1|238|-64.4
 Yangon|Yangon|South-East Asia|9|Myanmar|"16°46'59.9"" N"|"96°10'0.1"" E"|2|Tropical monsoon climate|692|ADY|32.3|37|29.6|2681|
-Yantai|Yantai|North-East Asia|46|China|"37°31'59.9"" N"|"121°24'0.0"" E"|2|#N/A|693|ADZ|#DIV/0!|0|0|672.5|
+Yantai|Yantai|North-East Asia|46|China|"37°31'59.9"" N"|"121°24'0.0"" E"|2|Hot summer Mediterranean climate|693|ADZ|#DIV/0!|0|0|672.5|
 Yaounde|Yaounde|Africa|733|Cameroon|"3°52'0.0"" N"|"11°31'0.1"" E"|2|Tropical monsoon climate|694|AEA|28.5|31|26.5|1541.1|
 Yaroslavl|Yaroslavl|Europe|150|Russian Federation|"57°37'0.1"" N"|"39°52'0.1"" E"|2|Humid continental (hot summer, dry winter) climate|695|AEB|8|23.3|-8.2|591|
 Yazd|Yazd|Middle East|1216|Iran|"31°53'49.9"" N"|"54°22'3.0"" E"|2|Hot desert climate|696|AEC|26|39.5|12.2|48.3|45.6
@@ -757,261 +757,261 @@ Bergen|Bergen|Europe|2|Norway|"60° 23' 22"" N"|"5° 19' 48"" E"|2|Oceanic / sub
 Tromso|Tromso|Europe|14|Norway|"69° 40' 58"" N"|"18° 56' 34"" E"|2|Subarctic (cool summer, wet all year) / subpolar oceanic climate|756|AGK|5.1|15.3|-2.2|1031|
 Kiruna|Kiruna|Europe|460|Sweden|"67° 51' 0"" N"|"20° 13' 0"" E"|2|Subarctic (cool summer, wet all year) / tundra climate|757|AGL|1.8|17.9|-11.1|522.2|-43.3
 Norilsk|Norilsk|Russia & Central Asia|150|Russian Federation|"69° 20' 0"" N"|"88° 13' 0"" E"|2|Subarctic (cool summer, wet all year) / tundra climate|758|AGM|-6.1|18.2|-24.2|341|-53.1
-Bologna|Bologna|Europe|54|Italy|"44° 30' 27"" N"|"11° 21' 5"" E"|||759|AGN|18.3|30.4|6|671.3|
-Venice|Venice|Europe|1|Italy|"45° 26' 15"" N"|"12° 20' 9"" E"|||760|AGO|17.2|27.7|6.6|748.4|
-Trieste|Trieste|Europe|2|Italy|"45° 38' 00"" N"|"13° 48' 00"" E"|||761|AGP|17.5|27.9|7.6|1003|
-Split,_Croatia|Split, Croatia|Europe|0|Croatia|"43° 30' 36"" N"|"16° 27' 00"" E"|||762|AGQ|19.4|29.8|10.3|815.6|
-Sochi|Sochi|Russia & Central Asia|40|Russian Federation|"43° 35' 07"" N"|"39° 43' 13"" E"|||763|AGR|18.9|28.8|10.3|1703|
-Yalta|Yalta|Russia & Central Asia|40|Russian Federation|"44° 29' 58"" N"|"34° 10' 12"" E"|||764|AGS|16.8|28.4|7.1|612|
-Constanta|Constanta|Europe|25|Romania|"44° 10' 24"" N"|"28° 38' 18"" E"|||765|AGT|15.2|25.9|3.7|396|-25
-Batumi|Batumi|Russia & Central Asia|3|Georgia|"41° 38' 45"" N"|"41° 38' 30"" E"|||766|AGU|17.8|26|10|2718|
-Sinop,_Turkey|Sinop, Turkey|Europe||Turkey|"42° 02' 00"" N"|"35° 09' 00"" E"|||767|AGV|17.3|26.2|9.6|681.5|
-Plovdiv|Plovdiv|Europe|164|Bulgaria|"42° 9' 00"" N"|"24° 45' 00"" E"|||768|AGW|18.5|30.6|5.4|502|-23
-In_Salah|In Salah|Africa|293|Algeria|"27° 11' 42"" N"|"2° 29' 0"" E"|||769|AGX|34.8|46.4|22.3|15.7|
-Adrar,_Algeria|Adrar, Algeria|Africa|258|Algeria|"27° 52' 00"" N"|"0° 17' 00"" W"|||770|AGY|34.1|46.3|20.6|14.6|
-Gran_Canaria|Gran Canaria|Africa|8|Spain|"27° 58' 00"" N"|"15° 36' 00"" W"|||771|AGZ|24.2|27.5|20.8|147|
-Ponta_Delgada|Ponta Delgada|Europe|2|Portugal|"37° 49' 28"" N"|"25° 44' 50"" W"|||772|AHA|20.1|25.3|16.6|985.6|
-Boa_Vista,_Roraima|Boa Vista, Roraima|South America|76|Brazil|"02° 49' 10"" N"|"60° 40' 17"" W"|||773|AHB|32.4|33.7|30.3|1420.4|
-Paramaribo|Paramaribo|South America|3|Brazil|"5° 52' 00"" N"|"55° 10' 00"" W"|||774|AHC|31.1|33|30|2160|
-Georgetown,_Guyana|Georgetown, Guyana|South America|0|Guyana|"6° 48' 00"" N"|"58° 10' 00"" W"|||775|AHD|29.6|30.8|28.6|2260.3|
-Port_of_Spain|Port of Spain|North America|3|Trinidad and Tobago|"10° 40' 00"" N"|"61° 31' 00"" W"|||776|AHE|31.1|33.1|28|1408|
-Nassau,_Bahamas|Nassau, Bahamas|North America|0|Bahamas|"25° 4' 00"" N"|"77° 20' 00"" W"|||777|AHF|28.8|32.1|25.4|1389.4|
-San_Juan,_Puerto_Rico|San Juan, Puerto Rico|North America|8|Puerto Rico|"18° 24' 23"" N"|"66° 3' 50"" W"|||778|AHG|30.3|31.8|28.4|1431.29|
-Porto_Velho|Porto Velho|South America|83|Brazil|"8° 45' 43"" S"|"63° 54' 14"" W"|||779|AHH|32.3|34.3|31.3|2255.1|
-Caracas|Caracas|South America|900|Venezuela|"10° 30' 00"" N"|"66° 55' 00"" W"|||780|AHI|24.9|26|23.3|912.8|
-Panama_City|Panama City|North America|2|Panama|"8° 59' 00"" N"|"79° 31' 00"" W"|||781|AHJ|33.8|35.4|32.6|1907.2|
-San_José,_Costa_Rica|San José, Costa Rica|North America|1172|Costa Rica|"9° 56' 00"" N"|"84° 5' 00"" W"|||782|AHK|26.9|28.4|25.9|1971|
-Puerto_Baquerizo_Moreno|Puerto Baquerizo Moreno|South America|6|Ecuador|"00° 54' 09"" S"|"89° 36' 33"" W"|||783|AHL|27.2|30|23.9|451.36|
-Juan_Fernández_Islands|Juan Fernández Islands|South America|50|Chile|"33° 38' 42"" S"|"78° 49' 23"" W"|||784|AHM|18.2|22.1|14.8|936|
-Hiva_Oa|Hiva Oa|Pacific|400|France|"9° 45' 00"" S"|"139° 00' 00"" W"|||785|AHN|29.6|31|28|1344|
-Kiribati|Kiribati|Pacific|1|Kiribati|"1° 28' 00"" N"|"173° 2' 00"" E"|||786|AHO|31.5|31.8|31.3|2020|
-Wake_Island|Wake Island|Pacific|7|United States of America|"19° 18' 00"" N"|"166° 38' 00"" E"|||787|AHP|29.7|31.2|27.8|906.4|
-Bonin_Islands|Bonin Islands|Pacific|6|Japan|"26° 59' 53"" N"|"142° 13' 05"" E"|||788|AHQ|25.4|30|20.1|1292.6|
-Saipan|Saipan|Pacific|8|United States of America|"15° 10' 51"" N"|"145° 45' 21"" E"|||789|AHR|28.2|29.4|26.5|2118.11|
-Palau|Palau|Pacific|3|Palau|"7° 30' 00"" N"|"134° 37' 00"" E"|||790|AHS|31|31.4|30.6|3758.3|
-Île_Amsterdam|Île Amsterdam|South-East Asia|50|France|"37° 49' 33"" S"|"77° 33' 17"" E"|||791|AHT|16.1|19.8|13.3|1119|
-Diego_Garcia|Diego Garcia|Africa|3|United Kingdom of Great Britain and Northern Ireland|"7° 18' 48"" S"|"72° 24' 40"" E"|||792|AHU|30.3|31|30|2213|
-Malé|Malé|Africa|2.4|Maldives|"04° 10' 31"" N"|"073° 30' 32"" E"|||793|AHV|30.4|31.5|29.9|1949.3|
-Socotra|Socotra|Africa|45|Yemen|"12° 30' 36"" N"|"53° 55' 12"" E"|||794|AHW|31.1|34.2|27.2|258|
-Dallol,_Ethiopia|Dallol, Ethiopia|Africa|-130|Ethiopia|"14° 14' 20.03"" N"|"40° 17' 35.75"" E"|||795|AHX|41.2|46.7|36.1|10|
-Al-Fashir|Al-Fashir|Africa|70|Sudan|"13° 37' 50"" N"|"25° 21' 0"" E"|||796|AHY|34.7|38.9|29.8|212.5|
-Abéché|Abéché|Africa|542||"13° 49' 59"" N"|"20° 50' 05"" E"|||797|AHZ|36.2|40.2|32|372.9|
-Juba|Juba|Africa|550||"4° 51' 00"" N"|"31° 36' 00"" E"|||798|AIA|34.5|37.9|31.1|953.7|43.6
-Windhoek|Windhoek|Africa|1650|Namibia|"22° 34' 12"" S"|"17° 5' 1"" E"|||799|AIB|26.9|31.6|21|362.8|
-Walvis_Bay|Walvis Bay|Africa|91|Namibia|"22° 57' 22"" S"|"14° 30' 29"" E"|||800|AIC|18.5|20.4|15.7|10|
-Sabha,_Libya|Sabha, Libya|Africa|420|Libya|"27° 02' 20"" N"|"14° 25' 35"" E"|||801|AID|30.1|39|17|0.6|
-Al_Jawf,_Libya|Al Jawf, Libya|Africa|382|Libya|"24° 13' 00"" N"|"23° 18' 00"" E"|||802|AIE|31.2|39|21|3|
-Wadi_Halfa|Wadi Halfa|Africa|183|Sudan|"21° 47' 00"" N"|"31° 22' 00"" E"|||803|AIF|33.9|41.1|23.3|0.6|48.7
-Tazrouk|Tazrouk|Africa|1827|Algeria|"23° 25' 13"" N"|"6° 15' 56"" E"|||804|AIG|26.4|33.7|16.4|55|
-Tindouf|Tindouf|Africa|400|Algeria|"27° 40' 31"" N"|"8° 07' 43"" W"|||805|AIH|32.5|45.7|21.6|19.4|
-Dakhla,_Western_Sahara|Dakhla, Western Sahara||11|Western Sahara|"23° 43' 00"" N"|"15° 57' 00"" W"|||806|AII|24.3|27|22|33|
-Tunis|Tunis|Africa|20|Tunisia|"36° 48' 00"" N"|"10° 11' 00"" E"|||807|AIJ|24.8|34.4|16.2|465.5|46.8
-Tozeur|Tozeur|Africa|87||"33° 55' 00"" N"|"8° 8' 00"" E"|||808|AIK|27.5|39.4|16.7|93|53
-Ouargla|Ouargla|Africa|219||"31° 57' 00"" N"|"5° 19' 00"" E"|||809|AIL|32.3|45.9|18.5|45|
-Illizi|Illizi|Africa|567||"26° 30' 18"" N"|"8° 28' 56"" E"|||810|AIM|33.2|42.4|20.4|10.2|
-Agadez|Agadez|Africa|520||"16° 58' 0"" N"|"7° 59' 0"" E"|||811|AIN|35.9|41.3|27.9|111.4|
-Albany,_Western_Australia|Albany, Western Australia|Australia & New Zealand|71|Australia|"35° 01' 22"" S"|"117° 52' 53"" E"|||812|AIO|19.5|22.9|15.7|929.6|44.8
-Wiluna,_Western_Australia|Wiluna, Western Australia|Australia & New Zealand|521|Australia|"26° 35' 42"" S"|"120° 13' 30"" E"|||813|AIP|29.2|38|19.4|257.4|48
-Geraldton|Geraldton|Australia & New Zealand|37|Australia|"28° 46' 28"" S"|"114° 36' 32"" E"|||814|AIQ|25.9|32.6|19.5|445.2|47.7
-Coober_Pedy|Coober Pedy|Australia & New Zealand|226|Australia|"29° 0' 40"" S"|"134° 45' 20"" E"|||815|AIR|27.5|36.7|18.4|128.9|47.1
-Warburton,_Western_Australia|Warburton, Western Australia|Australia & New Zealand|459|Australia|"26° 08' 00"" S"|"126° 35' 00"" E"|||816|AIS|29.7|38|20.7|246.8|47.7
-Toowoomba|Toowoomba|Australia & New Zealand|691|Australia|"27° 34' 00"" S"|"151° 57' 00"" E"|||817|AIT|23.1|28.1|16.5|726.9|
-Canberra|Canberra|Australia & New Zealand|577|Australia|"35° 18' 27"" S"|"149° 07' 27.9"" E"|||818|AIU|19.7|28|11.4|616.6|
-Mackay,_Queensland|Mackay, Queensland|Australia & New Zealand|11|Australia|"21° 08' 28"" S"|"149° 11' 10"" E"|||819|AIV|27.1|30.6|22.5|1606.9|
-Townsville|Townsville|Australia & New Zealand|7|Australia|"19° 15' 23"" S"|"146° 49' 6"" E"|||820|AIW|28.9|31.5|25.1|1151.4|44.3
-Denver|Denver|North America|1564|United States of America|"39° 45' 43"" N"|"104° 52' 52"" W"|||821|AIX|18.1|31.9|6|363.2|-34
-Cheyenne,_Wyoming|Cheyenne, Wyoming|North America|1848|United States of America|"41° 8' 44"" N"|"104° 48' 7"" W"|||822|AIY|14.7|28.6|3.4|404.7|
-Billings,_Montana|Billings, Montana|North America|952|United States of America|"45° 47' 12"" N"|"108° 32' 14"" W"|||823|AIZ|15.2|30.4|1.8|346.9|
-Lincoln,_Nebraska|Lincoln, Nebraska|North America|358|United States of America|"40° 48' 38"" N"|"96° 40' 49"" W"|||824|AJA|17.3|31.7|1.9|735.3|46.1
-Kansas_City,_Missouri|Kansas City, Missouri|North America|277|United States of America|"39° 05' 59"" N"|"94° 34' 42"" W"|||825|AJB|18.8|32.3|4.2|992.1|45
-Midland,_Texas|Midland, Texas|North America|848|United States of America|"32° 0' 00"" N"|"102° 6' 00"" W"|||826|AJC|25.2|34.8|14.1|370.7|46.7
-Colorado_Springs,_Colorado|Colorado Springs, Colorado|North America|1839|United States of America|"38° 52' 02"" N"|"104° 45' 39"" W"|||827|AJD|16.7|29.3|5.6|419|
-Missoula,_Montana|Missoula, Montana|North America|978|United States of America|"46° 51' 45"" N"|"114° 0' 42"" W"|||828|AJE|14.5|29.9|-0.6|357.8|
-Boise,_Idaho|Boise, Idaho|North America|830|United States of America|"43° 37' 00"" N"|"116° 12' 00"" W"|||829|AJF|17.5|32.9|3.1|297.8|43.9
-Eugene,_Oregon|Eugene, Oregon|North America|131|United States of America|"44° 03' 07"" N"|"123° 05' 12"" W"|||830|AJG|17.4|28.2|7.6|1171.5|
-Redding,_California|Redding, California|North America|172|United States of America|"40° 35' 00"" N"|"122° 22' 00"" W"|||831|AJH|23.9|36.8|12.6|845.8|47.8
-Reno,_Nevada|Reno, Nevada|North America|1373|United States of America|"39° 31' 38"" N"|"119° 49' 19"" W"|||832|AJI|19.7|33.4|7.6|188|
-Medford,_Oregon|Medford, Oregon|North America|421|United States of America|"42° 19' 55"" N"|"122° 51' 43"" W"|||833|AJJ|20|32.6|7.7|465.4|46.1
-St._Louis|St. Louis|North America|142|United States of America|"38° 37' 38"" N"|"90° 11' 52"" W"|||834|AJK|19|31.7|4.4|1040.3|46.1
-Birmingham,_Alabama|Birmingham, Alabama|North America|196|United States of America|"33° 39' 12"" N"|"86° 48' 32"" W"|||835|AJL|23.2|32.7|12.1|1364.5|
-Jackson,_Mississippi|Jackson, Mississippi|North America|279|United States of America|"32° 17' 56"" N"|"90° 11' 05"" W"|||836|AJM|24.2|33.1|13.4|1375.2|
-Shreveport,_Louisiana|Shreveport, Louisiana|North America|85|United States of America|"32° 30' 53"" N"|"93° 44' 50"" W"|||837|AJN|24.8|34.5|14.1|1305.5|43.3
-Fayetteville,_Arkansas|Fayetteville, Arkansas|North America|427|United States of America|"36° 4' 35"" N"|"94° 9' 39"" W"|||838|AJO|20.2|31.9|7.9|1084.5|43.9
-Atlanta|Atlanta|North America|250|United States of America|"33° 45' 18"" N"|"84° 23' 24"" W"|||839|AJP|22.1|31.7|11.3|1262.6|-23
-Savannah,_Georgia|Savannah, Georgia|North America|15|United States of America|"32° 1' 00"" N"|"81° 7' 00"" W"|||840|AJQ|25.2|33.6|15.8|1218.19|
-Charleston,_South_Carolina|Charleston, South Carolina|North America|6|United States of America|"32° 47' 00"" N"|"79° 56' 00"" W"|||841|AJR|24.5|32.8|15|1296.14|
-Myrtle_Beach,_South_Carolina|Myrtle Beach, South Carolina|North America|8|United States of America|"33° 43' 00"" N"|"78° 53' 00"" W"|||842|AJS|22.7|30.9|13.5|1225.54|
-Boone,_North_Carolina|Boone, North Carolina|North America|1016|United States of America|"36° 12' 41"" N"|"81° 40' 7"" W"|||843|AJT|16.3|26.1|5.3|1339.61|
-Raleigh,_North_Carolina|Raleigh, North Carolina|North America|96|United States of America|"35° 46' 50"" N"|"78° 38' 20"" W"|||844|AJU|22|32.3|10.5|1100.8|
-Charleston,_West_Virginia|Charleston, West Virginia|North America|190|United States of America|"38° 20' 50"" N"|"81° 38' 0"" W"|||845|AJV|18.7|29.6|5.8|1117.4|
-Cincinnati|Cincinnati|North America|147|United States of America|"39° 6' 00"" N"|"84° 31' 00"" W"|||846|AJW|17.7|29.8|3.7|1080|
-Louisville|Louisville|North America|142|United States of America|"38° 15' 00"" N"|"85° 46' 00"" W"|||847|AJX|19.8|31.5|6.1|1140.9|
-Pittsburgh|Pittsburgh|North America|250|United States of America|"40° 26' 23"" N"|"79° 58' 35"" W"|||848|AJY|15.9|28.1|2.1|970|-30
-Washington,_D.C.|Washington, D.C.|North America|30|United States of America|"38° 54' 17"" N"|"77° 00' 59"" W"|||849|AJZ|19.3|31.3|6.3|1009.3|-26
-Richmond,_Virginia|Richmond, Virginia|North America|45.7|United States of America|"37° 32' 00"" N"|"77° 28' 00"" W"|||850|AKA|20.9|32.1|8.6|1107.5|
-Syracuse,_New_York|Syracuse, New York|North America|116|United States of America|"43° 02' 49"" N"|"76° 08' 40"" W"|||851|AKB|14.2|27.6|-0.3|977.2|
-Atlantic_City,_New_Jersey|Atlantic City, New Jersey|North America|2|United States of America|"39° 22' 38"" N"|"74° 27' 04"" W"|||852|AKC|16.4|27.4|5.4|1016.2|
-Manchester,_New_Hampshire|Manchester, New Hampshire|North America|64|United States of America|"42° 59' 27"" N"|"71° 27' 49"" W"|||853|AKD|14.8|28|0.6|1132.4|
-Portland,_Maine|Portland, Maine|North America|19|United States of America|"43° 40' 00"" N"|"70° 16' 00"" W"|||854|AKE|13.2|26|-0.4|1200.3|
-Presque_Isle,_Maine|Presque Isle, Maine|North America|139|United States of America|"46° 40' 46"" N"|"68° 0' 8"" W"|||855|AKF|10.1|25.1|-6.3|895.9|
-Rochester,_New_York|Rochester, New York|North America|154|United States of America|"43° 9' 56"" N"|"77° 36' 41"" W"|||856|AKG|13.9|27.2|-0.2|870.4|
-Burlington,_Vermont|Burlington, Vermont|North America|61|United States of America|"44° 28' 33"" N"|"073° 12' 43"" W"|||857|AKH|12.9|27.2|-2.7|935.2|
-Grand_Rapids,_Michigan|Grand Rapids, Michigan|North America|200|United States of America|"42° 57' 40.5"" N"|"85° 39' 20.59"" W"|||858|AKI|14.4|28.2|-0.7|972.2|
-Green_Bay,_Wisconsin|Green Bay, Wisconsin|North America|177|United States of America|"44° 30' 48"" N"|"88° 0' 57"" W"|||859|AKJ|11.9|26.6|-4.3|749.9|
-Fargo,_North_Dakota|Fargo, North Dakota|North America|274|United States of America|"46° 52' 38"" N"|"96° 47' 22"" W"|||860|AKK|11.4|28.1|-7.6|573.6|45.6
-Glasgow,_Montana|Glasgow, Montana|North America|638|United States of America|"48° 11' 1"" N"|"106° 38' 7"" W"|||861|AKL|12.2|28.8|-6.7|285.2|45
-Churchill,_Manitoba|Churchill, Manitoba|North America|0||"58° 46' 09"" N"|"094° 10' 09"" W"|||862|AKM|-2.3|18|-21.9|452.6|44.2
-Wrigley,_Northwest_Territories|Wrigley, Northwest Territories|North America|149||"63° 13' 41"" N"|"123° 28' 12"" W"|||863|AKN|1.4|23.4|-21.1|332.7|-53.3
-Surgut|Surgut|Russia & Central Asia|61||"61° 15' 00"" N"|"73° 26' 00"" E"|||864|AKO|2.3|22.4|-16.3|580|-55.2
-Bratsk|Bratsk|Russia & Central Asia|487||"56° 07' 00"" N"|"101° 36' 00"" E"|||865|AKP|3.3|23.6|-17.1|362.9|-53.9
-Faro,_Portugal|Faro, Portugal|Europe|8||"37° 02' 00"" N"|"7° 55' 00"" W"|||866|AKQ|22.2|29.2|16.1|508.8|44.3
-Murcia|Murcia|Europe|43||"37° 59' 10"" N"|"1° 7' 49"" W"|||867|AKR|24.9|34.2|16.6|295|47.2
-Salamanca|Salamanca|Europe|802||"40° 58' 00"" N"|"5° 40' 00"" W"|||868|AKS|17.9|29.3|7.9|38.3|
-A_Coruña|A Coruña|Europe|22||"43° 21' 54"" N"|"8° 24' 36"" W"|||869|AKT|17.8|22.8|13.5|1014|
-Gijón|Gijón|Europe|3||"43° 32' 00"" N"|"5° 42' 00"" W"|||870|AKU|17.6|23.2|13.1|969|
-Bordeaux|Bordeaux|Europe|50||"44° 50' 00"" N"|"0° 35' 00"" W"|||871|AKV|18.5|27.1|10.1|943|
-Nice|Nice|Europe|28||"43° 42' 12"" N"|"7° 15' 59"" E"|||872|AKW|19.6|27.7|13.1|733|
-Nantes|Nantes|Europe|26||"47° 13' 05"" N"|"1° 33' 10"" W"|||873|AKX|16.7|25|9|819.5|
-Zurich|Zurich|Europe|408||"47° 22' 00"" N"|"8° 33' 00"" E"|||874|AKY|13.5|24|2.9|1133|
-Chania|Chania|Europe|5||"35° 31' 00"" N"|"24° 1' 00"" E"|||875|AKZ|22.1|30.3|14.4|652.5|
-Catania|Catania|Europe|7||"37° 30' 0"" N"|"15° 5' 25"" E"|||876|ALA|23.6|32.6|16|547.2|45.3
-Tirana|Tirana|Europe|110||"41° 19' 48"" N"|"19° 49' 12"" E"|||877|ALB|20.9|31|12|1353|
-Nicosia|Nicosia|Europe|220||"35° 10' 00"" N"|"033° 22' 00"" E"|||878|ALC|26.2|37.2|15.5|342.2|
-Tel_Aviv|Tel Aviv|Middle East|5||"32° 4' 00"" N"|"34° 47' 00"" E"|||879|ALD|24|30.2|17.5|527.6|43.5
-Palma,_Majorca|Palma, Majorca|Europe|13||"39° 34' 00"" N"|"2° 39' 00"" E"|||880|ALE|21.8|29.8|15.4|450|
-Cagliari|Cagliari|Europe|4||"39° 15' 00"" N"|"09° 03' 00"" E"|||881|ALF|21.7|30.8|14.3|427.5|
-Palmas,_Tocantins|Palmas, Tocantins|South America|230||"10° 11' 04"" S"|"48° 20' 01"" W"|||882|ALG|32.1|35.2|30.6|1301.2|
-Trinidad,_Bolivia|Trinidad, Bolivia|South America|130||"14° 49' 45"" S"|"64° 54' 5"" W"|||883|ALH|30.6|32.6|28.4|1913.9|
-Antofagasta|Antofagasta|South America|40||"23° 39' 00"" S"|"70° 24' 00"" W"|||884|ALI|19.6|23.3|16.5|3.4|
-La_Serena,_Chile|La Serena, Chile|South America|28||"29° 54' 00"" S"|"71° 15' 00"" W"|||885|ALJ|18.2|21.6|15.4|104.4|
-Copiapó|Copiapó|South America|391||"27° 21' 59"" S"|"70° 19' 59"" W"|||886|ALK|23.4|27.5|19.3|18.8|
-San_Juan,_Argentina|San Juan, Argentina|South America|640||"31° 32' 03"" S"|"68° 31' 34"" W"|||887|ALL|26.1|34.6|16.3|92.3|46.7
-San_Luis,_Argentina|San Luis, Argentina|South America|709||"33° 18' 00"" S"|"66° 20' 00"" W"|||888|ALM|24.2|31.1|16.8|603.2|
-Neuquén|Neuquén|South America|260||"38° 57' 09"" S"|"68° 03' 51"" W"|||889|ALN|22.3|31.4|12.9|186.3|
-Esquel|Esquel|South America|563||"42° 54' 00"" S"|"71° 19' 00"" W"|||890|ALO|14.2|21.2|6.3|504.2|-22.8
-Río_Gallegos,_Santa_Cruz|Río Gallegos, Santa Cruz|South America|20||"51° 38' 00"" S"|"69° 13' 00"" W"|||891|ALP|12.8|19.3|4.3|242.2|-20.2
-Puerto_Deseado|Puerto Deseado|South America|82||"47° 45' 00"" S"|"65° 55' 00"" W"|||892|ALQ|15.1|21.5|7.1|229.5|
-Comodoro_Rivadavia|Comodoro Rivadavia|South America|61||"45° 51' 53"" S"|"67° 28' 51"" W"|||893|ALR|18.3|25.6|10.5|238.7|
-Santa_Rosa,_La_Pampa|Santa Rosa, La Pampa|South America|175||"36° 37' 0"" S"|"64° 17' 0"" W"|||894|ALS|23|31.4|14.7|685.8|45.7
-Viedma,_Río_Negro|Viedma, Río Negro|South America|12||"40° 49' 39.00"" S"|"62° 58' 23"" W"|||895|ALT|21|30.4|12.4|380|43.7
-La_Rioja,_Argentina|La Rioja, Argentina|South America|515||"29° 24' 45"" S"|"66° 51' 15"" W"|||896|ALU|28|35|19.4|361.6|46.4
-Río_Grande,_Tierra_del_Fuego|Río Grande, Tierra del Fuego|South America|0||"53° 47' 00"" S"|"67° 42' 00"" W"|||897|ALV|10.2|16.2|2.9|330.9|-22.2
-Puerto_San_Julián|Puerto San Julián|South America|1||"49° 18' 00"" S"|"67° 43' 00"" W"|||898|ALW|14.8|21.6|6.3|251.5|
-El_Calafate|El Calafate|South America|205||"50° 20' 00"" S"|"072° 17' 00"" W"|||899|ALX|12.4|18.7|4.3|209.4|
-Gobernador_Gregores|Gobernador Gregores|South America|357||"48° 46' 0"" S"|"70° 15' 0"" W"|||900|ALY|14.1|20.8|5.1|185|-22.4
-Resistencia,_Chaco|Resistencia, Chaco|South America|20||"27° 27' 05"" S"|"58° 59' 12"" W"|||901|ALZ|27|33.5|20.4|1556.7|43.5
-Freiburg|Freiburg|South America|278|Germany|"47° 59' 0"" N"|"7° 51' 0"" E"|||902|AMA|15.9|26|5.5|861.7|
-Rio_Grande,_Rio_Grande_do_Sul|Rio Grande, Rio Grande do Sul|South America|6||"32° 02' 06"" S"|"52° 05' 55"" W"|||903|AMB|21.7|27|16.2|1233.6|
-Macapá|Macapá|South America|12||"0° 2?2' 00"" N"|"51° 3?59' 00"" W"|||904|AMC|30.7|32.6|29.2|2561.2|
-El_Alto|El Alto|South America|4150||"16° 31' 00"" S"|"68° 10' 00"" W"|||905|AMD|14.2|16.4|12.6|572|
-Juliaca|Juliaca|South America|3825||"15° 29' 26.6"" S"|"70° 07' 37.5"" W"|||906|AME|17.1|18.8|16|609.4|
-San_Salvador_de_Jujuy|San Salvador de Jujuy|South America|1259||"24° 11' 00"" S"|"65° 18' 00"" W"|||907|AMF|25.7|30.3|19.2|777.7|
-Campos_do_Jordão|Campos do Jordão|South America|1628||"22° 44' 22"" S"|"45° 35' 29"" W"|||908|AMG|20.8|23.1|17.9|1852.3|
-Brian_Head,_Utah|Brian Head, Utah|North America|2987||"37° 41' 56"" N"|"112° 50' 41"" W"|||909|AMH|8.7|21.3|-1.9|853.3|
-Mammoth_Lakes,_California|Mammoth Lakes, California|North America|2402||"37° 38' 55"" N"|"118° 58' 19"" W"|||910|AMI|13.5|25.4|4.5|583.3|
-Cooke_City-Silver_Gate,_Montana|Cooke City-Silver Gate, Montana|North America|3048||"45° 1?3' 00"" N"|"109° 56?19' 00"" W"|||911|AMJ|8.5|23.3|-4.7|656.5|
-Flagstaff,_Arizona|Flagstaff, Arizona|North America|2106||"35° 11' 57"" N"|"111° 37' 52"" W"|||912|AMK|16|27.3|5.8|555.3|
-Mount_Charleston,_Nevada|Mount Charleston, Nevada|North America|2289||"36° 15' 29"" N"|"115° 38' 6"" W"|||913|AML|15.4|26.3|6.3|586.1|
-Banff,_Alberta|Banff, Alberta|North America|1400||"51° 10' 41"" N"|"115° 34' 19"" W"|||914|AMM|9.1|21.6|-5.2|470|-51.2
-Cape_Agulhas|Cape Agulhas|Africa|2||"34° 50' 00"" S"|"20° 00' 09.15"" E"|||915|AMN|19.8|23.3|16.1|444.4|
-East_London,_Eastern_Cape|East London, Eastern Cape|Africa|60||"32° 59' 00"" S"|"27° 52' 00"" E"|||916|AMO|22.9|25.7|20.9|921|
-Port_Shepstone|Port Shepstone|Africa|2||"30° 45' 00"" S"|"30° 27' 00"" E"|||917|AMP|23.2|26|21|1106|
-George,_Western_Cape|George, Western Cape|Africa|20||"33° 58' 00"" S"|"22° 27' 00"" E"|||918|AMQ|21.5|25|19|715|
-Port_Lincoln|Port Lincoln|Australia & New Zealand|11|Australia|"34° 43' 56"" S"|"135° 51' 31"" E"|||919|AMR|21.1|26|16.1|385|46.1
-Coffs_Harbour|Coffs Harbour|Australia & New Zealand|21|Australia|"30° 18' 08"" S"|"153° 07' 08"" E"|||920|AMS|23.3|26.9|18.7|1706.7|43.3
-Mildura|Mildura|Australia & New Zealand|51|Australia|"34° 11' 0"" S"|"142° 09' 0"" E"|||921|AMT|23.7|32.2|15.3|282.1|48.4
-Birdsville|Birdsville|Australia & New Zealand|47|Australia|"25° 53' 56"" S"|"139° 21' 06"" E"|||922|AMU|30.5|38.8|20.8|166.4|49.5
-Port_Augusta|Port Augusta|Australia & New Zealand|17|Australia|"32° 29' 00"" S"|"137° 46' 00"" E"|||923|AMV|24.7|32|16.9|256|47.7
-Longreach,_Queensland|Longreach, Queensland|Australia & New Zealand|191|Australia|"23° 27' 0"" S"|"144° 15' 0"" E"|||924|AMW|31.4|37|24|445|
-Port_Macquarie|Port Macquarie|Australia & New Zealand|5|Australia|"31° 26' 00"" S"|"152° 54' 00"" E"|||925|AMX|23.6|27.6|18.6|1441.9|43.3
-Wollongong|Wollongong|Australia & New Zealand|5|Australia|"34° 25' 59"" S"|"150° 52' 59"" E"|||926|AMY|21.8|25.6|17|1320|44.1
-Bega,_New_South_Wales|Bega, New South Wales|Australia & New Zealand|50|Australia|"36° 40' 00"" S"|"149° 50' 00"" E"|||927|AMZ|22.3|27|16.7|859.3|44.5
-Warrnambool|Warrnambool|Australia & New Zealand|22|Australia|"38° 23' 0"" S"|"142° 29' 0"" E"|||928|ANA|17.9|22.3|13.3|740|44.4
-Mount_Gambier,_South_Australia|Mount Gambier, South Australia|Australia & New Zealand|20|Australia|"37° 49' 46"" S"|"140° 46' 58"" E"|||929|ANB|19|25.3|13.2|711.7|44.9
-Wagga_Wagga|Wagga Wagga|Australia & New Zealand|147|Australia|"35° 7?8' 00"" S"|"147° 22?8' 00"" E"|||930|ANC|22.1|31.6|12.7|573.4|45.2
-Dubbo|Dubbo|Australia & New Zealand|275|Australia|"32° 15' 25"" S"|"148° 36' 4"" E"|||931|AND|24.5|33|15.2|583.9|45.2
-Invercargill|Invercargill|Australia & New Zealand|10|New Zealand|"46° 24' 47"" S"|"168° 20' 51"" E"|||932|ANE|14.4|18.7|9.5|1149.2|
-Greymouth|Greymouth|Australia & New Zealand|5|New Zealand|"42° 28' 00"" S"|"171° 12' 00"" E"|||933|ANF|16.3|20.5|12.1|2478.5|
-Nelson,_New_Zealand|Nelson, New Zealand|Australia & New Zealand|5|New Zealand|"41° 16' 15"" S"|"173° 17' 2"" E"|||934|ANG|17.5|22.6|12.5|960.1|
-Lord_Howe_Island|Lord Howe Island|Australia & New Zealand|20|Australia|"31° 33' 00"" S"|"159° 05' 00"" E"|||935|ANH|22.1|25.7|18.9|1501.2|
-Norfolk_Island|Norfolk Island|Pacific|20|Australia|"29° 02' 00"" S"|"167° 57' 00"" E"|||936|ANI|21.5|24.9|18.3|1291.4|
-Napier,_New_Zealand|Napier, New Zealand|Australia & New Zealand|2|New Zealand|"39° 29' 00"" S"|"176° 55' 00"" E"|||937|ANJ|19.5|24.5|14.1|784.8|
-Kaitaia|Kaitaia|Australia & New Zealand|82|New Zealand|"35° 6' 45"" S"|"173° 15' 46"" E"|||938|ANK|19.6|24.5|15.6|1337|
-Auckland_Islands|Auckland Islands|Australia & New Zealand|20|New Zealand|"50° 42' 00"" S"|"166° 06' 00"" E"|||939|ANL|11.2|14.8|7.8|1501|
-Queenstown,_New_Zealand|Queenstown, New Zealand|Australia & New Zealand|357|New Zealand|"45° 01' 52"" S"|"168° 39' 45"" E"|||940|ANM|15|21.8|7.8|748.8|
-Chatham_Islands|Chatham Islands|Pacific|20||"44° 02' 00"" S"|"176° 26' 00"" W"|||941|ANN|14.1|18.2|10.5|911.5|
-Bear_Island_(Norway)|Bear Island (Norway)|Europe|25||"74° 31' 00"" N"|"19° 01' 00"" E"|||942|ANO|-0.1|6.6|-5|371|
-Raoul_Island|Raoul Island|Pacific|15||"29° 16' 00"" S"|"177° 55' 00"" W"|||943|ANP|22.1|25.7|19|1558|
-Midway_Atoll|Midway Atoll|Pacific|3||"28° 12' 00"" N"|"177° 21' 00"" W"|||944|ANQ|24.8|28.9|21.1|1049.02|
-South_Georgia_and_the_South_Sandwich_Islands|South Georgia and the South Sandwich Islands|South America|10||"54° 17' 00"" S"|"36° 30' 00"" W"|||945|ANR|5.1|9.1|0.9|1404|
-Jamestown,_Saint_Helena|Jamestown, Saint Helena|Africa|10||"15° 55' 28"" S"|"5° 43' 5"" W"|||946|ANS|24.3|28|22|113|
-Ascension_Island|Ascension Island|Africa|15||"7° 56' 00"" S"|"14° 25' 00"" W"|||947|ANT|29.5|31|28|142|
-Praia|Praia|Africa|6||"14° 55' 05"" N"|"23° 30' 32"" W"|||948|ANU|27.2|29.4|25|209.6|
-Prince_Edward_Islands|Prince Edward Islands|Africa|35||"46° 46' 23"" S"|"037° 51' 09"" E"|||949|ANV|8.5|10.9|6.3|2392|
-Tôlanaro|Tôlanaro|Africa|6||"25° 02' 00"" S"|"46° 59' 00"" E"|||950|ANW|27.1|30.1|23.9|1678.9|
-Toliara|Toliara|Africa|23||"23° 21' 00"" S"|"43° 40' 00"" E"|||951|ANX|29.8|32|27|420|
-Moroni,_Comoros|Moroni, Comoros|Africa|29||"11° 41' 56"" S"|"43° 15' 22"" E"|||952|ANY|29.5|30.8|27.7|2700|
-Mbeya|Mbeya|Africa|1700||"08° 54' 00"" S"|"33° 27' 00"" E"|||953|ANZ|23.5|27|21|857|
-Balkhash_(city)|Balkhash (city)|Russia & Central Asia|440||"46° 50' 53"" N"|"74° 59' 42"" E"|||954|AOA|11.7|29.6|-8.7|138|-41.2
-Karaganda|Karaganda|Russia & Central Asia|546||"49° 50' 0"" N"|"73° 10' 0"" E"|||955|AOB|9.6|26.8|-8.7|352|-42.9
-Pavlodar|Pavlodar|Russia & Central Asia|123||"52° 18' 00"" N"|"76° 57' 00"" E"|||956|AOC|9.4|28|-10.8|303|-45
-Aktau|Aktau|Russia & Central Asia|-8||"43° 39' 00"" N"|"51° 09' 00"" E"|||957|AOD|14.9|29|1|180|
-Nukus|Nukus|Russia & Central Asia|76||"42° 28' 00"" N"|"59° 36' 00"" E"|||958|AOE|18.6|36|-0.3|110.9|
-Kostanay|Kostanay|Russia & Central Asia|183|Kazakhstan|"53° 12' 00"" N"|"63° 37' 00"" E"|||959|AOF|7.3|27|-13|347|
-Altay_City|Altay City|North-East Asia|887|China|"47° 52' 00"" N"|"88° 07' 00"" E"|||960|AOG|10.7|28.2|-9.4|191.3|
-Darkhan_(city)|Darkhan (city)|North-East Asia|665|Mongolia|"49° 28' 08"" N"|"105° 57' 27"" E"|||961|AOH|6.3|25.6|-18.7|309|
-Choibalsan_(city)|Choibalsan (city)|North-East Asia|747|Mongolia|"48° 04' 42"" N"|"114° 32' 06"" E"|||962|AOI|7.6|26.6|-14.4|207.6|-41.6
-Ulaanbaatar|Ulaanbaatar|North-East Asia|1350|Mongolia|"47° 55' 00"" N"|"106° 55' 00"" E"|||963|AOJ|6.4|24.5|-15.6|267|-42.2
-Mörön|Mörön|North-East Asia|1710|Mongolia|"49° 38' 08"" N"|"100° 09' 20"" E"|||964|AOK|6.8|23.4|-14.5|207.8|-45.8
-Khovd_(city)|Khovd (city)|North-East Asia|1395|Mongolia|"48° 00' 15"" N"|"91° 38' 26"" E"|||965|AOL|7.1|24.7|-16.3|122.8|-46.6
-Delhi,_Qinghai|Delhi, Qinghai|North-East Asia|2982||"37° 23' 00"" N"|"97° 23' 00"" E"|||966|AOM|10.9|23|-3|152|
-Kathmandu|Kathmandu|South Asia|1400||"27° 42' 00"" N"|"85° 20' 00"" E"|||967|AON|25.6|29.1|19.1|1454.9|
-Shimla|Shimla|South Asia|2205||"31° 6' 12"" N"|"77° 10' 20"" E"|||968|AOO|17.7|24.1|8.9|1412.1|
-Baguio|Baguio|North-East Asia|1540||"16° 25' 00"" N"|"120° 36' 00"" E"|||969|AOP|23.5|25.1|22|3562.9|
-Wakkanai,_Hokkaido|Wakkanai, Hokkaido|North-East Asia|8||"45° 24' 56.4"" N"|"141° 40' 23"" E"|||970|AOQ|9.4|22.3|-2.7|1062.8|
-Niigata,_Niigata|Niigata, Niigata|North-East Asia|7||"37° 54' 58"" N"|"139° 2' 11"" E"|||971|AOR|17.6|30.6|5.5|1821|
-Naha|Naha|North-East Asia|10||"26° 12' 44"" N"|"127° 40' 45"" E"|||972|AOS|25.7|31.8|19.5|2036.6|
-Port_Townsend,_Washington|Port Townsend, Washington|North America|40|United States of America|"48° 6' 59"" N"|"122° 46' 31"" W"|||973|AOT|14.3|21.9|6.9|476.25|
-Long_Beach,_Washington|Long Beach, Washington|North America|3|United States of America|"46° 21' 3"" N"|"124° 3' 13"" W"|||974|AOU|14|18.9|8.9|2005.08|
-Kennewick,_Washington|Kennewick, Washington|North America|124|United States of America|"46° 12' 13"" N"|"119° 9' 33"" W"|||975|AOV|18.5|31.8|4.7|197.1|43.3
-Eureka,_California|Eureka, California|North America|12|United States of America|"40° 48' 07"" N"|"124° 09' 49"" W"|||976|AOW|15.3|17.9|12.8|1022.1|
-Coos_Bay,_Oregon|Coos Bay, Oregon|North America|7|United States of America|"43° 22' 35"" N"|"124° 14' 14"" W"|||977|AOX|15.6|20|11.7|1636.53|
-Monterey,_California|Monterey, California|North America|8|United States of America|"36° 36' 00"" N"|"121° 54' 00"" W"|||978|AOY|18.3|21.9|15.5|501.14|
-San_Luis_Obispo,_California|San Luis Obispo, California|North America|71|United States of America|"35° 16' 27"" N"|"120° 39' 47"" W"|||979|AOZ|20.5|24.9|16.2|587.25|
-La_Paz,_Baja_California_Sur|La Paz, Baja California Sur|North America|27|Mexico|"24° 08' 32"" N"|"110° 18' 39"" W"|||980|APA|30.7|36.6|23.6|169.2|43.5
-San_José_del_Cabo|San José del Cabo|North America|45|Mexico|"23° 03' 41"" N"|"109° 42' 29"" W"|||981|APB|30.2|33.9|25.8|288|49
-Guadalupe_Island|Guadalupe Island|North America|23|Mexico|"29° 1' 51"" N"|"118° 16' 48"" W"|||982|APC|21.4|24.2|18.9|108.5|
-Yakima,_Washington|Yakima, Washington|North America|325|United States of America|"46° 36' 00"" N"|"120° 30' 00"" W"|||983|APD|17.3|31.1|2.1|208.7|43.3
-Tofino|Tofino|North America|10|Canada|"49° 08' 38"" N"|"125° 53' 30"" W"|||984|APE|13.2|19.1|8.1|3271|
-Prince_Rupert,_British_Columbia|Prince Rupert, British Columbia|North America|40|Canada|"54° 18' 44"" N"|"130° 19' 38"" W"|||985|APF|10.7|17|5.5|2619.1|-24.4
-Astoria,_Oregon|Astoria, Oregon|North America|7|United States of America|"46° 11' 20"" N"|"123° 49' 16"" W"|||986|APG|14.8|20.4|9.3|1707.89|
-Seaside,_Oregon|Seaside, Oregon|North America|5.2|United States of America|"45° 59' 34"" N"|"123° 55' 20"" W"|||987|APH|15.2|19.8|10.6|1889.3|
-Cork_(city)|Cork (city)|Europe|120||"51° 53' 50"" N"|"8° 28' 12"" W"|||988|API|12.9|18.7|8.2|1228|
-Inverness|Inverness|Europe|37|United Kingdom of Great Britain and Northern Ireland|"57° 28' 18"" N"|"4° 13' 31"" W"|||989|APJ|12.4|18.9|6.9|732.8|
-Trondheim|Trondheim|Europe|10|Norway|"63° 25' 47"" N"|"10° 23' 36"" E"|||990|APK|9.5|19.7|1.3|836|
-Aberdeen|Aberdeen|Europe|10|United Kingdom of Great Britain and Northern Ireland|"57° 09' 09"" N"|"2° 06' 36"" W"|||991|APL|11.9|18.5|6.5|815|
-Aberdeen,_Washington|Aberdeen, Washington|North America|7|United States of America|"46° 58' 33"" N"|"123° 49' 7"" W"|||992|APM|14.6|21|7.7|2111.23|
-Stavanger|Stavanger|Europe|10|Norway|"58° 57' 48"" N"|"5° 43' 8"" E"|||993|APN|11.3|19|3|1180|
-Akureyri|Akureyri|Europe|2||"65° 41' 00"" N"|"18° 06' 00"" W"|||994|APO|6.7|14.5|0.9|488.9|-23
-Uppsala|Uppsala|Europe|15||"59° 51' 29"" N"|"17° 38' 41"" E"|||995|APP|10.3|22.7|-0.3|575.7|-39.5
-Petrozavodsk|Petrozavodsk|Europe|46|Russian Federation|"61° 47' 00"" N"|"34° 20' 00"" E"|||996|APQ|6.7|21.5|-6.4|611|-41.6
-Tampere|Tampere|Europe|119||"61° 30' 00"" N"|"023° 46' 00"" E"|||997|APR|8.4|22.2|-3.5|598|-35.8
-Oulu|Oulu|Europe|15||"65° 01' 00"" N"|"025° 28' 00"" E"|||998|APS|6.4|20.9|-6|508|
-Rovaniemi|Rovaniemi|Europe|196||"66° 30' 00"" N"|"025° 44' 00"" E"|||999|APT|4.4|19.7|-8.2|576.9|-47.5
-Tallinn|Tallinn|Europe|9|Estonia|"59° 26' 14"" N"|"24° 44' 43"" E"|||1000|APU|9.4|21.8|-1.6|617|-31.1
-Umeå|Umeå|Europe|12||"63° 49' 30"" N"|"20° 15' 50"" E"|||1001|APV|7|20.7|-5.5|572|-38.2
-Syktyvkar|Syktyvkar|Russia & Central Asia|99|Russian Federation|"61° 40' 00"" N"|"50° 49' 00"" E"|||1002|APW|5.7|23.2|-10.8|621|-46.6
-Salekhard|Salekhard|Russia & Central Asia|66|Russian Federation|"66° 32' 00"" N"|"66° 36' 00"" E"|||1003|APX|-1.4|19.7|-18.8|454|-53.7
-Dikson_(urban-type_settlement)|Dikson (urban-type settlement)|Russia & Central Asia|14|Russian Federation|"73° 30' 00"" N"|"80° 31' 00"" E"|||1004|APY|-8.6|7.2|-22.5|358|-48.1
-Qaanaaq|Qaanaaq|Russia & Central Asia|16|Russian Federation|"77° 28' 00"" N"|"69° 13' 50"" W"|||1005|APZ|-7.8|7.4|-20.6|124|-58
-Resolute,_Nunavut|Resolute, Nunavut|North America|66||"74° 41' 51"" N"|"094° 49' 56"" W"|||1006|AQA|-12.7|7.3|-29|161.3|-52.2
-Ust-Olenyok|Ust-Olenyok|Russia & Central Asia|200|Russian Federation|"72° 59' 00"" N"|"119° 49' 00"" E"|||1007|AQB|-11.5|12.3|-30.6|223.4|-52
-Yuryung-Khaya|Yuryung-Khaya|Russia & Central Asia|8|Russian Federation|"72° 48' 43"" N"|"113° 13' 56"" E"|||1008|AQC|-12.2|6|-28|91|-46
-Upernavik|Upernavik|North America|126||"72° 47' 13"" N"|"56° 08' 50"" W"|||1009|AQD|-4.5|8|-16.4|251|
-Pond_Inlet|Pond Inlet|North America|55||"72° 41' 57"" N"|"077° 57' 33"" W"|||1010|AQE|-11.1|10.5|-30.2|189.1|-53.9
-Khatanga,_Russia|Khatanga, Russia|Russia & Central Asia|30|Russian Federation|"71° 58' 47"" N"|"102° 28' 22"" E"|||1011|AQF|-8.3|17.2|-27.7|283|-59
-Saskylakh|Saskylakh|Russia & Central Asia|9|Russian Federation|"71° 57' 55"" N"|"114° 05' 32"" E"|||1012|AQG|-10.6|16.1|-31.5|626.5|-59.9
-Chokurdakh|Chokurdakh|Russia & Central Asia|46|Russian Federation|"70° 38' 00"" N"|"147° 55' 00"" E"|||1013|AQH|-9.5|15.9|-30.4|203|-54.4
-Deadhorse,_Alaska|Deadhorse, Alaska|North America|15||"70° 12' 20"" N"|"148° 30' 42"" W"|||1014|AQI|-4.6|19.9|-24.2|102.1|
-Puerto_Williams|Puerto Williams|South America|26||"54° 56' 00"" S"|"67° 37' 00"" W"|||1015|AQJ|10|15.1|3.9|512.3|
-Caleta_Olivia|Caleta Olivia|South America|13||"46° 26' 00"" S"|"67° 32' 00"" W"|||1016|AQK|19.6|27|12|200.7|
+Bologna|Bologna|Europe|54|Italy|"44° 30' 27"" N"|"11° 21' 5"" E"||Humid subtropical climate|759|AGN|18.3|30.4|6|671.3|
+Venice|Venice|Europe|1|Italy|"45° 26' 15"" N"|"12° 20' 9"" E"||Humid subtropical climate|760|AGO|17.2|27.7|6.6|748.4|
+Trieste|Trieste|Europe|2|Italy|"45° 38' 00"" N"|"13° 48' 00"" E"||Humid subtropical climate|761|AGP|17.5|27.9|7.6|1003|
+Split,_Croatia|Split, Croatia|Europe|0|Croatia|"43° 30' 36"" N"|"16° 27' 00"" E"||Humid subtropical / hot summer Mediterranean climate|762|AGQ|19.4|29.8|10.3|815.6|
+Sochi|Sochi|Russia & Central Asia|40|Russian Federation|"43° 35' 07"" N"|"39° 43' 13"" E"||Humid subtropical climate|763|AGR|18.9|28.8|10.3|1703|
+Yalta|Yalta|Russia & Central Asia|40|Russian Federation|"44° 29' 58"" N"|"34° 10' 12"" E"||Humid subtropical / hot summer Mediterranean climate|764|AGS|16.8|28.4|7.1|612|
+Constanta|Constanta|Europe|25|Romania|"44° 10' 24"" N"|"28° 38' 18"" E"||Humid subtropical / oceanic climate|765|AGT|15.2|25.9|3.7|396|-25
+Batumi|Batumi|Russia & Central Asia|3|Georgia|"41° 38' 45"" N"|"41° 38' 30"" E"||Humid subtropical / oceanic climate|766|AGU|17.8|26|10|2718|
+Sinop,_Turkey|Sinop, Turkey|Europe||Turkey|"42° 02' 00"" N"|"35° 09' 00"" E"||Oceanic / humid subtropical climate|767|AGV|17.3|26.2|9.6|681.5|
+Plovdiv|Plovdiv|Europe|164|Bulgaria|"42° 9' 00"" N"|"24° 45' 00"" E"||Humid subtropical / humid continental (hot summer, wet all year) climate|768|AGW|18.5|30.6|5.4|502|-23
+In_Salah|In Salah|Africa|293|Algeria|"27° 11' 42"" N"|"2° 29' 0"" E"||Hot desert climate|769|AGX|34.8|46.4|22.3|15.7|
+Adrar,_Algeria|Adrar, Algeria|Africa|258|Algeria|"27° 52' 00"" N"|"0° 17' 00"" W"||Hot desert climate|770|AGY|34.1|46.3|20.6|14.6|
+Gran_Canaria|Gran Canaria|Africa|8|Spain|"27° 58' 00"" N"|"15° 36' 00"" W"||Hot desert / humid subtropical climate|771|AGZ|24.2|27.5|20.8|147|
+Ponta_Delgada|Ponta Delgada|Europe|2|Portugal|"37° 49' 28"" N"|"25° 44' 50"" W"||Oceanic / warm summer Mediterranean climate|772|AHA|20.1|25.3|16.6|985.6|
+Boa_Vista,_Roraima|Boa Vista, Roraima|South America|76|Brazil|"02° 49' 10"" N"|"60° 40' 17"" W"||Tropical savanna / tropical monsoon climate|773|AHB|32.4|33.7|30.3|1420.4|
+Paramaribo|Paramaribo|South America|3|Brazil|"5° 52' 00"" N"|"55° 10' 00"" W"||Tropical rainforest climate|774|AHC|31.1|33|30|2160|
+Georgetown,_Guyana|Georgetown, Guyana|South America|0|Guyana|"6° 48' 00"" N"|"58° 10' 00"" W"||Tropical rainforest climate|775|AHD|29.6|30.8|28.6|2260.3|
+Port_of_Spain|Port of Spain|North America|3|Trinidad and Tobago|"10° 40' 00"" N"|"61° 31' 00"" W"||Tropical savanna climate|776|AHE|31.1|33.1|28|1408|
+Nassau,_Bahamas|Nassau, Bahamas|North America|0|Bahamas|"25° 4' 00"" N"|"77° 20' 00"" W"||Tropical monsoon climate|777|AHF|28.8|32.1|25.4|1389.4|
+San_Juan,_Puerto_Rico|San Juan, Puerto Rico|North America|8|Puerto Rico|"18° 24' 23"" N"|"66° 3' 50"" W"||Tropical monsoon climate|778|AHG|30.3|31.8|28.4|1431.29|
+Porto_Velho|Porto Velho|South America|83|Brazil|"8° 45' 43"" S"|"63° 54' 14"" W"||Tropical monsoon climate|779|AHH|32.3|34.3|31.3|2255.1|
+Caracas|Caracas|South America|900|Venezuela|"10° 30' 00"" N"|"66° 55' 00"" W"||Tropical savanna climate|780|AHI|24.9|26|23.3|912.8|
+Panama_City|Panama City|North America|2|Panama|"8° 59' 00"" N"|"79° 31' 00"" W"||Tropical savanna climate|781|AHJ|33.8|35.4|32.6|1907.2|
+San_José,_Costa_Rica|San José, Costa Rica|North America|1172|Costa Rica|"9° 56' 00"" N"|"84° 5' 00"" W"||Tropical savanna climate|782|AHK|26.9|28.4|25.9|1971|
+Puerto_Baquerizo_Moreno|Puerto Baquerizo Moreno|South America|6|Ecuador|"00° 54' 09"" S"|"89° 36' 33"" W"||Hot semi-arid / tropical savanna climate|783|AHL|27.2|30|23.9|451.36|
+Juan_Fernández_Islands|Juan Fernández Islands|South America|50|Chile|"33° 38' 42"" S"|"78° 49' 23"" W"||Warm summer Mediterranean / oceanic climate|784|AHM|18.2|22.1|14.8|936|
+Hiva_Oa|Hiva Oa|Pacific|400|France|"9° 45' 00"" S"|"139° 00' 00"" W"||Tropical rainforest climate|785|AHN|29.6|31|28|1344|
+Kiribati|Kiribati|Pacific|1|Kiribati|"1° 28' 00"" N"|"173° 2' 00"" E"||Tropical rainforest climate|786|AHO|31.5|31.8|31.3|2020|
+Wake_Island|Wake Island|Pacific|7|United States of America|"19° 18' 00"" N"|"166° 38' 00"" E"||Tropical monsoon climate|787|AHP|29.7|31.2|27.8|906.4|
+Bonin_Islands|Bonin Islands|Pacific|6|Japan|"26° 59' 53"" N"|"142° 13' 05"" E"||Humid subtropical / tropical savanna climate|788|AHQ|25.4|30|20.1|1292.6|
+Saipan|Saipan|Pacific|8|United States of America|"15° 10' 51"" N"|"145° 45' 21"" E"||Tropical monsoon climate|789|AHR|28.2|29.4|26.5|2118.11|
+Palau|Palau|Pacific|3|Palau|"7° 30' 00"" N"|"134° 37' 00"" E"||Tropical rainforest climate|790|AHS|31|31.4|30.6|3758.3|
+Île_Amsterdam|Île Amsterdam|South-East Asia|50|France|"37° 49' 33"" S"|"77° 33' 17"" E"||Oceanic / warm summer Mediterranean climate|791|AHT|16.1|19.8|13.3|1119|
+Diego_Garcia|Diego Garcia|Africa|3|United Kingdom of Great Britain and Northern Ireland|"7° 18' 48"" S"|"72° 24' 40"" E"||Tropical monsoon climate|792|AHU|30.3|31|30|2213|
+Malé|Malé|Africa|2.4|Maldives|"04° 10' 31"" N"|"073° 30' 32"" E"||Tropical monsoon climate|793|AHV|30.4|31.5|29.9|1949.3|
+Socotra|Socotra|Africa|45|Yemen|"12° 30' 36"" N"|"53° 55' 12"" E"||Hot desert climate|794|AHW|31.1|34.2|27.2|258|
+Dallol,_Ethiopia|Dallol, Ethiopia|Africa|-130|Ethiopia|"14° 14' 20.03"" N"|"40° 17' 35.75"" E"||Hot desert climate|795|AHX|41.2|46.7|36.1|10|
+Al-Fashir|Al-Fashir|Africa|70|Sudan|"13° 37' 50"" N"|"25° 21' 0"" E"||Hot desert climate|796|AHY|34.7|38.9|29.8|212.5|
+Abéché|Abéché|Africa|542||"13° 49' 59"" N"|"20° 50' 05"" E"||Hot desert / hot semi-arid climate|797|AHZ|36.2|40.2|32|372.9|
+Juba|Juba|Africa|550||"4° 51' 00"" N"|"31° 36' 00"" E"||Tropical savanna climate|798|AIA|34.5|37.9|31.1|953.7|43.6
+Windhoek|Windhoek|Africa|1650|Namibia|"22° 34' 12"" S"|"17° 5' 1"" E"||Hot semi-arid climate|799|AIB|26.9|31.6|21|362.8|
+Walvis_Bay|Walvis Bay|Africa|91|Namibia|"22° 57' 22"" S"|"14° 30' 29"" E"||Cold desert climate|800|AIC|18.5|20.4|15.7|10|
+Sabha,_Libya|Sabha, Libya|Africa|420|Libya|"27° 02' 20"" N"|"14° 25' 35"" E"||Hot desert climate|801|AID|30.1|39|17|0.6|
+Al_Jawf,_Libya|Al Jawf, Libya|Africa|382|Libya|"24° 13' 00"" N"|"23° 18' 00"" E"||Hot desert climate|802|AIE|31.2|39|21|3|
+Wadi_Halfa|Wadi Halfa|Africa|183|Sudan|"21° 47' 00"" N"|"31° 22' 00"" E"||Hot desert climate|803|AIF|33.9|41.1|23.3|0.6|48.7
+Tazrouk|Tazrouk|Africa|1827|Algeria|"23° 25' 13"" N"|"6° 15' 56"" E"||Hot desert climate|804|AIG|26.4|33.7|16.4|55|
+Tindouf|Tindouf|Africa|400|Algeria|"27° 40' 31"" N"|"8° 07' 43"" W"||Hot desert climate|805|AIH|32.5|45.7|21.6|19.4|
+Dakhla,_Western_Sahara|Dakhla, Western Sahara||11|Western Sahara|"23° 43' 00"" N"|"15° 57' 00"" W"||Hot desert climate|806|AII|24.3|27|22|33|
+Tunis|Tunis|Africa|20|Tunisia|"36° 48' 00"" N"|"10° 11' 00"" E"||Hot summer Mediterranean climate|807|AIJ|24.8|34.4|16.2|465.5|46.8
+Tozeur|Tozeur|Africa|87||"33° 55' 00"" N"|"8° 8' 00"" E"||Hot desert climate|808|AIK|27.5|39.4|16.7|93|53
+Ouargla|Ouargla|Africa|219||"31° 57' 00"" N"|"5° 19' 00"" E"||Hot desert climate|809|AIL|32.3|45.9|18.5|45|
+Illizi|Illizi|Africa|567||"26° 30' 18"" N"|"8° 28' 56"" E"||Hot desert climate|810|AIM|33.2|42.4|20.4|10.2|
+Agadez|Agadez|Africa|520||"16° 58' 0"" N"|"7° 59' 0"" E"||Hot desert / hot semi-arid climate|811|AIN|35.9|41.3|27.9|111.4|
+Albany,_Western_Australia|Albany, Western Australia|Australia & New Zealand|71|Australia|"35° 01' 22"" S"|"117° 52' 53"" E"||Warm summer Mediterranean climate|812|AIO|19.5|22.9|15.7|929.6|44.8
+Wiluna,_Western_Australia|Wiluna, Western Australia|Australia & New Zealand|521|Australia|"26° 35' 42"" S"|"120° 13' 30"" E"||Hot desert / hot semi-arid climate|813|AIP|29.2|38|19.4|257.4|48
+Geraldton|Geraldton|Australia & New Zealand|37|Australia|"28° 46' 28"" S"|"114° 36' 32"" E"||Hot summer Mediterranean climate|814|AIQ|25.9|32.6|19.5|445.2|47.7
+Coober_Pedy|Coober Pedy|Australia & New Zealand|226|Australia|"29° 0' 40"" S"|"134° 45' 20"" E"||Hot desert climate|815|AIR|27.5|36.7|18.4|128.9|47.1
+Warburton,_Western_Australia|Warburton, Western Australia|Australia & New Zealand|459|Australia|"26° 08' 00"" S"|"126° 35' 00"" E"||Hot desert / hot semi-arid climate|816|AIS|29.7|38|20.7|246.8|47.7
+Toowoomba|Toowoomba|Australia & New Zealand|691|Australia|"27° 34' 00"" S"|"151° 57' 00"" E"||Subtropical highland / humid subtropical (dry winter, wet summer) climate|817|AIT|23.1|28.1|16.5|726.9|
+Canberra|Canberra|Australia & New Zealand|577|Australia|"35° 18' 27"" S"|"149° 07' 27.9"" E"||Oceanic / humid continental (hot summer, wet all year) climate|818|AIU|19.7|28|11.4|616.6|
+Mackay,_Queensland|Mackay, Queensland|Australia & New Zealand|11|Australia|"21° 08' 28"" S"|"149° 11' 10"" E"||Humid subtropical (dry winter, wet summer) / tropical savanna climate|819|AIV|27.1|30.6|22.5|1606.9|
+Townsville|Townsville|Australia & New Zealand|7|Australia|"19° 15' 23"" S"|"146° 49' 6"" E"||Tropical savanna / humid subtropical (dry winter, wet summer) climate|820|AIW|28.9|31.5|25.1|1151.4|44.3
+Denver|Denver|North America|1564|United States of America|"39° 45' 43"" N"|"104° 52' 52"" W"||Cold semi-arid climate|821|AIX|18.1|31.9|6|363.2|-34
+Cheyenne,_Wyoming|Cheyenne, Wyoming|North America|1848|United States of America|"41° 8' 44"" N"|"104° 48' 7"" W"||Cold semi-arid climate|822|AIY|14.7|28.6|3.4|404.7|
+Billings,_Montana|Billings, Montana|North America|952|United States of America|"45° 47' 12"" N"|"108° 32' 14"" W"||Cold semi-arid climate|823|AIZ|15.2|30.4|1.8|346.9|
+Lincoln,_Nebraska|Lincoln, Nebraska|North America|358|United States of America|"40° 48' 38"" N"|"96° 40' 49"" W"||Humid continental (hot summer, wet all year) climate|824|AJA|17.3|31.7|1.9|735.3|46.1
+Kansas_City,_Missouri|Kansas City, Missouri|North America|277|United States of America|"39° 05' 59"" N"|"94° 34' 42"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|825|AJB|18.8|32.3|4.2|992.1|45
+Midland,_Texas|Midland, Texas|North America|848|United States of America|"32° 0' 00"" N"|"102° 6' 00"" W"||Hot semi-arid climate|826|AJC|25.2|34.8|14.1|370.7|46.7
+Colorado_Springs,_Colorado|Colorado Springs, Colorado|North America|1839|United States of America|"38° 52' 02"" N"|"104° 45' 39"" W"||Cold semi-arid climate|827|AJD|16.7|29.3|5.6|419|
+Missoula,_Montana|Missoula, Montana|North America|978|United States of America|"46° 51' 45"" N"|"114° 0' 42"" W"||Cold semi-arid climate|828|AJE|14.5|29.9|-0.6|357.8|
+Boise,_Idaho|Boise, Idaho|North America|830|United States of America|"43° 37' 00"" N"|"116° 12' 00"" W"||Cold semi-arid climate|829|AJF|17.5|32.9|3.1|297.8|43.9
+Eugene,_Oregon|Eugene, Oregon|North America|131|United States of America|"44° 03' 07"" N"|"123° 05' 12"" W"||Warm summer Mediterranean climate|830|AJG|17.4|28.2|7.6|1171.5|
+Redding,_California|Redding, California|North America|172|United States of America|"40° 35' 00"" N"|"122° 22' 00"" W"||Hot summer Mediterranean climate|831|AJH|23.9|36.8|12.6|845.8|47.8
+Reno,_Nevada|Reno, Nevada|North America|1373|United States of America|"39° 31' 38"" N"|"119° 49' 19"" W"||Cold semi-arid climate|832|AJI|19.7|33.4|7.6|188|
+Medford,_Oregon|Medford, Oregon|North America|421|United States of America|"42° 19' 55"" N"|"122° 51' 43"" W"||Hot summer Mediterranean climate|833|AJJ|20|32.6|7.7|465.4|46.1
+St._Louis|St. Louis|North America|142|United States of America|"38° 37' 38"" N"|"90° 11' 52"" W"||Humid continental (hot summer, wet all year) climate|834|AJK|19|31.7|4.4|1040.3|46.1
+Birmingham,_Alabama|Birmingham, Alabama|North America|196|United States of America|"33° 39' 12"" N"|"86° 48' 32"" W"||Humid subtropical climate|835|AJL|23.2|32.7|12.1|1364.5|
+Jackson,_Mississippi|Jackson, Mississippi|North America|279|United States of America|"32° 17' 56"" N"|"90° 11' 05"" W"||Humid subtropical climate|836|AJM|24.2|33.1|13.4|1375.2|
+Shreveport,_Louisiana|Shreveport, Louisiana|North America|85|United States of America|"32° 30' 53"" N"|"93° 44' 50"" W"||Humid subtropical climate|837|AJN|24.8|34.5|14.1|1305.5|43.3
+Fayetteville,_Arkansas|Fayetteville, Arkansas|North America|427|United States of America|"36° 4' 35"" N"|"94° 9' 39"" W"||Humid subtropical climate|838|AJO|20.2|31.9|7.9|1084.5|43.9
+Atlanta|Atlanta|North America|250|United States of America|"33° 45' 18"" N"|"84° 23' 24"" W"||Humid subtropical climate|839|AJP|22.1|31.7|11.3|1262.6|-23
+Savannah,_Georgia|Savannah, Georgia|North America|15|United States of America|"32° 1' 00"" N"|"81° 7' 00"" W"||Humid subtropical climate|840|AJQ|25.2|33.6|15.8|1218.19|
+Charleston,_South_Carolina|Charleston, South Carolina|North America|6|United States of America|"32° 47' 00"" N"|"79° 56' 00"" W"||Humid subtropical climate|841|AJR|24.5|32.8|15|1296.14|
+Myrtle_Beach,_South_Carolina|Myrtle Beach, South Carolina|North America|8|United States of America|"33° 43' 00"" N"|"78° 53' 00"" W"||Humid subtropical climate|842|AJS|22.7|30.9|13.5|1225.54|
+Boone,_North_Carolina|Boone, North Carolina|North America|1016|United States of America|"36° 12' 41"" N"|"81° 40' 7"" W"||Subtropical highland / humid continental (mild summer, wet all year) climate|843|AJT|16.3|26.1|5.3|1339.61|
+Raleigh,_North_Carolina|Raleigh, North Carolina|North America|96|United States of America|"35° 46' 50"" N"|"78° 38' 20"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|844|AJU|22|32.3|10.5|1100.8|
+Charleston,_West_Virginia|Charleston, West Virginia|North America|190|United States of America|"38° 20' 50"" N"|"81° 38' 0"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|845|AJV|18.7|29.6|5.8|1117.4|
+Cincinnati|Cincinnati|North America|147|United States of America|"39° 6' 00"" N"|"84° 31' 00"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|846|AJW|17.7|29.8|3.7|1080|
+Louisville|Louisville|North America|142|United States of America|"38° 15' 00"" N"|"85° 46' 00"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|847|AJX|19.8|31.5|6.1|1140.9|
+Pittsburgh|Pittsburgh|North America|250|United States of America|"40° 26' 23"" N"|"79° 58' 35"" W"||Humid continental (hot summer, wet all year) / humid subtropical climate|848|AJY|15.9|28.1|2.1|970|-30
+Washington,_D.C.|Washington, D.C.|North America|30|United States of America|"38° 54' 17"" N"|"77° 00' 59"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|849|AJZ|19.3|31.3|6.3|1009.3|-26
+Richmond,_Virginia|Richmond, Virginia|North America|45.7|United States of America|"37° 32' 00"" N"|"77° 28' 00"" W"||Humid subtropical / humid continental (hot summer, wet all year) climate|850|AKA|20.9|32.1|8.6|1107.5|
+Syracuse,_New_York|Syracuse, New York|North America|116|United States of America|"43° 02' 49"" N"|"76° 08' 40"" W"||Humid continental (mild summer, wet all year) climate|851|AKB|14.2|27.6|-0.3|977.2|
+Atlantic_City,_New_Jersey|Atlantic City, New Jersey|North America|2|United States of America|"39° 22' 38"" N"|"74° 27' 04"" W"||Humid subtropical climate|852|AKC|16.4|27.4|5.4|1016.2|
+Manchester,_New_Hampshire|Manchester, New Hampshire|North America|64|United States of America|"42° 59' 27"" N"|"71° 27' 49"" W"||Humid continental (hot summer, wet all year) / humid continental (mild summer, wet all year) climate|853|AKD|14.8|28|0.6|1132.4|
+Portland,_Maine|Portland, Maine|North America|19|United States of America|"43° 40' 00"" N"|"70° 16' 00"" W"||Humid continental (mild summer, wet all year) climate|854|AKE|13.2|26|-0.4|1200.3|
+Presque_Isle,_Maine|Presque Isle, Maine|North America|139|United States of America|"46° 40' 46"" N"|"68° 0' 8"" W"||Humid continental (mild summer, wet all year) climate|855|AKF|10.1|25.1|-6.3|895.9|
+Rochester,_New_York|Rochester, New York|North America|154|United States of America|"43° 9' 56"" N"|"77° 36' 41"" W"||Humid continental (mild summer, wet all year) climate|856|AKG|13.9|27.2|-0.2|870.4|
+Burlington,_Vermont|Burlington, Vermont|North America|61|United States of America|"44° 28' 33"" N"|"073° 12' 43"" W"||Humid continental (mild summer, wet all year) climate|857|AKH|12.9|27.2|-2.7|935.2|
+Grand_Rapids,_Michigan|Grand Rapids, Michigan|North America|200|United States of America|"42° 57' 40.5"" N"|"85° 39' 20.59"" W"||Humid continental (hot summer, wet all year) climate|858|AKI|14.4|28.2|-0.7|972.2|
+Green_Bay,_Wisconsin|Green Bay, Wisconsin|North America|177|United States of America|"44° 30' 48"" N"|"88° 0' 57"" W"||Humid continental (mild summer, wet all year) climate|859|AKJ|11.9|26.6|-4.3|749.9|
+Fargo,_North_Dakota|Fargo, North Dakota|North America|274|United States of America|"46° 52' 38"" N"|"96° 47' 22"" W"||Humid continental (mild summer, wet all year) climate|860|AKK|11.4|28.1|-7.6|573.6|45.6
+Glasgow,_Montana|Glasgow, Montana|North America|638|United States of America|"48° 11' 1"" N"|"106° 38' 7"" W"||Cold semi-arid climate|861|AKL|12.2|28.8|-6.7|285.2|45
+Churchill,_Manitoba|Churchill, Manitoba|North America|0||"58° 46' 09"" N"|"094° 10' 09"" W"||Subarctic (cool summer, wet all year) climate|862|AKM|-2.3|18|-21.9|452.6|44.2
+Wrigley,_Northwest_Territories|Wrigley, Northwest Territories|North America|149||"63° 13' 41"" N"|"123° 28' 12"" W"||Subarctic (cool summer, wet all year) climate|863|AKN|1.4|23.4|-21.1|332.7|-53.3
+Surgut|Surgut|Russia & Central Asia|61||"61° 15' 00"" N"|"73° 26' 00"" E"||Subarctic (cool summer, wet all year) climate|864|AKO|2.3|22.4|-16.3|580|-55.2
+Bratsk|Bratsk|Russia & Central Asia|487||"56° 07' 00"" N"|"101° 36' 00"" E"||Subarctic (cool summer, wet all year) climate|865|AKP|3.3|23.6|-17.1|362.9|-53.9
+Faro,_Portugal|Faro, Portugal|Europe|8||"37° 02' 00"" N"|"7° 55' 00"" W"||Hot summer Mediterranean climate|866|AKQ|22.2|29.2|16.1|508.8|44.3
+Murcia|Murcia|Europe|43||"37° 59' 10"" N"|"1° 7' 49"" W"||Hot semi-arid climate|867|AKR|24.9|34.2|16.6|295|47.2
+Salamanca|Salamanca|Europe|802||"40° 58' 00"" N"|"5° 40' 00"" W"||Warm summer Mediterranean climate|868|AKS|17.9|29.3|7.9|38.3|
+A_Coruña|A Coruña|Europe|22||"43° 21' 54"" N"|"8° 24' 36"" W"||Oceanic / warm summer Mediterranean climate|869|AKT|17.8|22.8|13.5|1014|
+Gijón|Gijón|Europe|3||"43° 32' 00"" N"|"5° 42' 00"" W"||Oceanic / warm summer Mediterranean climate|870|AKU|17.6|23.2|13.1|969|
+Bordeaux|Bordeaux|Europe|50||"44° 50' 00"" N"|"0° 35' 00"" W"||Oceanic climate|871|AKV|18.5|27.1|10.1|943|
+Nice|Nice|Europe|28||"43° 42' 12"" N"|"7° 15' 59"" E"||Hot summer Mediterranean / warm summer Mediterranean climate|872|AKW|19.6|27.7|13.1|733|
+Nantes|Nantes|Europe|26||"47° 13' 05"" N"|"1° 33' 10"" W"||Oceanic climate|873|AKX|16.7|25|9|819.5|
+Zurich|Zurich|Europe|408||"47° 22' 00"" N"|"8° 33' 00"" E"||Oceanic climate|874|AKY|13.5|24|2.9|1133|
+Chania|Chania|Europe|5||"35° 31' 00"" N"|"24° 1' 00"" E"||Hot summer Mediterranean climate|875|AKZ|22.1|30.3|14.4|652.5|
+Catania|Catania|Europe|7||"37° 30' 0"" N"|"15° 5' 25"" E"||Hot summer Mediterranean climate|876|ALA|23.6|32.6|16|547.2|45.3
+Tirana|Tirana|Europe|110||"41° 19' 48"" N"|"19° 49' 12"" E"||Hot summer Mediterranean climate|877|ALB|20.9|31|12|1353|
+Nicosia|Nicosia|Europe|220||"35° 10' 00"" N"|"033° 22' 00"" E"||Hot semi-arid / hot summer Mediterranean climate|878|ALC|26.2|37.2|15.5|342.2|
+Tel_Aviv|Tel Aviv|Middle East|5||"32° 4' 00"" N"|"34° 47' 00"" E"||Hot summer Mediterranean climate|879|ALD|24|30.2|17.5|527.6|43.5
+Palma,_Majorca|Palma, Majorca|Europe|13||"39° 34' 00"" N"|"2° 39' 00"" E"||Hot summer Mediterranean climate|880|ALE|21.8|29.8|15.4|450|
+Cagliari|Cagliari|Europe|4||"39° 15' 00"" N"|"09° 03' 00"" E"||Hot summer Mediterranean climate|881|ALF|21.7|30.8|14.3|427.5|
+Palmas,_Tocantins|Palmas, Tocantins|South America|230||"10° 11' 04"" S"|"48° 20' 01"" W"||Tropical savanna climate|882|ALG|32.1|35.2|30.6|1301.2|
+Trinidad,_Bolivia|Trinidad, Bolivia|South America|130||"14° 49' 45"" S"|"64° 54' 5"" W"||Tropical monsoon climate|883|ALH|30.6|32.6|28.4|1913.9|
+Antofagasta|Antofagasta|South America|40||"23° 39' 00"" S"|"70° 24' 00"" W"||Cold desert climate|884|ALI|19.6|23.3|16.5|3.4|
+La_Serena,_Chile|La Serena, Chile|South America|28||"29° 54' 00"" S"|"71° 15' 00"" W"||Cold desert climate|885|ALJ|18.2|21.6|15.4|104.4|
+Copiapó|Copiapó|South America|391||"27° 21' 59"" S"|"70° 19' 59"" W"||Cold desert climate|886|ALK|23.4|27.5|19.3|18.8|
+San_Juan,_Argentina|San Juan, Argentina|South America|640||"31° 32' 03"" S"|"68° 31' 34"" W"||Cold desert climate|887|ALL|26.1|34.6|16.3|92.3|46.7
+San_Luis,_Argentina|San Luis, Argentina|South America|709||"33° 18' 00"" S"|"66° 20' 00"" W"||Humid subtropical (dry winter, wet summer) climate|888|ALM|24.2|31.1|16.8|603.2|
+Neuquén|Neuquén|South America|260||"38° 57' 09"" S"|"68° 03' 51"" W"||Cold desert / cold semi-arid climate|889|ALN|22.3|31.4|12.9|186.3|
+Esquel|Esquel|South America|563||"42° 54' 00"" S"|"71° 19' 00"" W"||Warm summer Mediterranean climate|890|ALO|14.2|21.2|6.3|504.2|-22.8
+Río_Gallegos,_Santa_Cruz|Río Gallegos, Santa Cruz|South America|20||"51° 38' 00"" S"|"69° 13' 00"" W"||Cold semi-arid climate|891|ALP|12.8|19.3|4.3|242.2|-20.2
+Puerto_Deseado|Puerto Deseado|South America|82||"47° 45' 00"" S"|"65° 55' 00"" W"||Cold semi-arid climate|892|ALQ|15.1|21.5|7.1|229.5|
+Comodoro_Rivadavia|Comodoro Rivadavia|South America|61||"45° 51' 53"" S"|"67° 28' 51"" W"||Cold semi-arid climate|893|ALR|18.3|25.6|10.5|238.7|
+Santa_Rosa,_La_Pampa|Santa Rosa, La Pampa|South America|175||"36° 37' 0"" S"|"64° 17' 0"" W"||Humid subtropical (dry winter, wet summer) climate|894|ALS|23|31.4|14.7|685.8|45.7
+Viedma,_Río_Negro|Viedma, Río Negro|South America|12||"40° 49' 39.00"" S"|"62° 58' 23"" W"||Cold semi-arid climate|895|ALT|21|30.4|12.4|380|43.7
+La_Rioja,_Argentina|La Rioja, Argentina|South America|515||"29° 24' 45"" S"|"66° 51' 15"" W"||Hot semi-arid climate|896|ALU|28|35|19.4|361.6|46.4
+Río_Grande,_Tierra_del_Fuego|Río Grande, Tierra del Fuego|South America|0||"53° 47' 00"" S"|"67° 42' 00"" W"||Subpolar oceanic / oceanic climate|897|ALV|10.2|16.2|2.9|330.9|-22.2
+Puerto_San_Julián|Puerto San Julián|South America|1||"49° 18' 00"" S"|"67° 43' 00"" W"||Cold semi-arid / oceanic climate|898|ALW|14.8|21.6|6.3|251.5|
+El_Calafate|El Calafate|South America|205||"50° 20' 00"" S"|"072° 17' 00"" W"||Cold semi-arid / oceanic climate|899|ALX|12.4|18.7|4.3|209.4|
+Gobernador_Gregores|Gobernador Gregores|South America|357||"48° 46' 0"" S"|"70° 15' 0"" W"||Cold semi-arid climate|900|ALY|14.1|20.8|5.1|185|-22.4
+Resistencia,_Chaco|Resistencia, Chaco|South America|20||"27° 27' 05"" S"|"58° 59' 12"" W"||Humid subtropical climate|901|ALZ|27|33.5|20.4|1556.7|43.5
+Freiburg|Freiburg|South America|278|Germany|"47° 59' 0"" N"|"7° 51' 0"" E"||Oceanic / humid continental (mild summer, wet all year) climate|902|AMA|15.9|26|5.5|861.7|
+Rio_Grande,_Rio_Grande_do_Sul|Rio Grande, Rio Grande do Sul|South America|6||"32° 02' 06"" S"|"52° 05' 55"" W"||Humid subtropical / oceanic climate|903|AMB|21.7|27|16.2|1233.6|
+Macapá|Macapá|South America|12||"0° 2?2' 00"" N"|"51° 3?59' 00"" W"||Tropical monsoon climate|904|AMC|30.7|32.6|29.2|2561.2|
+El_Alto|El Alto|South America|4150||"16° 31' 00"" S"|"68° 10' 00"" W"||Subtropical highland / tundra climate|905|AMD|14.2|16.4|12.6|572|
+Juliaca|Juliaca|South America|3825||"15° 29' 26.6"" S"|"70° 07' 37.5"" W"||Subtropical highland / tundra climate|906|AME|17.1|18.8|16|609.4|
+San_Salvador_de_Jujuy|San Salvador de Jujuy|South America|1259||"24° 11' 00"" S"|"65° 18' 00"" W"||Humid subtropical (dry winter, wet summer) climate|907|AMF|25.7|30.3|19.2|777.7|
+Campos_do_Jordão|Campos do Jordão|South America|1628||"22° 44' 22"" S"|"45° 35' 29"" W"||Subtropical highland climate|908|AMG|20.8|23.1|17.9|1852.3|
+Brian_Head,_Utah|Brian Head, Utah|North America|2987||"37° 41' 56"" N"|"112° 50' 41"" W"||Humid continental (mild summer, wet all year) climate|909|AMH|8.7|21.3|-1.9|853.3|
+Mammoth_Lakes,_California|Mammoth Lakes, California|North America|2402||"37° 38' 55"" N"|"118° 58' 19"" W"||Continental Mediterranean / humid continental (mild summer, wet all year) climate|910|AMI|13.5|25.4|4.5|583.3|
+Cooke_City-Silver_Gate,_Montana|Cooke City-Silver Gate, Montana|North America|3048||"45° 1?3' 00"" N"|"109° 56?19' 00"" W"||Humid continental (mild summer, wet all year) climate|911|AMJ|8.5|23.3|-4.7|656.5|
+Flagstaff,_Arizona|Flagstaff, Arizona|North America|2106||"35° 11' 57"" N"|"111° 37' 52"" W"||Continental Mediterranean / warm summer Mediterranean climate|912|AMK|16|27.3|5.8|555.3|
+Mount_Charleston,_Nevada|Mount Charleston, Nevada|North America|2289||"36° 15' 29"" N"|"115° 38' 6"" W"||Warm summer Mediterranean / continental Mediterranean climate|913|AML|15.4|26.3|6.3|586.1|
+Banff,_Alberta|Banff, Alberta|North America|1400||"51° 10' 41"" N"|"115° 34' 19"" W"||Subarctic (cool summer, wet all year) / humid continental (mild summer, wet all year) climate|914|AMM|9.1|21.6|-5.2|470|-51.2
+Cape_Agulhas|Cape Agulhas|Africa|2||"34° 50' 00"" S"|"20° 00' 09.15"" E"||Warm summer Mediterranean / cold semi-arid climate|915|AMN|19.8|23.3|16.1|444.4|
+East_London,_Eastern_Cape|East London, Eastern Cape|Africa|60||"32° 59' 00"" S"|"27° 52' 00"" E"||Humid subtropical / oceanic climate|916|AMO|22.9|25.7|20.9|921|
+Port_Shepstone|Port Shepstone|Africa|2||"30° 45' 00"" S"|"30° 27' 00"" E"||Humid subtropical / oceanic climate|917|AMP|23.2|26|21|1106|
+George,_Western_Cape|George, Western Cape|Africa|20||"33° 58' 00"" S"|"22° 27' 00"" E"||Oceanic / humid subtropical climate|918|AMQ|21.5|25|19|715|
+Port_Lincoln|Port Lincoln|Australia & New Zealand|11|Australia|"34° 43' 56"" S"|"135° 51' 31"" E"||Hot semi-arid / warm summer Mediterranean climate|919|AMR|21.1|26|16.1|385|46.1
+Coffs_Harbour|Coffs Harbour|Australia & New Zealand|21|Australia|"30° 18' 08"" S"|"153° 07' 08"" E"||Humid subtropical climate|920|AMS|23.3|26.9|18.7|1706.7|43.3
+Mildura|Mildura|Australia & New Zealand|51|Australia|"34° 11' 0"" S"|"142° 09' 0"" E"||Cold semi-arid climate|921|AMT|23.7|32.2|15.3|282.1|48.4
+Birdsville|Birdsville|Australia & New Zealand|47|Australia|"25° 53' 56"" S"|"139° 21' 06"" E"||Hot desert climate|922|AMU|30.5|38.8|20.8|166.4|49.5
+Port_Augusta|Port Augusta|Australia & New Zealand|17|Australia|"32° 29' 00"" S"|"137° 46' 00"" E"||Cold desert / cold semi-arid climate|923|AMV|24.7|32|16.9|256|47.7
+Longreach,_Queensland|Longreach, Queensland|Australia & New Zealand|191|Australia|"23° 27' 0"" S"|"144° 15' 0"" E"||Hot semi-arid climate|924|AMW|31.4|37|24|445|
+Port_Macquarie|Port Macquarie|Australia & New Zealand|5|Australia|"31° 26' 00"" S"|"152° 54' 00"" E"||Humid subtropical climate|925|AMX|23.6|27.6|18.6|1441.9|43.3
+Wollongong|Wollongong|Australia & New Zealand|5|Australia|"34° 25' 59"" S"|"150° 52' 59"" E"||Oceanic / humid subtropical climate|926|AMY|21.8|25.6|17|1320|44.1
+Bega,_New_South_Wales|Bega, New South Wales|Australia & New Zealand|50|Australia|"36° 40' 00"" S"|"149° 50' 00"" E"||Oceanic / humid subtropical climate|927|AMZ|22.3|27|16.7|859.3|44.5
+Warrnambool|Warrnambool|Australia & New Zealand|22|Australia|"38° 23' 0"" S"|"142° 29' 0"" E"||Oceanic / warm summer Mediterranean climate|928|ANA|17.9|22.3|13.3|740|44.4
+Mount_Gambier,_South_Australia|Mount Gambier, South Australia|Australia & New Zealand|20|Australia|"37° 49' 46"" S"|"140° 46' 58"" E"||Oceanic / warm summer Mediterranean climate|929|ANB|19|25.3|13.2|711.7|44.9
+Wagga_Wagga|Wagga Wagga|Australia & New Zealand|147|Australia|"35° 7?8' 00"" S"|"147° 22?8' 00"" E"||Oceanic climate|930|ANC|22.1|31.6|12.7|573.4|45.2
+Dubbo|Dubbo|Australia & New Zealand|275|Australia|"32° 15' 25"" S"|"148° 36' 4"" E"||Hot semi-arid climate|931|AND|24.5|33|15.2|583.9|45.2
+Invercargill|Invercargill|Australia & New Zealand|10|New Zealand|"46° 24' 47"" S"|"168° 20' 51"" E"||Oceanic climate|932|ANE|14.4|18.7|9.5|1149.2|
+Greymouth|Greymouth|Australia & New Zealand|5|New Zealand|"42° 28' 00"" S"|"171° 12' 00"" E"||Oceanic climate|933|ANF|16.3|20.5|12.1|2478.5|
+Nelson,_New_Zealand|Nelson, New Zealand|Australia & New Zealand|5|New Zealand|"41° 16' 15"" S"|"173° 17' 2"" E"||Oceanic climate|934|ANG|17.5|22.6|12.5|960.1|
+Lord_Howe_Island|Lord Howe Island|Australia & New Zealand|20|Australia|"31° 33' 00"" S"|"159° 05' 00"" E"||Humid subtropical climate|935|ANH|22.1|25.7|18.9|1501.2|
+Norfolk_Island|Norfolk Island|Pacific|20|Australia|"29° 02' 00"" S"|"167° 57' 00"" E"||Humid subtropical / oceanic climate|936|ANI|21.5|24.9|18.3|1291.4|
+Napier,_New_Zealand|Napier, New Zealand|Australia & New Zealand|2|New Zealand|"39° 29' 00"" S"|"176° 55' 00"" E"||Oceanic climate|937|ANJ|19.5|24.5|14.1|784.8|
+Kaitaia|Kaitaia|Australia & New Zealand|82|New Zealand|"35° 6' 45"" S"|"173° 15' 46"" E"||Oceanic climate|938|ANK|19.6|24.5|15.6|1337|
+Auckland_Islands|Auckland Islands|Australia & New Zealand|20|New Zealand|"50° 42' 00"" S"|"166° 06' 00"" E"||Subpolar oceanic / oceanic climate|939|ANL|11.2|14.8|7.8|1501|
+Queenstown,_New_Zealand|Queenstown, New Zealand|Australia & New Zealand|357|New Zealand|"45° 01' 52"" S"|"168° 39' 45"" E"||Oceanic climate|940|ANM|15|21.8|7.8|748.8|
+Chatham_Islands|Chatham Islands|Pacific|20||"44° 02' 00"" S"|"176° 26' 00"" W"||Oceanic climate|941|ANN|14.1|18.2|10.5|911.5|
+Bear_Island_(Norway)|Bear Island (Norway)|Europe|25||"74° 31' 00"" N"|"19° 01' 00"" E"||Subpolar oceanic / oceanic climate|942|ANO|-0.1|6.6|-5|371|
+Raoul_Island|Raoul Island|Pacific|15||"29° 16' 00"" S"|"177° 55' 00"" W"||Humid subtropical / oceanic climate|943|ANP|22.1|25.7|19|1558|
+Midway_Atoll|Midway Atoll|Pacific|3||"28° 12' 00"" N"|"177° 21' 00"" W"||Tropical monsoon climate|944|ANQ|24.8|28.9|21.1|1049.02|
+South_Georgia_and_the_South_Sandwich_Islands|South Georgia and the South Sandwich Islands|South America|10||"54° 17' 00"" S"|"36° 30' 00"" W"||Subpolar oceanic climate|945|ANR|5.1|9.1|0.9|1404|
+Jamestown,_Saint_Helena|Jamestown, Saint Helena|Africa|10||"15° 55' 28"" S"|"5° 43' 5"" W"||Hot desert / oceanic climate|946|ANS|24.3|28|22|113|
+Ascension_Island|Ascension Island|Africa|15||"7° 56' 00"" S"|"14° 25' 00"" W"||Hot desert / oceanic climate|947|ANT|29.5|31|28|142|
+Praia|Praia|Africa|6||"14° 55' 05"" N"|"23° 30' 32"" W"||Hot desert / tropical savanna climate|948|ANU|27.2|29.4|25|209.6|
+Prince_Edward_Islands|Prince Edward Islands|Africa|35||"46° 46' 23"" S"|"037° 51' 09"" E"||Tundra climate|949|ANV|8.5|10.9|6.3|2392|
+Tôlanaro|Tôlanaro|Africa|6||"25° 02' 00"" S"|"46° 59' 00"" E"||Tropical rainforest climate|950|ANW|27.1|30.1|23.9|1678.9|
+Toliara|Toliara|Africa|23||"23° 21' 00"" S"|"43° 40' 00"" E"||Hot semi-arid climate|951|ANX|29.8|32|27|420|
+Moroni,_Comoros|Moroni, Comoros|Africa|29||"11° 41' 56"" S"|"43° 15' 22"" E"||Tropical rainforest / tropical savanna climate|952|ANY|29.5|30.8|27.7|2700|
+Mbeya|Mbeya|Africa|1700||"08° 54' 00"" S"|"33° 27' 00"" E"||Subtropical highland climate|953|ANZ|23.5|27|21|857|
+Balkhash_(city)|Balkhash (city)|Russia & Central Asia|440||"46° 50' 53"" N"|"74° 59' 42"" E"||Cold semi-arid climate|954|AOA|11.7|29.6|-8.7|138|-41.2
+Karaganda|Karaganda|Russia & Central Asia|546||"49° 50' 0"" N"|"73° 10' 0"" E"||Humid continental (mild summer, wet all year) climate|955|AOB|9.6|26.8|-8.7|352|-42.9
+Pavlodar|Pavlodar|Russia & Central Asia|123||"52° 18' 00"" N"|"76° 57' 00"" E"||Humid continental (mild summer, wet all year) climate|956|AOC|9.4|28|-10.8|303|-45
+Aktau|Aktau|Russia & Central Asia|-8||"43° 39' 00"" N"|"51° 09' 00"" E"||Cold desert climate|957|AOD|14.9|29|1|180|
+Nukus|Nukus|Russia & Central Asia|76||"42° 28' 00"" N"|"59° 36' 00"" E"||Ice cap climate|958|AOE|18.6|36|-0.3|110.9|
+Kostanay|Kostanay|Russia & Central Asia|183|Kazakhstan|"53° 12' 00"" N"|"63° 37' 00"" E"||Humid continental (mild summer, wet all year) climate|959|AOF|7.3|27|-13|347|
+Altay_City|Altay City|North-East Asia|887|China|"47° 52' 00"" N"|"88° 07' 00"" E"||Cold semi-arid climate|960|AOG|10.7|28.2|-9.4|191.3|
+Darkhan_(city)|Darkhan (city)|North-East Asia|665|Mongolia|"49° 28' 08"" N"|"105° 57' 27"" E"||Humid continental (mild summer, dry winter) / subarctic (cool summer, dry winter) climate|961|AOH|6.3|25.6|-18.7|309|
+Choibalsan_(city)|Choibalsan (city)|North-East Asia|747|Mongolia|"48° 04' 42"" N"|"114° 32' 06"" E"||Cold semi-arid climate|962|AOI|7.6|26.6|-14.4|207.6|-41.6
+Ulaanbaatar|Ulaanbaatar|North-East Asia|1350|Mongolia|"47° 55' 00"" N"|"106° 55' 00"" E"||Humid continental (mild summer, wet all year) / subarctic (cool summer, dry winter) climate|963|AOJ|6.4|24.5|-15.6|267|-42.2
+Mörön|Mörön|North-East Asia|1710|Mongolia|"49° 38' 08"" N"|"100° 09' 20"" E"||Cold semi-arid climate|964|AOK|6.8|23.4|-14.5|207.8|-45.8
+Khovd_(city)|Khovd (city)|North-East Asia|1395|Mongolia|"48° 00' 15"" N"|"91° 38' 26"" E"||Cold desert climate|965|AOL|7.1|24.7|-16.3|122.8|-46.6
+Delhi,_Qinghai|Delhi, Qinghai|North-East Asia|2982||"37° 23' 00"" N"|"97° 23' 00"" E"||Cold desert climate|966|AOM|10.9|23|-3|152|
+Kathmandu|Kathmandu|South Asia|1400||"27° 42' 00"" N"|"85° 20' 00"" E"||Humid subtropical (dry winter, wet summer) climate|967|AON|25.6|29.1|19.1|1454.9|
+Shimla|Shimla|South Asia|2205||"31° 6' 12"" N"|"77° 10' 20"" E"||Subtropical highland climate|968|AOO|17.7|24.1|8.9|1412.1|
+Baguio|Baguio|North-East Asia|1540||"16° 25' 00"" N"|"120° 36' 00"" E"||Subtropical highland climate|969|AOP|23.5|25.1|22|3562.9|
+Wakkanai,_Hokkaido|Wakkanai, Hokkaido|North-East Asia|8||"45° 24' 56.4"" N"|"141° 40' 23"" E"||Humid continental (mild summer, wet all year) climate|970|AOQ|9.4|22.3|-2.7|1062.8|
+Niigata,_Niigata|Niigata, Niigata|North-East Asia|7||"37° 54' 58"" N"|"139° 2' 11"" E"||Humid subtropical climate|971|AOR|17.6|30.6|5.5|1821|
+Naha|Naha|North-East Asia|10||"26° 12' 44"" N"|"127° 40' 45"" E"||Humid subtropical climate|972|AOS|25.7|31.8|19.5|2036.6|
+Port_Townsend,_Washington|Port Townsend, Washington|North America|40|United States of America|"48° 6' 59"" N"|"122° 46' 31"" W"||Oceanic / warm summer Mediterranean climate|973|AOT|14.3|21.9|6.9|476.25|
+Long_Beach,_Washington|Long Beach, Washington|North America|3|United States of America|"46° 21' 3"" N"|"124° 3' 13"" W"||Warm summer Mediterranean / oceanic climate|974|AOU|14|18.9|8.9|2005.08|
+Kennewick,_Washington|Kennewick, Washington|North America|124|United States of America|"46° 12' 13"" N"|"119° 9' 33"" W"||Cold semi-arid climate|975|AOV|18.5|31.8|4.7|197.1|43.3
+Eureka,_California|Eureka, California|North America|12|United States of America|"40° 48' 07"" N"|"124° 09' 49"" W"||Warm summer Mediterranean climate|976|AOW|15.3|17.9|12.8|1022.1|
+Coos_Bay,_Oregon|Coos Bay, Oregon|North America|7|United States of America|"43° 22' 35"" N"|"124° 14' 14"" W"||Warm summer Mediterranean climate|977|AOX|15.6|20|11.7|1636.53|
+Monterey,_California|Monterey, California|North America|8|United States of America|"36° 36' 00"" N"|"121° 54' 00"" W"||Warm summer Mediterranean climate|978|AOY|18.3|21.9|15.5|501.14|
+San_Luis_Obispo,_California|San Luis Obispo, California|North America|71|United States of America|"35° 16' 27"" N"|"120° 39' 47"" W"||Warm summer Mediterranean climate|979|AOZ|20.5|24.9|16.2|587.25|
+La_Paz,_Baja_California_Sur|La Paz, Baja California Sur|North America|27|Mexico|"24° 08' 32"" N"|"110° 18' 39"" W"||Hot desert climate|980|APA|30.7|36.6|23.6|169.2|43.5
+San_José_del_Cabo|San José del Cabo|North America|45|Mexico|"23° 03' 41"" N"|"109° 42' 29"" W"||Hot desert climate|981|APB|30.2|33.9|25.8|288|49
+Guadalupe_Island|Guadalupe Island|North America|23|Mexico|"29° 1' 51"" N"|"118° 16' 48"" W"||Cold desert / oceanic climate|982|APC|21.4|24.2|18.9|108.5|
+Yakima,_Washington|Yakima, Washington|North America|325|United States of America|"46° 36' 00"" N"|"120° 30' 00"" W"||Cold semi-arid climate|983|APD|17.3|31.1|2.1|208.7|43.3
+Tofino|Tofino|North America|10|Canada|"49° 08' 38"" N"|"125° 53' 30"" W"||Oceanic climate|984|APE|13.2|19.1|8.1|3271|
+Prince_Rupert,_British_Columbia|Prince Rupert, British Columbia|North America|40|Canada|"54° 18' 44"" N"|"130° 19' 38"" W"||Oceanic climate|985|APF|10.7|17|5.5|2619.1|-24.4
+Astoria,_Oregon|Astoria, Oregon|North America|7|United States of America|"46° 11' 20"" N"|"123° 49' 16"" W"||Warm summer Mediterranean climate|986|APG|14.8|20.4|9.3|1707.89|
+Seaside,_Oregon|Seaside, Oregon|North America|5.2|United States of America|"45° 59' 34"" N"|"123° 55' 20"" W"||Warm summer Mediterranean / oceanic climate|987|APH|15.2|19.8|10.6|1889.3|
+Cork_(city)|Cork (city)|Europe|120||"51° 53' 50"" N"|"8° 28' 12"" W"||Oceanic climate|988|API|12.9|18.7|8.2|1228|
+Inverness|Inverness|Europe|37|United Kingdom of Great Britain and Northern Ireland|"57° 28' 18"" N"|"4° 13' 31"" W"||Oceanic climate|989|APJ|12.4|18.9|6.9|732.8|
+Trondheim|Trondheim|Europe|10|Norway|"63° 25' 47"" N"|"10° 23' 36"" E"||Oceanic climate|990|APK|9.5|19.7|1.3|836|
+Aberdeen|Aberdeen|Europe|10|United Kingdom of Great Britain and Northern Ireland|"57° 09' 09"" N"|"2° 06' 36"" W"||Oceanic climate|991|APL|11.9|18.5|6.5|815|
+Aberdeen,_Washington|Aberdeen, Washington|North America|7|United States of America|"46° 58' 33"" N"|"123° 49' 7"" W"||Warm summer Mediterranean / oceanic climate|992|APM|14.6|21|7.7|2111.23|
+Stavanger|Stavanger|Europe|10|Norway|"58° 57' 48"" N"|"5° 43' 8"" E"||Oceanic / subarctic (cool summer, wet all year) climate|993|APN|11.3|19|3|1180|
+Akureyri|Akureyri|Europe|2||"65° 41' 00"" N"|"18° 06' 00"" W"||Subarctic / subpolar oceanic climate|994|APO|6.7|14.5|0.9|488.9|-23
+Uppsala|Uppsala|Europe|15||"59° 51' 29"" N"|"17° 38' 41"" E"||Humid continental (mild summer, wet all year) / subarctic (cool summer, wet all year) climate|995|APP|10.3|22.7|-0.3|575.7|-39.5
+Petrozavodsk|Petrozavodsk|Europe|46|Russian Federation|"61° 47' 00"" N"|"34° 20' 00"" E"||Subarctic (cool summer, wet all year) climate|996|APQ|6.7|21.5|-6.4|611|-41.6
+Tampere|Tampere|Europe|119||"61° 30' 00"" N"|"023° 46' 00"" E"||Subarctic (cool summer, wet all year) climate|997|APR|8.4|22.2|-3.5|598|-35.8
+Oulu|Oulu|Europe|15||"65° 01' 00"" N"|"025° 28' 00"" E"||Subarctic (cool summer, wet all year) climate|998|APS|6.4|20.9|-6|508|
+Rovaniemi|Rovaniemi|Europe|196||"66° 30' 00"" N"|"025° 44' 00"" E"||Subarctic (cool summer, wet all year) climate|999|APT|4.4|19.7|-8.2|576.9|-47.5
+Tallinn|Tallinn|Europe|9|Estonia|"59° 26' 14"" N"|"24° 44' 43"" E"||Humid continental (mild summer, wet all year) / subpolar oceanic climate|1000|APU|9.4|21.8|-1.6|617|-31.1
+Umeå|Umeå|Europe|12||"63° 49' 30"" N"|"20° 15' 50"" E"||Subarctic (cool summer, wet all year) climate|1001|APV|7|20.7|-5.5|572|-38.2
+Syktyvkar|Syktyvkar|Russia & Central Asia|99|Russian Federation|"61° 40' 00"" N"|"50° 49' 00"" E"||Subarctic (cool summer, wet all year) climate|1002|APW|5.7|23.2|-10.8|621|-46.6
+Salekhard|Salekhard|Russia & Central Asia|66|Russian Federation|"66° 32' 00"" N"|"66° 36' 00"" E"||Subarctic (cool summer, wet all year) climate|1003|APX|-1.4|19.7|-18.8|454|-53.7
+Dikson_(urban-type_settlement)|Dikson (urban-type settlement)|Russia & Central Asia|14|Russian Federation|"73° 30' 00"" N"|"80° 31' 00"" E"||Tundra climate|1004|APY|-8.6|7.2|-22.5|358|-48.1
+Qaanaaq|Qaanaaq|Russia & Central Asia|16|Russian Federation|"77° 28' 00"" N"|"69° 13' 50"" W"||Tundra climate|1005|APZ|-7.8|7.4|-20.6|124|-58
+Resolute,_Nunavut|Resolute, Nunavut|North America|66||"74° 41' 51"" N"|"094° 49' 56"" W"||Tundra climate|1006|AQA|-12.7|7.3|-29|161.3|-52.2
+Ust-Olenyok|Ust-Olenyok|Russia & Central Asia|200|Russian Federation|"72° 59' 00"" N"|"119° 49' 00"" E"||Tundra climate|1007|AQB|-11.5|12.3|-30.6|223.4|-52
+Yuryung-Khaya|Yuryung-Khaya|Russia & Central Asia|8|Russian Federation|"72° 48' 43"" N"|"113° 13' 56"" E"||Tundra climate|1008|AQC|-12.2|6|-28|91|-46
+Upernavik|Upernavik|North America|126||"72° 47' 13"" N"|"56° 08' 50"" W"||Tundra climate|1009|AQD|-4.5|8|-16.4|251|
+Pond_Inlet|Pond Inlet|North America|55||"72° 41' 57"" N"|"077° 57' 33"" W"||Tundra climate|1010|AQE|-11.1|10.5|-30.2|189.1|-53.9
+Khatanga,_Russia|Khatanga, Russia|Russia & Central Asia|30|Russian Federation|"71° 58' 47"" N"|"102° 28' 22"" E"||Subarctic (cool summer, wet all year) / tundra climate|1011|AQF|-8.3|17.2|-27.7|283|-59
+Saskylakh|Saskylakh|Russia & Central Asia|9|Russian Federation|"71° 57' 55"" N"|"114° 05' 32"" E"||Subarctic (cool summer, wet all year) / tundra climate|1012|AQG|-10.6|16.1|-31.5|626.5|-59.9
+Chokurdakh|Chokurdakh|Russia & Central Asia|46|Russian Federation|"70° 38' 00"" N"|"147° 55' 00"" E"||Subarctic (cold winter, wet all year) / tundra climate|1013|AQH|-9.5|15.9|-30.4|203|-54.4
+Deadhorse,_Alaska|Deadhorse, Alaska|North America|15||"70° 12' 20"" N"|"148° 30' 42"" W"||Tundra climate|1014|AQI|-4.6|19.9|-24.2|102.1|
+Puerto_Williams|Puerto Williams|South America|26||"54° 56' 00"" S"|"67° 37' 00"" W"||Subpolar oceanic / oceanic climate|1015|AQJ|10|15.1|3.9|512.3|
+Caleta_Olivia|Caleta Olivia|South America|13||"46° 26' 00"" S"|"67° 32' 00"" W"||Cold semi-arid climate|1016|AQK|19.6|27|12|200.7|
