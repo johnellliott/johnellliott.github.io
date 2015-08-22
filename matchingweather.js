@@ -515,7 +515,7 @@
 							createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, values[i], false); // fixed size marker
 						}
 							
-						if (compareCityInfo.region == "Africa") {
+						if (compareCityInfo.region == "Africa" || compareCityInfo.region == "Middle East") {
 							groupRegionCounter(africaMatches, compareCityInfo, values[i])
 						} else if (compareCityInfo.region == "South-East Asia" || compareCityInfo.region == "North-East Asia" || compareCityInfo.region == "South Asia" || compareCityInfo.region == "Russia & Central Asia" || compareCityInfo.region == "Pacific") {
 							groupRegionCounter(asiaMatches, compareCityInfo, values[i])
