@@ -467,6 +467,8 @@
 	var naMatches = {};
 	var saMatches = {};
 	
+	var cityViewCount = 0;
+	
 	// pass in array of google.maps.LatLng(37.782551, -122.445368)
 	function initHeatmap(data) {
 		heatmap = new google.maps.visualization.HeatmapLayer({
@@ -480,6 +482,12 @@
 		var cityName = cityInfo.name.split(",")[0];
 		$("#selectedCityName").html(cityName);
 		selectedCity = cityInfo.key;
+		cityViewCount = cityViewCount + 1;
+		
+		if (getParameterByName("debug") != "true") {
+			//ga('send', 'event', 'category', 'action', 'label');
+			ga('send', 'event', 'Select City', 'Select City', cityRef, cityViewCount);
+		}
 		
 		var cityCol = parseInt(cityInfo.cityCol);
 		cityCol = cityCol+1;
