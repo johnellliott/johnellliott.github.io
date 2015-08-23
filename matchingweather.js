@@ -135,6 +135,10 @@
 				}			
 				
 				selectCity("Barcelona", false, false);
+				
+				if (getParameterByName("debug") != "true") {
+					ga('send', 'event', 'City', "Barcelona", 'Open default');
+				}
 
 			},
 			error: function( data, textStatus, errorThrown ) {
@@ -267,7 +271,8 @@
 			position: lol,
 			icon: image,
 			map: map,
-			visible: true//,
+			visible: true,
+			cityKey: cityInfo.key // custom field
 			//label: cityInfo.name
 		});
 		
@@ -276,6 +281,9 @@
 		
 		google.maps.event.addListener(marker, 'click', function() {
 			openInfoWindowAndBind(infowindow, marker);
+			
+			
+			console.log(marker.cityKey);
 		});
 
 		markers.push(marker);
@@ -380,6 +388,9 @@
 			var ref = this.id.split('__')[1];
 			selectCity(ref, false, true);
 			
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'City', ref, 'Select from popup');
+			}
 		});
 		
 		$(".btnWikipedia").click(function() {
@@ -402,10 +413,6 @@
 		
 		$("#btnSelectCity__" + selectedCity).prop("disabled",true);
 		
-		if (getParameterByName("debug") != "true") {
-			//ga('send', 'event', 'category', 'action', 'label');
-			//ga('send', 'event', 'City Info', 'Info Popup', ref);
-		}		
 	}
 	
 	function getScoreCircleColor(similarityScore) {
@@ -474,7 +481,6 @@
 	var naMatches = {};
 	var saMatches = {};
 	
-	var cityViewCount = 0;
 	
 	// pass in array of google.maps.LatLng(37.782551, -122.445368)
 	function initHeatmap(data) {
@@ -489,12 +495,8 @@
 		var cityName = cityInfo.name.split(",")[0];
 		$("#selectedCityName").html(cityName);
 		selectedCity = cityInfo.key;
-		cityViewCount = cityViewCount + 1;
-		
-		if (getParameterByName("debug") != "true") {
-			//ga('send', 'event', 'category', 'action', 'label');
-			ga('send', 'event', 'Select City', 'Select City', cityRef, cityViewCount);
-		}
+	
+
 		
 		var cityCol = parseInt(cityInfo.cityCol);
 		cityCol = cityCol+1;
@@ -628,6 +630,7 @@
 		selectCity(cityInfo.key, false, true);
 		var latLng = marker.getPosition(); // returns LatLng object
 		map.setCenter(latLng); // setCenter takes a LatLng object
+
 		//openMatchInfo(cityInfo.key);
 	}
 	
@@ -668,7 +671,9 @@
 			$('#matchInfo').fadeOut();
 			openCity(cityInfo);
 			
-			
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'City', cityInfo.key, 'Select city from global match');
+			}
 			//console.log(row + " | "+ $("#" + row + "Key").text());
 		});
 		
@@ -676,8 +681,7 @@
 		
 		$('#cityMatchInfo').click(function() {
 			if (getParameterByName("debug") != "true") {
-				//ga('send', 'event', 'category', 'action', 'label');
-				ga('send', 'event', 'City Info', 'Match Info of Selected City', selectedCity);
+				ga('send', 'event', 'City', selectedCity, 'Global matches');
 			}		
 			openMatchInfo(selectedCity);
 		});
