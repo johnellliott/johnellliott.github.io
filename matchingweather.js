@@ -387,11 +387,13 @@
 		
 		$(".btnSelectCity").click(function() {
 			var ref = this.id.split('__')[1];
-			selectCity(ref, false, true);
 			
 			if (getParameterByName("debug") != "true") {
-				ga('send', 'event', 'City', ref, 'Select from popup');
+				ga('send', 'event', 'City', ref, 'Select from popup of ' + selectedCity);
 			}
+			
+			selectCity(ref, false, true);
+
 		});
 		
 		$(".btnWikipedia").click(function() {
@@ -670,7 +672,7 @@
 			var cityInfo = citiesByRef[clickedKey];
 			
 			if (getParameterByName("debug") != "true") {
-				ga('send', 'event', 'City', cityInfo.key, 'Select city from global match of ' + selectedCity);
+				ga('send', 'event', 'City', cityInfo.key, 'Select from global match of ' + selectedCity);
 			}
 			
 			$('#matchInfo').fadeOut();
