@@ -69,6 +69,11 @@
 			$("#welcomeCard").hide();
 			$("#siteInfo").fadeIn();
 			$("#aboutButton").prop("disabled",true);
+			if (getParameterByName("debug") != "true") {
+				//ga('send', 'event', 'category', 'action', 'label');
+				ga('send', 'event', 'Site', 'About');
+			}			
+			
 		});
 		
 		$("#btnSelectCity").click(function() {

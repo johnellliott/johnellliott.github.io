@@ -137,7 +137,7 @@
 				selectCity("Barcelona", false, false);
 				
 				if (getParameterByName("debug") != "true") {
-					ga('send', 'event', 'City', "Barcelona", 'Open default');
+					ga('send', 'event', 'City', "Barcelona (Default)", 'Open default');
 				}
 
 			},
@@ -282,8 +282,9 @@
 		google.maps.event.addListener(marker, 'click', function() {
 			openInfoWindowAndBind(infowindow, marker);
 			
-			
-			console.log(marker.cityKey);
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'City', selectedCity, marker.cityKey + ' match popup');
+			}
 		});
 
 		markers.push(marker);
@@ -668,13 +669,13 @@
 			var clickedKey = $("#" + row + "Key").text();
 			var cityInfo = citiesByRef[clickedKey];
 			
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'City', cityInfo.key, 'Select city from global match of ' + selectedCity);
+			}
+			
 			$('#matchInfo').fadeOut();
 			openCity(cityInfo);
 			
-			if (getParameterByName("debug") != "true") {
-				ga('send', 'event', 'City', cityInfo.key, 'Select city from global match');
-			}
-			//console.log(row + " | "+ $("#" + row + "Key").text());
 		});
 		
 		$('#cityMatchInfo').prop("disabled",true);
