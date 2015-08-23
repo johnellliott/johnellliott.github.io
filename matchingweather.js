@@ -398,6 +398,9 @@
 		
 		$(".btnWikipedia").click(function() {
 			var ref = this.id.split('__')[1];
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'City', selectedCity, 'Open Wikipedia for ' + ref);
+			}			
 			window.open("https://en.wikipedia.org/wiki/" + ref + "#Climate", '_blank');
 		});
 		
