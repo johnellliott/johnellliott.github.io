@@ -374,14 +374,16 @@
 
 	function openInfoWindowAndBind(infowindow, marker) {
 		infowindow.open(map,marker);
+		
+		var ref = this.id.split('__')[1];
 		$(".btnSelectCity").click(function() {
-			var ref = this.id.split('__')[1];
+			//var ref = this.id.split('__')[1];
 			selectCity(ref, false, true);
 			
 		});
 		
 		$(".btnWikipedia").click(function() {
-			var ref = this.id.split('__')[1];
+			//var ref = this.id.split('__')[1];
 			window.open("https://en.wikipedia.org/wiki/" + ref + "#Climate", '_blank');
 		});
 		
@@ -399,6 +401,11 @@
 		}
 		
 		$("#btnSelectCity__" + selectedCity).prop("disabled",true);
+		
+		if (getParameterByName("debug") != "true") {
+			//ga('send', 'event', 'category', 'action', 'label');
+			ga('send', 'event', 'City Info', 'Info Popup', ref);
+		}		
 	}
 	
 	function getScoreCircleColor(similarityScore) {
@@ -668,6 +675,10 @@
 		$('#cityMatchInfo').prop("disabled",true);
 		
 		$('#cityMatchInfo').click(function() {
+			if (getParameterByName("debug") != "true") {
+				//ga('send', 'event', 'category', 'action', 'label');
+				ga('send', 'event', 'City Info', 'Match Info of Selected City', selectedCity);
+			}		
 			openMatchInfo(selectedCity);
 		});
 	
