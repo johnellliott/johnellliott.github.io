@@ -137,7 +137,7 @@
 				selectCity("Barcelona", false, false);
 				
 				if (getParameterByName("debug") != "true") {
-					ga('send', 'event', 'City', "Barcelona (Default)", 'Open default');
+					ga('send', 'event', 'City', "Barcelona (Default)", 'Open default', 1);
 				}
 
 			},
@@ -389,7 +389,7 @@
 			var ref = this.id.split('__')[1];
 			
 			if (getParameterByName("debug") != "true") {
-				ga('send', 'event', 'City', ref, 'Select from popup of ' + selectedCity);
+				ga('send', 'event', 'City', ref, 'Select from popup of ' + selectedCity, (cityCount+1));
 			}
 			
 			selectCity(ref, false, true);
@@ -479,6 +479,7 @@
 	var citiesByRef = {}; // uses key e.g. Kuala_Lumpur
 	var citiesByIndex = {}; // uses numeric index for city key e.g. 231
 	var selectedCity;
+	var cityCount = 0;
 	var heatmapMode = false;
 	
 	var africaMatches = {};
@@ -502,7 +503,7 @@
 		$("#selectedCityName").html(cityName);
 		selectedCity = cityInfo.key;
 	
-
+		cityCount = cityCount + 1;
 		
 		var cityCol = parseInt(cityInfo.cityCol);
 		cityCol = cityCol+1;
@@ -675,7 +676,7 @@
 			var cityInfo = citiesByRef[clickedKey];
 			
 			if (getParameterByName("debug") != "true") {
-				ga('send', 'event', 'City', cityInfo.key, 'Select from global match of ' + selectedCity);
+				ga('send', 'event', 'City', cityInfo.key, 'Select from global match of ' + selectedCity, (cityCount+1));
 			}
 			
 			$('#matchInfo').fadeOut();
