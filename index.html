@@ -84,6 +84,11 @@
 		$(".cityShortcut").click(function() {
 			$("#welcomeCard").hide();
 			var cityInfo = citiesByRef[this.id];
+			
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'City', this.id, 'Select from shortcut menu');
+			}
+			
 			openCity(cityInfo);
 		});
 	});
