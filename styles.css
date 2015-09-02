@@ -27,7 +27,13 @@ html, body {
 #map-canvas {
 	width: 100%;
 	height: 100vh;
-	height: calc(100vh - 64px);
+	height: calc(100vh - 70px); /* change this for less than 1024 wide */
+}
+
+@media screen and (max-width: 1024px) {
+    #map-canvas  {
+        height: calc(100vh);
+    }
 }
 
 #customHeader {

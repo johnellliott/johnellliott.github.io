@@ -55,12 +55,36 @@
         var mapOptions = {
           center: new google.maps.LatLng(20.258028, 13.959507),
           zoom: 2,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+		  panControl: false,
+
+			mapTypeControl: true,
+			mapTypeControlOptions: {
+				style: google.maps.MapTypeControlStyle.DEFAULT ,
+				position: google.maps.ControlPosition.RIGHT_BOTTOM
+			},
+			zoomControl: true,
+			zoomControlOptions: {
+				style: google.maps.ZoomControlStyle.DEFAULT,
+				position: google.maps.ControlPosition.LEFT_CENTER
+			},
+			scaleControl: false,
+			streetViewControl: false
+
         }
         map = new google.maps.Map(mapCanvas, mapOptions)
-		console.log( "ready in map initialise!" );
-		
-		
+
+		map.addListener('maptypeid_changed', function() {
+			//infowindow.setContent('Zoom: ' + map.getZoom());
+			console.log('type change' + map.getMapTypeId());
+			if (map.getMapTypeId() == "hybrid" || map.getMapTypeId() == "satellite") {
+				$(".je-city-name-small-screen-title").css("color", "white");
+				$(".mdl-layout__drawer-button .material-icons").css("color","white");
+			} else {
+				$(".je-city-name-small-screen-title").css("color", "#757575");
+				$(".mdl-layout__drawer-button .material-icons").css("color","#757575");
+			}
+		});
 		
 		google.maps.event.addListenerOnce(map, 'idle', function(){
 			// do something only the first time the map is loaded
@@ -81,10 +105,18 @@
 
 	function getMarkers() {
 	
+		var coreCityDataSource;
+		
+		if (getParameterByName("debug") == "true") {
+			coreCityDataSource = "datav3/core_city_data.csv";
+		} else {
+			coreCityDataSource = "http://similar.city/datav3/core_city_data.csv";
+		}
+	
 		$.ajax({
 			//type:"GET", // access control issue if using POST
 			//url: "data/core_city_data.csv",
-			url: "http://similar.city/datav3/core_city_data.csv",
+			url: coreCityDataSource,
 			dataType: 'text',
 			encoding:"UTF-8",
 			success: function( data) {
@@ -508,8 +540,15 @@
 		var cityCol = parseInt(cityInfo.cityCol);
 		cityCol = cityCol+1;
 		
+		var cityRowData;
+		if (getParameterByName("debug") == "true") {
+			cityRowData = "datav3/disk" + cityCol + ".csv";
+		} else {
+			cityRowData = "http://similar.city/datav3/disk" + cityCol + ".csv";
+		}
+		
 		$.ajax({
-			url: "http://similar.city/datav3/disk" + cityCol + ".csv",
+			url: cityRowData,
 			dataType: 'text',
 			encoding:"UTF-8",
 			success: function( data) {
@@ -736,5 +775,131 @@
 			$(".matchInfoNA.data").hide();
 			$(".matchInfoSA.data").toggle();		
 		});
-	
+		
+		$("#weatherSliderCheckbox").change(function() {
+			if (weatherLocked == false) { // previous state not ticked, now being ticked
+				uncheckLock("#cultureSlider");
+				checkLock("#weatherSlider");
+				uncheckLock("#economySlider");
+				cultureLocked = false;
+				weatherLocked = true;
+				economyLocked = false;
+				//$("#weatherSliderCheckbox input").attr("disabled", true);
+			} 
+		});
+		
+		$("#cultureSliderCheckbox").change(function() {
+			if (cultureLocked == false) { // previous state not ticked, now being ticked
+				checkLock("#cultureSlider");
+				uncheckLock("#weatherSlider");
+				uncheckLock("#economySlider");
+				cultureLocked = true;
+				weatherLocked = false;
+				economyLocked = false;
+			} 
+		});
+		
+		$("#economySliderCheckbox").change(function() {
+		
+			if (economyLocked == false) { // previous state not ticked, now being ticked
+				uncheckLock("#cultureSlider");
+				uncheckLock("#weatherSlider");
+				checkLock("#economySlider");
+				cultureLocked = false;
+				weatherLocked = false;
+				economyLocked = true;
+			} 
+		});		
+		
+		$("#weatherSlider").change(function() {	
+			updateSlider("weather");
+		});
+		
+		$("#economySlider").change(function() {
+			updateSlider("economy");
+		});
+
+		$("#cultureSlider").change(function() {
+			updateSlider("culture");
+		});
+		
 	});
+	
+	function checkLock(id) {
+		$(id + "Checkbox").addClass("is-checked");
+		$(id + "Checkbox" + " input").prop('checked', true);
+		$(id + "Checkbox" + " input").attr("disabled", true);
+		$(id).attr("disabled", true);
+	}
+	
+	function uncheckLock(id) {
+		$(id + "Checkbox").removeClass("is-checked"); // mdl wrapper
+		$(id + "Checkbox" + " input").prop('checked', false); // html input checkbox
+		$(id + "Checkbox" + " input").attr("disabled", false); // html input checkbox
+		$(id).attr("disabled", false); 
+	}
+	
+	var cultureLocked = false;
+	var economyLocked = false;
+	var weatherLocked = true;
+	
+	var culture = 100/3;
+	var economy = 100/3;
+	var weather = 100/3;
+	
+	function updateSlider(field) {
+		if (field == "culture") {
+			if (economyLocked) {
+				updateSliderLocked(field, "economy", "weather");
+				weather = $("#weatherSlider").val();
+				culture = $("#cultureSlider").val();
+			} else if (weatherLocked) {
+				updateSliderLocked(field, "weather", "economy");
+				economy = $("#economySlider").val();
+				culture = $("#cultureSlider").val();
+			}
+			culture = limitSlider("culture");	
+		} else if (field == "economy") {
+			if (cultureLocked) {
+				updateSliderLocked(field, "culture", "weather");
+				weather = $("#weatherSlider").val();
+				economy = $("#economySlider").val();
+			} else if (weatherLocked) {
+				updateSliderLocked(field, "weather", "culture");
+				culture = $("#cultureSlider").val();
+				economy = $("#economySlider").val();
+			}		
+			economy = limitSlider("economy");		
+			
+		} else if (field == "weather") {
+			if (cultureLocked) {
+				updateSliderLocked(field, "culture", "economy");
+				weather = $("#weatherSlider").val();
+				economy = $("#economySlider").val();
+			} else if (economyLocked) {
+				updateSliderLocked(field, "economy", "culture");
+				weather = $("#weatherSlider").val();
+				culture = $("#cultureSlider").val();
+			}
+			weather = limitSlider("weather");			
+		}
+		var total = parseFloat(culture) + parseFloat(economy) + parseFloat(weather);
+		console.log("culture = " + culture + ", economy = " + economy + ", weather = " + weather + ", total = " + total);
+	}
+
+	function limitSlider(field) {
+		var total = parseFloat(culture) + parseFloat(economy) + parseFloat(weather);
+		if (total > 100) {
+			var limitedValue = parseFloat($("#" + field + "Slider").val()) - (total-100);
+			$("#" + field + "Slider").val(limitedValue);
+			return limitedValue;
+		}	
+		return parseFloat($("#" + field + "Slider").val());
+	}
+	
+	function updateSliderLocked(changedField, lockedField, otherField) {
+		var remaining = 100-$("#" + lockedField + "Slider").val();
+		var otherValue = remaining - $("#" + changedField + "Slider").val();
+		//otherValue = otherValue * 1.5151515151515151515;
+		$("#" + otherField + "Slider").val(otherValue);
+	}

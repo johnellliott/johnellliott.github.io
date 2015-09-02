@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>similar.city</title>
+
+    <!-- Page styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="material.min.css">
+    <link rel="stylesheet" href="stylesmdl.css">
+	<link rel="stylesheet" href="styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="https://apis.google.com/js/client.js"></script>	
+	
+	<script type="text/javascript"
+		src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false">
+	</script>
+	<script src="matchingweather.js"></script>
+	
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+          <!--<span class="android-title mdl-layout-title">
+            <img class="android-logo-image" src="images/android-logo.png">
+          </span>-->
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+	  
+   
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Map</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Blog</a>
+			  <label class="mdl-button mdl-js-button mdl-button--icon">
+				<i class="material-icons">share</i>
+              </label>				  
+            </nav>
+          </div>
+ 		  
+		  
+        </div>
+      </div>
+
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <!--<img class="android-logo-image" src="images/android-logo-white.png">-->
+		  <span class="je-drawer-title">similar.city</span>
+        </span>
+        <nav class="mdl-navigation">
+          <span class="mdl-navigation__link" href="">Barcelona</span>
+          <a class="mdl-navigation__link je-drawer-link" href="">Center Map</a>
+          <a class="mdl-navigation__link je-drawer-link" href="">Top Matches</a>
+		  
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Comparison with Valencia</span>
+          <a class="je-drawer-label" href="">
+			<div id="comparison_chart" style="width: 260px; height: 150px;"></div>
+		  </a>
+          <a class="mdl-navigation__link je-drawer-link" href="">Select This City</a>
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">Match Settings</span>
+			
+		    <div class="je-check-slider je-drawer-label">
+			  <label class="je-drawer-label" style="padding: 0px 0px 7px 0px;" href="">Culture</label>
+			  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="cultureSliderCheckbox">
+			    <input type="checkbox" class="mdl-checkbox__input" />
+			  </label>
+			  <span class="je-slider-wrapper"><input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="33" tabindex="0" id="cultureSlider"/></span>
+			</div>
+		    <div class="je-check-slider je-drawer-label">
+			  <label class="je-drawer-label" style="padding: 0px 0px 7px 0px;" href="">Economy</label>
+			  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect je-checkbox-nolabel" id="economySliderCheckbox">
+			    <input type="checkbox" class="mdl-checkbox__input" />
+			  </label>		
+			  <span class="je-slider-wrapper"><input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="33" tabindex="0" id="economySlider"/></span>
+			</div>
+		    <div class="je-check-slider je-drawer-label">
+			  <label class="je-drawer-label" style="padding: 0px 0px 7px 0px;" href="">Weather</label>
+			  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="weatherSliderCheckbox">
+			    <input type="checkbox" class="mdl-checkbox__input" checked />
+			  </label>		
+			  <span class="je-slider-wrapper"><input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="33" tabindex="0" id="weatherSlider" /></span>
+			</div>
+		  <div class="android-drawer-separator"></div>
+		  <a class="mdl-navigation__link je-drawer-link" href="#">Map</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="blog.html">Blog</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="">Share</a>
+        </nav>
+      </div>
+
+	  <div class="je-city-name-small-screen-title">
+		Barcelona
+	  </div>
+	  
+      <div class="android-content mdl-layout__content">
+        <!--<div class="android-be-together-section mdl-typography--text-center">
+          <div class="android-font android-slogan">weather. culture. economy.</div>
+          <div class="android-font android-sub-slogan">what makes a city? click on a city then 'select city' to start matching.</div>
+        </div>-->
+		<div id="map-canvas"></div>
+      <!--<main class="mdl-layout__content mdl-color--grey-100" id="customMain">
+		<div id="map-canvas"></div>
+      </main> -->
+ 
+      </div>
+    </div>
+		
+	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+	<script src="charts.js"></script>
+    <script src="material.min.js"></script>
+  </body>
+</html>
