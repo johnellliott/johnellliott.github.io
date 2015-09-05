@@ -24,6 +24,65 @@ html, body {
   border-radius: 24px;
 }
 
+.welcome-screen {
+	position: absolute;
+	margin-left: 220px;
+	top: 0px;
+	left: 0;
+	right: 0;
+	z-index: 3;
+	background-color: rgba(168, 168, 168, 0.57);
+	height: 100vh;
+	overflow: hidden;
+}
+
+.je-welcome-image {
+	position: relative;
+	top: 20px;
+}
+
+.je-welcome-image img {
+	width: 500px;
+}
+
+.welcomeClose {
+	position: relative;
+	top: -30px;
+	right: 5px;
+
+}
+
+.welcomeCloseFull {
+	display: inline;
+}
+
+.welcomeCloseMini {
+	display: none;
+}
+
+@media screen and (max-width: 1024px) {
+    .welcome-screen {
+        margin-left: 0px;
+    }
+	
+	.je-welcome-image img {
+		width: 350px;
+	}
+	
+	.welcomeClose {
+		top: -30px;
+		right: 5px;
+	}	
+	
+	.welcomeCloseFull {
+		display: none;
+	}
+
+	.welcomeCloseMini {
+		display: inline;
+	}	
+}
+
 #map-canvas {
 	width: 100%;
 	height: 100vh;
@@ -36,6 +95,16 @@ html, body {
     }
 }
 
+.chartTooltip {
+	font-size: 20px;
+}
+
+.chartTooltip-matchNumber {
+	position: relative;
+	top: 10px;
+	font-size: 40px;
+}
+
 #customHeader {
 	width: 100%;
 }
@@ -44,7 +113,13 @@ html, body {
 	margin-left: 0px;
 }
 
-@media (min-width: 10px) and (max-width: 600px) {
+.popupHeading {
+	font-size: 18px;
+	font-weight: bold;
+	margin: 8px 0px;
+}	
+
+@media (min-width: 10px) and (max-width: 700px) {
 	.desktop {
 	  display: none;
 	}
@@ -55,22 +130,26 @@ html, body {
 	
 
 	.popupHeading {
-		font-size: 18px;
+		font-size: 14px;
 		font-weight: bold;
 		margin: 8px 0px;
 	}	
 	
 	#bodyContent p {
-		font-size: 12px;
+		font-size: 10px;
 		margin-bottom: 7px;
 	}
 	
 	.tempFactValue, .tempFactLabel {
-		font-size: 11px;
+		font-size: 10px;
 	}
 }
 
-@media (min-width: 600px) {
+@media (min-width: 700px) {
+	.markerPopup {
+		max-width: 500px;
+	}
+
 	.desktop {
 	  display: block-inline;
 	  
@@ -86,12 +165,22 @@ html, body {
 	}
 	
 	.popupHeading {
-		font-size: 25px;
+		font-size: 20px;
 		font-weight: bold;
 		margin: 15px 0px;
 	}
+	
+	.tempFactValue, .tempFactLabel {
+		font-size: 8px;
+	}	
 }
 
+
+@media (max-width: 500px) {
+	.markerPopup {
+		max-width: 380px;
+	}
+}
 
 .popupNotes {
 	font-size: 20px;
@@ -197,7 +286,7 @@ th > .mdl-checkbox {
 	bottom: 0;
 	margin-right: 25px;
 	margin-bottom: 120px;
-	z-index: 21;
+	z-index: 2;
 }
 
 #aboutButton {
@@ -250,6 +339,8 @@ th > .mdl-checkbox {
 	font-weight: bold;
 	color: #2F4F4F;
 }
+
+	
 
 .demo-drawer {
   border: none;
@@ -459,4 +550,83 @@ _:-ms-input-placeholder, :root .demo-graph {
   -webkit-align-items: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.centre-point-wrapper {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+}
+.social-sharing-card {
+	display: none;
+    position: relative;
+
+    width: 450px;
+    margin-left: -100px; /* 240px for margin - 50% of width */
+
+    margin-top: -150px;
+
+	z-index: 3;
+}
+
+.social-sharing-card .mdl-textfield {
+	width: 85%;
+	margin: 10px 15px 5px 15px;
+	padding-top: 0px;
+}
+
+.social-sharing-card .mdl-textfield__input {
+	color: grey;
+}
+
+.social-sharing-card .mdl-card__supporting-text {
+	padding-bottom: 0px;
+}
+
+@media (max-width: 1024px) {
+	.social-sharing-card {
+		width: 450px;
+		margin-left: -225px; /* 240px for margin + 50% of width */
+	}
+}
+
+@media (max-width: 520px) {
+	.social-sharing-card {
+		width: 350px;
+		margin-left: -175px; /* 240px for margin + 50% of width */
+	}
+}
+
+.social-sharing-card .mdl-button {
+	margin: 5px;
+}
+
+.mdl-button--raised.mdl-button--twitter {
+    background: #00acee;
+    color: white;
+}
+
+.mdl-button--raised.mdl-button--facebook {
+    background: #3b5998;
+    color: white;
+}
+
+.mdl-button--raised.mdl-button--googleplus {
+    background: #e93f2e;
+    color: white;
+}
+
+.mdl-button--raised.mdl-button--stumbleupon {
+    background: #f74425;
+    color: white;
+}
+
+.mdl-button--raised.mdl-button--linkedin {
+    background: #0e76a8;
+    color: white;
+}
+
+.mdl-button--raised.mdl-button--reddit {
+    background: #e1261c;
+    color: #fff;
 }

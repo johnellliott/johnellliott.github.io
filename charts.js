@@ -1,13 +1,20 @@
 google.load('visualization', '1', {packages: ['corechart', 'bar']});
-google.setOnLoadCallback(drawTopX);
+google.setOnLoadCallback(drawMatchChartDefault);
 
-function drawTopX() {
+function drawMatchChartDefault() {
+	drawMatchChart('Valencia', 24, 37, 27, 31);
+}
+
+function drawMatchChart(cityName, culture, economy, weather, total) {
+
+	total = Math.round(total);
 
 	var data = google.visualization.arrayToDataTable([
-				["Factor", "Score",{type:'string',role:'tooltip'}],
-				["C", 8.94, 'test tooltip'],
-				["E", 10.49, 'test tooltip'],
-				["W", 25.30, 'test tooltip']
+				["Factor", "Score", { role: 'style' },{'type': 'string', 'role': 'tooltip', 'p': {'html': true}}],
+				["C", culture, '#00acc1', '<p class="chartTooltip">Culture<br/><b class="chartTooltip-matchNumber">' + culture + '</b></p>'],
+				["E", economy, '#00acc1', '<p class="chartTooltip">Economy<br/><b class="chartTooltip-matchNumber">' + economy + '</b></p>'],
+				["W", weather, '#00acc1', '<p class="chartTooltip">Weather<br/><b class="chartTooltip-matchNumber">' + weather + '</b></p>'],
+				["T", total, '#8bc34a', '<p class="chartTooltip">Total<br/><b class="chartTooltip-matchNumber">' + total + '</b></p>']
 			]);
 
 	var options = {
@@ -19,12 +26,13 @@ function drawTopX() {
 		legend : {
             position : 'none'
         },
+		tooltip: {isHtml: true},
 		//left : 200,
 		//top : 300,
 		//width : 100, // width of chart wrapper
 		//height : 200, // height of chart wrapper 
         
-		chartArea : {left:20,top:10,width:'50%',height:'75%'},        
+		chartArea : {left:20,top:10,width:'75%',height:'75%'},        
 		vAxis : {
 			gridlines : {
 				count : 3

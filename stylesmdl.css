@@ -44,6 +44,12 @@ a img{
 	padding: 5px 40px !important;
 }
 
+@media screen and (max-width: 1024px) {
+    .je-check-slider  {
+        padding: 16px !important;
+    }
+}
+
 .je-check-slider .mdl-checkbox.is-upgraded {
 	padding-left: 10px;
 }
@@ -56,6 +62,25 @@ a img{
 	position: relative;
 	top: -23px;
 	right: -10px;
+}
+
+.je-city-name-large-screen-title {
+	position: absolute;
+	top: 13px;
+	left: 13px;
+	z-index: 3;
+	font-family: "And Black";
+	color: #757575;
+	font-size: 22px;
+	display: inline;
+	margin-top: 10px;
+	margin-left: 250px;
+}
+
+@media screen and (max-width: 1024px) {
+    .je-city-name-large-screen-title   {
+        display: none;
+    }
 }
 
 .je-city-name-small-screen-title {
@@ -103,6 +128,17 @@ a img{
 
 .je-drawer-link {
 	color: #00acc1 !important;
+	cursor: pointer;
+}
+
+.mdl-navigation__link[disabled] {
+	color: rgba(0,0,0,.26) !important;
+	cursor: default;
+	background-color: transparent;
+}
+
+.mdl-navigation__link[disabled]:hover {
+	background-color: transparent !important;
 }
 
 .android-search-box .mdl-textfield__input {
@@ -236,10 +272,9 @@ a img{
 
 .android-be-together-section {
   position: relative;
-  height: 800px;
   width: auto;
   background-color: #f3f3f3;
-  background: url('images/skyline.png') center 30% no-repeat;
+  /*background: url('images/skyline.png') center 30% no-repeat;*/
   background-size: cover;
 }
 
@@ -251,14 +286,17 @@ a img{
 }
 
 .android-slogan {
+  margin-top: 50px;
   font-size: 60px;
   padding-top: 160px;
   font-weight: bold;
+  color: #515151;
 }
 
 .android-sub-slogan {
   font-size: 21px;
   padding-top: 24px;
+  color: #515151;
 }
 
 .android-create-character {
@@ -569,7 +607,7 @@ a img{
 
   .android-slogan {
     font-size: 26px;
-    margin: 0 16px;
+    margin: 50px 16px 0px 16px;
     padding-top: 24px;
   }
 
@@ -599,5 +637,12 @@ a img{
 
   .android-footer .mdl-mega-footer--bottom-section {
     display: none;
+  }
+}
+
+/**** Mobile layout ****/
+@media (max-width: 400px) {
+  .android-slogan {
+    font-size: 18px;
   }
 }

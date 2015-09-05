@@ -3,9 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+    <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>similar.city</title>
+
+	<meta property="og:url"                content="http://similar.city/" />
+	<meta property="og:title"              content="Culture. Economy. Weather. What makes a city?" />
+	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
+	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@johnellliott">
+	<meta name="twitter:creator" content="@johnellliott">
+	<meta name="twitter:title" content="Culture. Economy. Weather. What makes a city?">
+	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
+	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
+
+    <title>similar.city - Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.</title>
 
     <!-- Page styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
@@ -27,25 +40,23 @@
 
       <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
         <div class="mdl-layout__header-row">
-          <!--<span class="android-title mdl-layout-title">
-            <img class="android-logo-image" src="images/android-logo.png">
-          </span>-->
+			<span class="je-city-name-large-screen-title je-city-name">
+				No city selected
+			</span>
           <!-- Add spacer, to align navigation to the right in desktop -->
           <div class="android-header-spacer mdl-layout-spacer"></div>
-	  
-   
+
           <!-- Navigation -->
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Map</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase " disabled>Map</a>
+			  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">FAQ</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Blog</a>
-			  <label class="mdl-button mdl-js-button mdl-button--icon">
+			  <label class="mdl-button mdl-js-button mdl-button--icon" id="openSocialShare">
 				<i class="material-icons">share</i>
               </label>				  
             </nav>
           </div>
- 		  
-		  
         </div>
       </div>
 
@@ -55,16 +66,17 @@
 		  <span class="je-drawer-title">similar.city</span>
         </span>
         <nav class="mdl-navigation">
-          <span class="mdl-navigation__link" href="">Barcelona</span>
-          <a class="mdl-navigation__link je-drawer-link" href="">Center Map</a>
-          <a class="mdl-navigation__link je-drawer-link" href="">Top Matches</a>
+          <span class="mdl-navigation__link je-city-name" href="">Barcelona</span>
+          <span class="mdl-navigation__link je-drawer-link" id="btnCenterMap">Center Map</span>
+          <span class="mdl-navigation__link je-drawer-link" id="cityMatchInfo">Top Matches</span>
 		  
           <div class="android-drawer-separator"></div>
-          <span class="mdl-navigation__link" href="">Comparison with Valencia</span>
-          <a class="je-drawer-label" href="">
-			<div id="comparison_chart" style="width: 260px; height: 150px;"></div>
-		  </a>
-          <a class="mdl-navigation__link je-drawer-link" href="">Select This City</a>
+          <span class="mdl-navigation__link" href="">Comparison with <span id="comparisonCityName">[No city selected]</span></span>
+          <span class="je-drawer-label">
+			<div id="comparison_chart" style="width: 170px; height: 150px;"></div>
+		  </span>
+		  <span class="mdl-navigation__link je-drawer-link" id="btnCenterMapComparison">Center Map</span>
+          <span class="mdl-navigation__link je-drawer-link btnSelectCity" href="">Select This City</span>
           <div class="android-drawer-separator"></div>
           <span class="mdl-navigation__link" href="">Match Settings</span>
 			
@@ -87,32 +99,219 @@
 			  <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" id="weatherSliderCheckbox">
 			    <input type="checkbox" class="mdl-checkbox__input" checked />
 			  </label>		
-			  <span class="je-slider-wrapper"><input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="33" tabindex="0" id="weatherSlider" /></span>
+			  <span class="je-slider-wrapper"><input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="33" tabindex="0" id="weatherSlider" disabled /></span>
 			</div>
+			<span class="mdl-navigation__link je-drawer-link" id="resetSettings">Reset Settings</span>
 		  <div class="android-drawer-separator"></div>
 		  <a class="mdl-navigation__link je-drawer-link" href="#">Map</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="blog.html">FAQ</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="blog.html">Blog</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="">Share</a>
         </nav>
       </div>
 
-	  <div class="je-city-name-small-screen-title">
-		Barcelona
+	  <div class="je-city-name-small-screen-title je-city-name">
+		No city selected
 	  </div>
 	  
       <div class="android-content mdl-layout__content">
-        <!--<div class="android-be-together-section mdl-typography--text-center">
-          <div class="android-font android-slogan">weather. culture. economy.</div>
+        <div class="android-be-together-section mdl-typography--text-center welcome-screen">
+          <div class="android-font android-slogan">
+			  &nbsp;weather. culture. economy.
+			  <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored welcomeClose welcomeCloseFull">
+				<i class="material-icons">close</i>
+			  </button>
+			  <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-js-ripple-effect mdl-button--colored welcomeClose welcomeCloseMini">
+				<i class="material-icons">close</i>
+			  </button>
+		  </div>
           <div class="android-font android-sub-slogan">what makes a city? click on a city then 'select city' to start matching.</div>
-        </div>-->
-		<div id="map-canvas"></div>
-      <!--<main class="mdl-layout__content mdl-color--grey-100" id="customMain">
-		<div id="map-canvas"></div>
-      </main> -->
- 
+		  <div class="je-welcome-image">
+			<img src="images/skyline.png" ></img>
+		  </div>
+
+        </div>
+		<div class="je-map-wrapper">
+			<div id="map-canvas"></div>
+		</div>
       </div>
     </div>
-		
+	
+		<div class="mdl-card mdl-shadow--2dp demo-card-wide" id="matchInfo">
+		  <div class="mdl-card__supporting-text">
+			<h4 id="cityName"></h4>
+			<p>Top 3 matches by region</p>
+			<table class="mdl-data-table mdl-shadow--2dp" id="matchInfoTable">
+			  <tbody>
+				<tr class="matchInfoAfrica header">
+				  <td class="mdl-data-table__cell--non-numeric">
+					Africa & Middle East
+				  </td>
+				</tr>			  
+				<tr class="matchInfoAfrica data">
+				  <td class="mdl-data-table__cell--non-numeric">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="africaMatches">
+					  <thead>
+						<tr>
+						  <th class="mdl-data-table__cell--non-numeric">City</th>
+						  <th>Score</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr id="africaRow1" class="cityRow"></tr>
+						<tr id="africaRow2" class="cityRow"></tr>
+						<tr id="africaRow3" class="cityRow"></tr>
+					  </tbody>
+					</table>
+				  </td>
+				</tr>
+				
+				<tr class="matchInfoAsia header">
+				  <td class="mdl-data-table__cell--non-numeric">
+					Asia-Pacific
+				  </td>
+				</tr>			  
+				<tr class="matchInfoAsia data">
+				  <td class="mdl-data-table__cell--non-numeric">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="asiaMatches">
+					  <thead>
+						<tr>
+						  <th class="mdl-data-table__cell--non-numeric">City</th>
+						  <th>Score</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr id="asiaRow1" class="cityRow"></tr>
+						<tr id="asiaRow2" class="cityRow"></tr>
+						<tr id="asiaRow3" class="cityRow"></tr>
+					  </tbody>
+					</table>
+				  </td>
+				</tr>
+				
+				
+
+				<tr class="matchInfoEurope header">
+				  <td class="mdl-data-table__cell--non-numeric">
+					Europe
+				  </td>
+				</tr>			  
+				<tr class="matchInfoEurope data">
+				  <td class="mdl-data-table__cell--non-numeric">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="europeMatches">
+					  <thead>
+						<tr>
+						  <th class="mdl-data-table__cell--non-numeric">City</th>
+						  <th>Score</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr id="europeRow1" class="cityRow"></tr>
+						<tr id="europeRow2" class="cityRow"></tr>
+						<tr id="europeRow3" class="cityRow"></tr>
+					  </tbody>
+					</table>				    
+				  </td>
+				</tr>				
+				
+				<tr class="matchInfoNA header">
+				  <td class="mdl-data-table__cell--non-numeric">
+					North America
+				  </td>
+				</tr>			  
+				<tr class="matchInfoNA data">
+				  <td class="mdl-data-table__cell--non-numeric">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="naMatches">
+					  <thead>
+						<tr>
+						  <th class="mdl-data-table__cell--non-numeric">City</th>
+						  <th>Score</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr id="naRow1" class="cityRow"></tr>
+						<tr id="naRow2" class="cityRow"></tr>
+						<tr id="naRow3" class="cityRow"></tr>
+					  </tbody>
+					</table>				    
+				  </td>
+				</tr>		
+
+				<tr class="matchInfoSA header">
+				  <td class="mdl-data-table__cell--non-numeric">
+					South America
+				  </td>
+				</tr>			  
+				<tr class="matchInfoSA data">
+				  <td class="mdl-data-table__cell--non-numeric">
+					<table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp" id="saMatches">
+					  <thead>
+						<tr>
+						  <th class="mdl-data-table__cell--non-numeric">City</th>
+						  <th>Score</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr id="saRow1" class="cityRow"></tr>
+						<tr id="saRow2" class="cityRow"></tr>
+						<tr id="saRow3" class="cityRow"></tr>
+					  </tbody>
+					</table>				    
+				  </td>
+				</tr>						
+			  </tbody>
+			</table>		  
+		  <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="matchInfoClose">
+            <i class="material-icons">close</i>
+          </button>				  
+		  </div>
+		</div>	  		
+	  <div id="legend">
+		  <img src="images/legend.png" />
+	  </div>	
+	
+	<!-- social sharing card -->
+   <div class="centre-point-wrapper">
+	<div class="social-sharing-card mdl-card mdl-shadow--2dp">
+	  <div class="mdl-card__title">
+		<h2 class="mdl-card__title-text">Share similar.city</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+		<!-- Twitter -->
+		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/ via @JohnEllliott" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+
+		<!-- Facebook -->
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://similar.city/" title="Share on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
+
+		<!-- Google+ -->
+		<a href="https://plus.google.com/share?url=http://similar.city/" title="Share on Google+" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-google-plus fa-fw"></i> Google+</a>
+
+		<!-- StumbleUpon -->
+		<a href="http://www.stumbleupon.com/submit?url=http://similar.city/" title="Share on StumbleUpon" target="_blank" data-placement="top" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--stumbleupon"><i class="fa fa-stumbleupon fa-fw"></i> Stumbleupon</a>
+
+		<!-- LinkedIn --> 
+		<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://similar.city/&title=Compare cities at similar.city&summary=Culture. Economy. Weather. What makes a city? Explore the data and compare 1000 global cities." title="Share on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+
+		<!-- Reddit --> 
+		<a href="http://www.reddit.com/submit?url=http://similar.city/" title="Reddit this!" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--reddit"><i class="fa fa-reddit fa-fw"></i> Reddit</a>
+	  </div>
+	  <div class="mdl-card__actions mdl-card--border">
+		  <div class="mdl-card__supporting-text">
+			Direct link URL:
+		  </div>
+		  <div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input" type="text" id="directLinkURL" value="http://similar.city/" />
+		  </div>
+	  </div>
+	  <div class="mdl-card__actions mdl-card--border">
+		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="closeSocialShare">
+		  Close
+		</a>
+	  </div>	  
+	</div>	
+   </div>	
+	<!-- font awesome - used for social icons -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script src="charts.js"></script>
     <script src="material.min.js"></script>
