@@ -6,32 +6,32 @@
     <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta property="og:url"                content="http://similar.city/faq.html" />
-	<meta property="og:title"              content="Culture. Economy. Weather. What makes a city?" />
+	<meta property="og:url"                content="http://similar.city/blog/building-the-model-part1.html" />
+	<meta property="og:title"              content="similar.city Blog - Building the Model (Part 1)" />
 	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
 	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@johnellliott">
 	<meta name="twitter:creator" content="@johnellliott">
-	<meta name="twitter:title" content="Culture. Economy. Weather. What makes a city?">
+	<meta name="twitter:title" content="similar.city Blog - Building the Model (Part 1)">
 	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
 	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
 
     <title>similar.city Blog - Building the Model (Part 1)</title>
 
-	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="../apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="../apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="../apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="../apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="../apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="../android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="msapplication-TileImage" content="../ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">		
 	
     <!-- Page styles -->
@@ -61,7 +61,7 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase " href="../index.html">Map</a>
 			  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="../faq.html">FAQ</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Blog</a>
-			  <label class="mdl-button mdl-js-button mdl-button--icon" id="openSocialShare">
+			  <label class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='#social-share-article'">
 				<i class="material-icons">share</i>
               </label>				  
             </nav>
@@ -81,7 +81,7 @@
 		  <a class="mdl-navigation__link je-drawer-link" href="../index.html">Map</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="../faq.html">FAQ</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="index.html">Blog</a>
-		  <a class="mdl-navigation__link je-drawer-link" href="" id="openSocialShare">Share</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="#social-share-article">Share</a>
         </nav>
       </div>
 
@@ -98,12 +98,15 @@
               September 5, 2015 11:23am
             </div>
             <h3>Building the Model - Part 1: Collecting and Creating the Data Set</h3>
+<p>
+<img src="../images/r-logo-small.png" align="left" style="margin-right: 30px;margin-bottom: 20px;" />This article describes the process of building the predictive models used in similar.city. It is the first of two articles cover the process and is designed to be a sequential description of the process, rather than a general review or analysis of the results. The reader is assumed to have a reasonable degree of understanding of basic statistics and data processing, but low-level technical language is generally avoided.
+</p>
+<p>
+The modelling process involved the use of <a href="https://www.r-project.org/" target="_blank">R</a> for data manipulation and its library of predictive algorithms, Excel for data processing, and custom Java applications were written for data collection. For R, the <a href="http://www.revolutionanalytics.com/" target="_blank">Revolution R</a> integrated development environment (IDE) was used and for Java, I used <a href="https://eclipse.org/downloads/" target="_blank">Eclipse</a>. 
+</p>
 <h4>
 Initial goals
 </h4>
-<p>
-<add intro here, mention R and Java>
-</p>
 <p>
 The process of producing the city matching algorithm used in similar.city started with a high level goal: quantify the difference between two cities based on a set of input variables. 
 </p>
@@ -111,8 +114,12 @@ The process of producing the city matching algorithm used in similar.city starte
 The high-level goal was underpinned by a hypothesis that suitable variables exist that can represent cities in terms of their culture, economy and climate. 
 </p>
 <p>
-Matching by weather (or climate) was first chosen as the proof-of-concept and there is readily available climate data. Therefore identifying candidate predictor variables was a fairly easy task for weather matching. Quantifying a city by its economy, and in particular its culture, would require some creative thinking to identify variables. 
+Matching by weather (or climate) was first chosen as the proof-of-concept as there is readily available climate data. Therefore identifying candidate predictor variables was a fairly easy task for weather matching. Quantifying a city by its economy, and in particular its culture, would require some creative thinking to identify variables. 
 </p>
+<div style="width: 100%; text-align: center; margin-bottom: 50px;">
+<img src="../images/data-modelling-process-part1.png" style="" />
+<div class="je-blog-image-caption">Steps to prepare data in modelling process</div>
+</div>
 <h4>
 Data collection
 </h4>
@@ -120,38 +127,59 @@ Data collection
 One of the biggest challenges when identifying suitable predictors is finding those that can cover the whole data set. It's sensible to hypothesize that a climate variable such as relative humidity (or dew point) is an important differentiator between cities, but if that variable isn't available for all selected cities then I'm faced with the choice of reducing the number of cities or not including it as a predictor variable. (There is one other choice but I'll get to that later).
 </p>
 <p>
-The wide availability of data is why monthly mean daytime high temperatures, monthly mean nighttime low temperatures and monthly mean rainfall figures are the weather observations used. Coverage of other climate variables is patchy. 
+The wide availability of data is why monthly mean daytime high temperatures, monthly mean night-time low temperatures and monthly mean rainfall figures are the weather observations used. Coverage of other climate variables is patchy. 
 </p>
 <p>
-The climate data was collected from Wikipedia using the jsoup library for Java. I wrote a custom tool that parses a text file containing Wikipedia URLs. For each URL it reads the HTML of the page, scans for climate data and writes it out to a comma-separated text file (CSV).
+The climate data was collected from Wikipedia using the <a href="http://jsoup.org/" target="_blank">jsoup library for Java</a>. I wrote a custom tool that parses a text file containing Wikipedia URLs. For each URL it reads the HTML of the page, scans for climate data and writes it out to a comma-separated text file (CSV).
 </p>
 <p>
-The economic model uses Wikipedia word counts. A similar application was written, except this also takes in a last of words. For each word, it writes out a count of words for each Wikipedia article. For its input I chose a range of words relating to the economic characteristics of a city. For example, I associated words such as 'port', 'seaport', 'harbour', 'harbor' and 'dock' as being associated with seaports. I hypothesized that there would be a positive correlation between the number of these words and the size/importance of a city's seaport. Likewise,  I associated 'bank', 'banking', 'insurance', 'finance' and 'financial' with a city's financial industry. 
+The economic model uses Wikipedia word counts, inspired by the research undertaken by <a href="https://books.google.com.au/books?id=SgBtHYMWQp8C&lpg=PP1&pg=PP1#v=onepage&q&f=false" target="_blank">Tawan Banchuen</a>. Another Java jsoup application was written, except this also takes in a list of words. For each word, it writes out a count of words for each city Wikipedia article. For its input I chose a range of words relating to the economic characteristics of a city. For example, I associated words such as 'port', 'seaport', 'harbour', 'harbor' and 'dock' as being associated with seaports. I hypothesized that there would be a positive correlation between the number of these words and the size/importance of a city's seaport. Likewise,  I associated 'bank', 'banking', 'insurance', 'finance' and 'financial' with a city's financial industry. 
 </p>
 <h4>Data preparation</h4>
 <p>
-Some new variables were calculated from existing observation variables.  One example of this is with the climate variables. Unfortunately, the three selected temperature and rainfall variables do not sufficiently explain the key climate feature of continentality. That is, the further away a city is from the sea, the further it is from its moderating effects and the more extreme its temperature variance is. The degree of continentality also changes with latitude. Therefore, to determine continentality I calculated the XXX coefficient for each location, which uses latitude as one of its inputs. 
+Some new variables were calculated from existing observation variables.  One example of this is with the climate variables. Unfortunately, the three selected temperature and rainfall variables do not sufficiently explain the key climate feature of continentality. That is, the further away a city is from the sea, the further it is from its moderating effects and the more extreme its temperature variance is. The degree of continentality also changes with latitude. Therefore, to determine continentality I calculated Conrad's coefficient for each location, which uses latitude as one of its inputs. 
 </p>
 <p>
-Possibly the most important step of variable preparation was converting variables from being associated with only one location to quantifying the difference between two locations. A simple subtraction is used for this. For example, if City A has a summer mean daytime temperature of 32C and City B's is 26C then the difference is 6C. All variables used as inputs in the predictive model undergo a pairwise subtraction like this. 
+Possibly the most important step of variable preparation was converting variables from being associated with only one location to quantifying the difference between two locations. A simple subtraction is used for this. For example, if City A has a summer mean daytime temperature of 32&deg;C and City B's is 26&deg;C then the difference is 6&deg;C. All variables used as inputs in the predictive model undergo a pairwise subtraction like this. 
 </p>
 <p>
 Due to strong annual seasonal patterns that are inverted in the northern and southern hemispheres, I also transformed southern hemisphere weather figures so that their summers and winters were matched with the north. 
 </p>
 <p>
-The final phase of data preparation was the aggregation and combination of multiple variables into those that can be used as predictors. The main techniques I used were to take the mean value and standard deviation of sets of associated variables of the same scale. For example, I took the standard deviation of the monthly historical rainfall means. Remember here that I am working with the difference of these variables between two cities. The standard deviation value is then used as a method of determining whether the rainfall patterns of two cities are similar. Two cities with monsoonal rainfall patterns should have a relatively low difference in their standard deviations (both should have high standard deviations, but when subtracted from each other the difference would be small).
+The final phase of data preparation was the aggregation and combination of multiple variables into those that can be used as predictors. The main techniques I used were to take the mean value and standard deviation of sets of associated variables of the same scale. For example, I took the standard deviation of the monthly historical rainfall means. Remember here that I am working with the difference of these variables between two cities. The standard deviation value is then used as a method of determining whether the rainfall patterns of two cities are similar. To take one example, two cities with monsoonal rainfall patterns should have a relatively low standard deviation of their difference (both should have high standard deviations when assessed independently, however when subtracted from each other the difference would be small). However, the standard deviation of the difference between a city with Mediterranean rainfall patterns and humid subtropical should be high (because the former has more rain in winter and the latter has more rain in the summer). 
 </p>
 <h4>Creating target variables</h4>
 <p>
-The matching models need something to predict so I chose to create a new variable with values ranging between 0 and 100 that represent the 'strength' of a match. This new variable is the 'match score' and is based on my own personal scoring for cities with which I am familiar. 
+The matching models need something to predict so I chose to create a new variable with values ranging between 0 and 100 that represent the level of similarity between two cities. 100 represents a perfect match and 0 means that nothing is similar. This new variable is the 'match score' and is based on my own personal scoring for cities with which I am familiar. 
 </p>
 <p>
-This, for me, demonstrates one of the wonderful things about predictive modeling. You can take a relatively abstract concept that only really exists in my head and create a mathematical representation of this that can be computed and visualized for anyone to explore. 
+This, for me, demonstrates one of the wonderful things about predictive modeling. You can take a relatively abstract concept that only really exists in my mind and create a mathematical representation of this that can be computed and visualized for anyone to explore. 
+</p>
+<p>
+I created approximately 100 'samples' for each match score target variable, meaning I scored a total of 300 city-to-city matches. This is a tiny fraction of the 1.5 million match scores produced as an output. 
 </p>
 
-	  <div class="mdl-card__supporting-text">
+<p>
+<i>The second part of this article will be available soon.</i> 
+</p>
+
+<script>
+	$( document ).ready(function() {
+		var pageName = "blog/building-the-model-part1.html";
+		$(".article-share .mdl-button--twitter").attr("href",$(".article-share .mdl-button--twitter").attr("href") + pageName + " via @JohnEllliott");
+		$(".article-share .mdl-button--facebook").attr("href",$(".article-share .mdl-button--facebook").attr("href") + pageName);
+		$(".article-share .mdl-button--googleplus").attr("href",$(".article-share .mdl-button--googleplus").attr("href") + pageName);
+		$(".article-share .mdl-button--stumbleupon").attr("href",$(".article-share .mdl-button--stumbleupon").attr("href") + pageName);
+		$(".article-share .mdl-button--linkedin").attr("href",$(".article-share .mdl-button--linkedin").attr("href") + pageName);
+		$(".article-share .mdl-button--reddit").attr("href",$(".article-share .mdl-button--reddit").attr("href") + pageName);
+	});
+
+</script>
+
+	  <div class="mdl-card__supporting-text article-share" id="social-share-article">
+		<p>Share this article</p>
 		<!-- Twitter -->
-		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/ via @JohnEllliott" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
 
 		<!-- Facebook -->
 		<a href="https://www.facebook.com/sharer/sharer.php?u=http://similar.city/" title="Share on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>

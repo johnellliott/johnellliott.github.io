@@ -7,31 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta property="og:url"                content="http://similar.city/faq.html" />
-	<meta property="og:title"              content="Culture. Economy. Weather. What makes a city?" />
+	<meta property="og:title"              content="similar.city - Frequently Asked Questions" />
 	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
 	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@johnellliott">
 	<meta name="twitter:creator" content="@johnellliott">
-	<meta name="twitter:title" content="Culture. Economy. Weather. What makes a city?">
+	<meta name="twitter:title" content="similar.city - Frequently Asked Questions">
 	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
 	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
 
     <title>similar.city - Frequently Asked Questions</title>
 
-	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
-	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
-	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
-	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
-	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
 	<meta name="msapplication-TileColor" content="#ffffff">
-	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="msapplication-TileImage" content="ms-icon-144x144.png">
 	<meta name="theme-color" content="#ffffff">		
 	
     <!-- Page styles -->
@@ -61,7 +61,7 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase " href="index.html">Map</a>
 			  <a class="mdl-navigation__link mdl-typography--text-uppercase" disabled>FAQ</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" href="blog/index.html">Blog</a>
-			  <label class="mdl-button mdl-js-button mdl-button--icon" id="openSocialShare">
+			  <label class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='#social-share-article'">
 				<i class="material-icons">share</i>
               </label>				  
             </nav>
@@ -78,7 +78,7 @@
 		  <a class="mdl-navigation__link je-drawer-link" href="index.html">Map</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="faq.html">FAQ</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="blog/index.html">Blog</a>
-		  <a class="mdl-navigation__link je-drawer-link" href="" id="openSocialShare">Share</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="#social-share-article">Share</a>
         </nav>
       </div>
 
@@ -174,6 +174,30 @@ Are all of the matching algorithms equally accurate?
 No. The weather-matching algorithm is the most accurate. Its input data is long-term environmental observations and its target variable is the most conceptually concrete. The economic and cultural input data is less reliable, less complete, more subjective and the target variable is also more abstract for those two models.
 </p>
 <h4>
+How do I match only on weather? 
+</h4>
+<p>
+Change the sliders on the left hand side under 'Match Settings'. You will need to set either 'Economy' or 'Culture' to zero, then lock them using the checkbox before moving the 'Weather' slider to maximum (100).
+</p>
+<h4>
+Why is the site slow? 
+</h4>
+<p>
+It could be slow for various reasons including problems with the internet connection. However, the site processes a lot of data, which is sent to your web browser. Older machines or browsers may struggle to cope with the data processing and visualization calculations.
+</p>
+<h4>
+Why does the site not work for me? 
+</h4>
+<p>
+If the site seems to be fundamentally broken, then it is probably because you are using a non-supported browser such as Internet Explorer 9 or older. Modern versions of Chrome, Firefox and Opera are supported. The site has also been tested in Internet Explorer 10 and seems to function fine.
+</p>
+<h4>
+How do I link to a specific city? 
+</h4>
+<p>
+Click the 'share' icon on the top-right of the screen. A permalink URL is provided that allows you to open the site with a specific city selected.
+</p>
+<h4>
 Why are small settlements included in the map? 
 </h4>
 <p>
@@ -197,6 +221,41 @@ There are over 1000 cities in this data set. These require more than 1.5 million
 <p>
 To put this in some context, producing the final data set takes over two hours of continuous processing on a computer with an Intel Core i7 processor with an SSD and 8GB RAM.
 </p>
+
+
+<script>
+	$( document ).ready(function() {
+		var pageName = "faq.html";
+		$(".article-share .mdl-button--twitter").attr("href",$(".article-share .mdl-button--twitter").attr("href") + pageName + " via @JohnEllliott");
+		$(".article-share .mdl-button--facebook").attr("href",$(".article-share .mdl-button--facebook").attr("href") + pageName);
+		$(".article-share .mdl-button--googleplus").attr("href",$(".article-share .mdl-button--googleplus").attr("href") + pageName);
+		$(".article-share .mdl-button--stumbleupon").attr("href",$(".article-share .mdl-button--stumbleupon").attr("href") + pageName);
+		$(".article-share .mdl-button--linkedin").attr("href",$(".article-share .mdl-button--linkedin").attr("href") + pageName);
+		$(".article-share .mdl-button--reddit").attr("href",$(".article-share .mdl-button--reddit").attr("href") + pageName);
+	});
+
+</script>
+
+	  <div class="mdl-card__supporting-text article-share" id="social-share-article">
+		<p>Share this article</p>
+		<!-- Twitter -->
+		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+
+		<!-- Facebook -->
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://similar.city/" title="Share on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
+
+		<!-- Google+ -->
+		<a href="https://plus.google.com/share?url=http://similar.city/" title="Share on Google+" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-google-plus fa-fw"></i> Google+</a>
+
+		<!-- StumbleUpon -->
+		<a href="http://www.stumbleupon.com/submit?url=http://similar.city/" title="Share on StumbleUpon" target="_blank" data-placement="top" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--stumbleupon"><i class="fa fa-stumbleupon fa-fw"></i> Stumbleupon</a>
+
+		<!-- LinkedIn --> 
+		<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://similar.city/&title=Compare cities at similar.city&summary=Culture. Economy. Weather. What makes a city? Explore the data and compare 1000 global cities." title="Share on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+
+		<!-- Reddit --> 
+		<a href="http://www.reddit.com/submit?url=http://similar.city/" title="Reddit this!" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--reddit"><i class="fa fa-reddit fa-fw"></i> Reddit</a>
+	  </div>
 
           </div>
         </div>

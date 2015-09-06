@@ -6,15 +6,15 @@
     <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta property="og:url"                content="http://similar.city/faq.html" />
-	<meta property="og:title"              content="Culture. Economy. Weather. What makes a city?" />
+	<meta property="og:url"                content="http://similar.city/blog/index.html" />
+	<meta property="og:title"              content="similar.city Blog - Home" />
 	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
 	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@johnellliott">
 	<meta name="twitter:creator" content="@johnellliott">
-	<meta name="twitter:title" content="Culture. Economy. Weather. What makes a city?">
+	<meta name="twitter:title" content="similar.city Blog - Home">
 	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
 	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
 
@@ -61,7 +61,7 @@
               <a class="mdl-navigation__link mdl-typography--text-uppercase " href="../index.html">Map</a>
 			  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="../faq.html">FAQ</a>
               <a class="mdl-navigation__link mdl-typography--text-uppercase" disabled href="index.html">Blog</a>
-			  <label class="mdl-button mdl-js-button mdl-button--icon" id="openSocialShare">
+			  <label class="mdl-button mdl-js-button mdl-button--icon" onclick="location.href='#social-share-article'">
 				<i class="material-icons">share</i>
               </label>				  
             </nav>
@@ -81,7 +81,7 @@
 		  <a class="mdl-navigation__link je-drawer-link" href="../index.html">Map</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="../faq.html">FAQ</a>
 		  <a class="mdl-navigation__link je-drawer-link" href="index.html">Blog</a>
-		  <a class="mdl-navigation__link je-drawer-link" href="" id="openSocialShare">Share</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="#social-share-article">Share</a>
         </nav>
       </div>
 
@@ -116,6 +116,41 @@ If you're from the United States, you probably have a good sense of San Diego's 
 <p>
 By changing the sliders in the left hand side, you can choose whether you want to compare cities by their culture, economy or climate, or choose how to combine them into a single score. 
 </p>
+
+<script>
+	$( document ).ready(function() {
+		var pageName = "blog/index.html";
+		$(".article-share .mdl-button--twitter").attr("href",$(".article-share .mdl-button--twitter").attr("href") + pageName + " via @JohnEllliott");
+		$(".article-share .mdl-button--facebook").attr("href",$(".article-share .mdl-button--facebook").attr("href") + pageName);
+		$(".article-share .mdl-button--googleplus").attr("href",$(".article-share .mdl-button--googleplus").attr("href") + pageName);
+		$(".article-share .mdl-button--stumbleupon").attr("href",$(".article-share .mdl-button--stumbleupon").attr("href") + pageName);
+		$(".article-share .mdl-button--linkedin").attr("href",$(".article-share .mdl-button--linkedin").attr("href") + pageName);
+		$(".article-share .mdl-button--reddit").attr("href",$(".article-share .mdl-button--reddit").attr("href") + pageName);
+	});
+
+</script>
+
+	  <div class="mdl-card__supporting-text article-share" id="social-share-article">
+		<p>Share this article</p>
+		<!-- Twitter -->
+		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+
+		<!-- Facebook -->
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://similar.city/" title="Share on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
+
+		<!-- Google+ -->
+		<a href="https://plus.google.com/share?url=http://similar.city/" title="Share on Google+" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-google-plus fa-fw"></i> Google+</a>
+
+		<!-- StumbleUpon -->
+		<a href="http://www.stumbleupon.com/submit?url=http://similar.city/" title="Share on StumbleUpon" target="_blank" data-placement="top" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--stumbleupon"><i class="fa fa-stumbleupon fa-fw"></i> Stumbleupon</a>
+
+		<!-- LinkedIn --> 
+		<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://similar.city/&title=Compare cities at similar.city&summary=Culture. Economy. Weather. What makes a city? Explore the data and compare 1000 global cities." title="Share on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+
+		<!-- Reddit --> 
+		<a href="http://www.reddit.com/submit?url=http://similar.city/" title="Reddit this!" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--reddit"><i class="fa fa-reddit fa-fw"></i> Reddit</a>
+	  </div>
+
 
           </div>
         </div>
