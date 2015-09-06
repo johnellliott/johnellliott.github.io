@@ -45,7 +45,7 @@
 	var map;  
 	var heatmap;
 	
-	google.maps.event.addDomListener(window, 'load', initialize);
+	
 	  
     function initialize() {
 		//gapi.client.setApiKey('AIzaSyBG-MEa5wcsXp24h7h03mhSPQl2bN5gmRM');
@@ -802,6 +802,20 @@
 				cultureWeight = parseFloat($("#cultureSlider").val()) / 100;
 				econWeight = parseFloat($("#economySlider").val()) / 100;
 				
+				var validCity = true;
+				
+				if (weatherData[i] == "" && weatherWeight > 0) { // invalid city
+					validCity = false;
+				}
+				
+				if (cultureData[i] == "" && cultureWeight > 0) { // invalid city
+					validCity = false;
+				}
+				
+				if (economicData[i] == "" && econWeight > 0) { // invalid city
+					validCity = false;
+				}
+				
 				var matchScore = (weatherWeight * weatherData[i]) + 
 									(cultureWeight * cultureData[i]) + 
 									(econWeight * economicData[i]);
@@ -813,11 +827,13 @@
 				citiesByRef[compareCityInfo.key] = compareCityInfo; // update arrays with match score
 
 				if (heatmapMode) {
-					createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, matchScore, true); // fixed size marker
+					if (validCity)
+						createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, matchScore, true); // fixed size marker
 					var weight = values[i] / 10;
 					heatmapPoints[i] = {location: new google.maps.LatLng(compareCityInfo.lat, compareCityInfo.lng), weight: weight};
 				} else {
-					createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, matchScore, false); // fixed size marker
+					if (validCity)
+						createMarker(compareCityInfo.lat, compareCityInfo.lng, compareCityInfo, matchScore, false); // fixed size marker
 				}
 				
 				matchScore = Math.round(matchScore);
@@ -833,7 +849,7 @@
 					
 				if (compareCityInfo.region == "Africa" || compareCityInfo.region == "Middle East") {
 					groupRegionCounter(africaMatches, compareCityInfo, matchScore)
-				} else if (compareCityInfo.region == "South-East Asia" || compareCityInfo.region == "North-East Asia" || compareCityInfo.region == "South Asia" || compareCityInfo.region == "Russia & Central Asia" || compareCityInfo.region == "Pacific") {
+				} else if (compareCityInfo.region == "South-East Asia" || compareCityInfo.region == "North-East Asia" || compareCityInfo.region == "South Asia" || compareCityInfo.region == "Russia & Central Asia" || compareCityInfo.region == "Pacific" || compareCityInfo.region == "Australia & New Zealand") { 
 					groupRegionCounter(asiaMatches, compareCityInfo, matchScore)
 				} else if (compareCityInfo.region == "Europe") {
 					groupRegionCounter(europeMatches, compareCityInfo, matchScore)
@@ -1005,7 +1021,9 @@
 		if (cityInfo.score < 35) {
 			$('#' + prefix + 'Row' + rowNumber).html('<td class="mdl-data-table__cell--non-numeric">[No close match]</td><td>N/A</td><td style="display:none;" ></td>');
 		} else {
-			$('#' + prefix + 'Row' + rowNumber).html('<td class="mdl-data-table__cell--non-numeric">' + cityInfo.name +'</td><td>' + Math.round(cityInfo.score) +'</td><td style="display:none;" id="' + prefix + 'Row' + rowNumber + 'Key">' + cityInfo.key +'</td>');
+			var cityName = cityInfo.name;
+			if (cityName.length > 29) cityName = cityName.substring(0,27) + "...";
+			$('#' + prefix + 'Row' + rowNumber).html('<td class="mdl-data-table__cell--non-numeric">' + cityName +'</td><td>' + Math.round(cityInfo.score) +'</td><td style="display:none;" id="' + prefix + 'Row' + rowNumber + 'Key">' + cityInfo.key +'</td>');
 		}
 	}
 	

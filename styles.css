@@ -302,6 +302,10 @@ th > .mdl-checkbox {
 .demo-layout .demo-header .mdl-textfield {
   padding-top: 27px;
 }
+.mdl-layout__content {
+	background-color: #ebf1ff;
+}
+
 .demo-layout .mdl-layout__header .mdl-layout__drawer-button {
   color: rgba(0, 0, 0, 0.54);
 }
@@ -629,4 +633,17 @@ _:-ms-input-placeholder, :root .demo-graph {
 .mdl-button--raised.mdl-button--reddit {
     background: #e1261c;
     color: #fff;
+}
+
+/* article layout CSS */
+.article-content {
+    border-radius: 2px;
+    padding: 80px 56px;
+    margin-bottom: 80px;
+}
+
+@media (max-width: 820px) {
+	.article-content {
+		margin-top: 60px;
+	}
 }

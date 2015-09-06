@@ -20,6 +20,20 @@
 
     <title>similar.city - Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.</title>
 
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">	
+	
     <!-- Page styles -->
     <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -33,6 +47,9 @@
 		src="https://maps.googleapis.com/maps/api/js?libraries=visualization&sensor=true_or_false">
 	</script>
 	<script src="matchingweather.js"></script>
+	<script>
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 	
   </head>
   <body>
@@ -50,8 +67,8 @@
           <div class="android-navigation-container">
             <nav class="android-navigation mdl-navigation">
               <a class="mdl-navigation__link mdl-typography--text-uppercase " disabled>Map</a>
-			  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">FAQ</a>
-              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="">Blog</a>
+			  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="faq.html">FAQ</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="blog/index.html">Blog</a>
 			  <label class="mdl-button mdl-js-button mdl-button--icon" id="openSocialShare">
 				<i class="material-icons">share</i>
               </label>				  
@@ -104,9 +121,9 @@
 			<span class="mdl-navigation__link je-drawer-link" id="resetSettings">Reset Settings</span>
 		  <div class="android-drawer-separator"></div>
 		  <a class="mdl-navigation__link je-drawer-link" href="#">Map</a>
-		  <a class="mdl-navigation__link je-drawer-link" href="blog.html">FAQ</a>
-		  <a class="mdl-navigation__link je-drawer-link" href="blog.html">Blog</a>
-		  <a class="mdl-navigation__link je-drawer-link" href="">Share</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="faq.html">FAQ</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="blog/index.html">Blog</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="" id="openSocialShare">Share</a>
         </nav>
       </div>
 
