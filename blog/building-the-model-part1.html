@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta property="og:url"                content="http://similar.city/faq.html" />
+	<meta property="og:title"              content="Culture. Economy. Weather. What makes a city?" />
+	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
+	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
+
+	<meta name="twitter:card" content="summary_large_image">
+	<meta name="twitter:site" content="@johnellliott">
+	<meta name="twitter:creator" content="@johnellliott">
+	<meta name="twitter:title" content="Culture. Economy. Weather. What makes a city?">
+	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
+	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
+
+    <title>similar.city Blog - Building the Model (Part 1)</title>
+
+	<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<meta name="msapplication-TileColor" content="#ffffff">
+	<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+	<meta name="theme-color" content="#ffffff">		
+	
+    <!-- Page styles -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="../material.min.css">
+    <link rel="stylesheet" href="../stylesmdl.css">
+	<link rel="stylesheet" href="../styles.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+	<script src="../matchingweather.js"></script>
+	
+  </head>
+  <body>
+    <div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer">
+
+      <div class="android-header mdl-layout__header mdl-layout__header--waterfall">
+        <div class="mdl-layout__header-row">
+			<span class="je-city-name-large-screen-title je-city-name">
+				
+			</span>
+          <!-- Add spacer, to align navigation to the right in desktop -->
+          <div class="android-header-spacer mdl-layout-spacer"></div>
+
+          <!-- Navigation -->
+          <div class="android-navigation-container">
+            <nav class="android-navigation mdl-navigation">
+              <a class="mdl-navigation__link mdl-typography--text-uppercase " href="../index.html">Map</a>
+			  <a class="mdl-navigation__link mdl-typography--text-uppercase" href="../faq.html">FAQ</a>
+              <a class="mdl-navigation__link mdl-typography--text-uppercase" href="index.html">Blog</a>
+			  <label class="mdl-button mdl-js-button mdl-button--icon" id="openSocialShare">
+				<i class="material-icons">share</i>
+              </label>				  
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="android-drawer mdl-layout__drawer">
+        <span class="mdl-layout-title">
+          <!--<img class="android-logo-image" src="images/android-logo-white.png">-->
+		  <span class="je-drawer-title">similar.city</span>
+        </span>
+        <nav class="mdl-navigation">
+          <a class="mdl-navigation__link je-drawer-link" href="index.html">Blog Home</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="building-the-model-part1.html">Building the Model (Part 1)</a>
+		  <div class="android-drawer-separator"></div>
+		  <a class="mdl-navigation__link je-drawer-link" href="../index.html">Map</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="../faq.html">FAQ</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="index.html">Blog</a>
+		  <a class="mdl-navigation__link je-drawer-link" href="" id="openSocialShare">Share</a>
+        </nav>
+      </div>
+
+	  <div class="je-city-name-small-screen-title" style="margin-right: 10px;">
+		similar.city
+	  </div>
+	  
+      <div class="android-content mdl-layout__content">
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="article-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+            <div class="demo-crumbs mdl-color-text--grey-500">
+              September 5, 2015 11:23am
+            </div>
+            <h3>Building the Model - Part 1: Collecting and Creating the Data Set</h3>
+<h4>
+Initial goals
+</h4>
+<p>
+<add intro here, mention R and Java>
+</p>
+<p>
+The process of producing the city matching algorithm used in similar.city started with a high level goal: quantify the difference between two cities based on a set of input variables. 
+</p>
+<p>
+The high-level goal was underpinned by a hypothesis that suitable variables exist that can represent cities in terms of their culture, economy and climate. 
+</p>
+<p>
+Matching by weather (or climate) was first chosen as the proof-of-concept and there is readily available climate data. Therefore identifying candidate predictor variables was a fairly easy task for weather matching. Quantifying a city by its economy, and in particular its culture, would require some creative thinking to identify variables. 
+</p>
+<h4>
+Data collection
+</h4>
+<p>
+One of the biggest challenges when identifying suitable predictors is finding those that can cover the whole data set. It's sensible to hypothesize that a climate variable such as relative humidity (or dew point) is an important differentiator between cities, but if that variable isn't available for all selected cities then I'm faced with the choice of reducing the number of cities or not including it as a predictor variable. (There is one other choice but I'll get to that later).
+</p>
+<p>
+The wide availability of data is why monthly mean daytime high temperatures, monthly mean nighttime low temperatures and monthly mean rainfall figures are the weather observations used. Coverage of other climate variables is patchy. 
+</p>
+<p>
+The climate data was collected from Wikipedia using the jsoup library for Java. I wrote a custom tool that parses a text file containing Wikipedia URLs. For each URL it reads the HTML of the page, scans for climate data and writes it out to a comma-separated text file (CSV).
+</p>
+<p>
+The economic model uses Wikipedia word counts. A similar application was written, except this also takes in a last of words. For each word, it writes out a count of words for each Wikipedia article. For its input I chose a range of words relating to the economic characteristics of a city. For example, I associated words such as 'port', 'seaport', 'harbour', 'harbor' and 'dock' as being associated with seaports. I hypothesized that there would be a positive correlation between the number of these words and the size/importance of a city's seaport. Likewise,  I associated 'bank', 'banking', 'insurance', 'finance' and 'financial' with a city's financial industry. 
+</p>
+<h4>Data preparation</h4>
+<p>
+Some new variables were calculated from existing observation variables.  One example of this is with the climate variables. Unfortunately, the three selected temperature and rainfall variables do not sufficiently explain the key climate feature of continentality. That is, the further away a city is from the sea, the further it is from its moderating effects and the more extreme its temperature variance is. The degree of continentality also changes with latitude. Therefore, to determine continentality I calculated the XXX coefficient for each location, which uses latitude as one of its inputs. 
+</p>
+<p>
+Possibly the most important step of variable preparation was converting variables from being associated with only one location to quantifying the difference between two locations. A simple subtraction is used for this. For example, if City A has a summer mean daytime temperature of 32C and City B's is 26C then the difference is 6C. All variables used as inputs in the predictive model undergo a pairwise subtraction like this. 
+</p>
+<p>
+Due to strong annual seasonal patterns that are inverted in the northern and southern hemispheres, I also transformed southern hemisphere weather figures so that their summers and winters were matched with the north. 
+</p>
+<p>
+The final phase of data preparation was the aggregation and combination of multiple variables into those that can be used as predictors. The main techniques I used were to take the mean value and standard deviation of sets of associated variables of the same scale. For example, I took the standard deviation of the monthly historical rainfall means. Remember here that I am working with the difference of these variables between two cities. The standard deviation value is then used as a method of determining whether the rainfall patterns of two cities are similar. Two cities with monsoonal rainfall patterns should have a relatively low difference in their standard deviations (both should have high standard deviations, but when subtracted from each other the difference would be small).
+</p>
+<h4>Creating target variables</h4>
+<p>
+The matching models need something to predict so I chose to create a new variable with values ranging between 0 and 100 that represent the 'strength' of a match. This new variable is the 'match score' and is based on my own personal scoring for cities with which I am familiar. 
+</p>
+<p>
+This, for me, demonstrates one of the wonderful things about predictive modeling. You can take a relatively abstract concept that only really exists in my head and create a mathematical representation of this that can be computed and visualized for anyone to explore. 
+</p>
+
+	  <div class="mdl-card__supporting-text">
+		<!-- Twitter -->
+		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/ via @JohnEllliott" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+
+		<!-- Facebook -->
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://similar.city/" title="Share on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
+
+		<!-- Google+ -->
+		<a href="https://plus.google.com/share?url=http://similar.city/" title="Share on Google+" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-google-plus fa-fw"></i> Google+</a>
+
+		<!-- StumbleUpon -->
+		<a href="http://www.stumbleupon.com/submit?url=http://similar.city/" title="Share on StumbleUpon" target="_blank" data-placement="top" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--stumbleupon"><i class="fa fa-stumbleupon fa-fw"></i> Stumbleupon</a>
+
+		<!-- LinkedIn --> 
+		<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://similar.city/&title=Compare cities at similar.city&summary=Culture. Economy. Weather. What makes a city? Explore the data and compare 1000 global cities." title="Share on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+
+		<!-- Reddit --> 
+		<a href="http://www.reddit.com/submit?url=http://similar.city/" title="Reddit this!" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--reddit"><i class="fa fa-reddit fa-fw"></i> Reddit</a>
+	  </div>
+
+          </div>
+        </div>
+      </main>
+      </div>
+    </div>
+	
+	
+	<!-- social sharing card -->
+   <div class="centre-point-wrapper">
+	<div class="social-sharing-card mdl-card mdl-shadow--2dp">
+	  <div class="mdl-card__title">
+		<h2 class="mdl-card__title-text">Share similar.city</h2>
+	  </div>
+	  <div class="mdl-card__supporting-text">
+		<!-- Twitter -->
+		<a href="http://twitter.com/home?status=Culture. Economy. Weather. What makes a %23city? Explore the %23data and compare cities at http://similar.city/ via @JohnEllliott" title="Share on Twitter" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--twitter"><i class="fa fa-twitter fa-fw"></i> Twitter</a>
+
+		<!-- Facebook -->
+		<a href="https://www.facebook.com/sharer/sharer.php?u=http://similar.city/" title="Share on Facebook" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--facebook"><i class="fa fa-facebook fa-fw"></i> Facebook</a>
+
+		<!-- Google+ -->
+		<a href="https://plus.google.com/share?url=http://similar.city/" title="Share on Google+" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--googleplus"><i class="fa fa-google-plus fa-fw"></i> Google+</a>
+
+		<!-- StumbleUpon -->
+		<a href="http://www.stumbleupon.com/submit?url=http://similar.city/" title="Share on StumbleUpon" target="_blank" data-placement="top" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--stumbleupon"><i class="fa fa-stumbleupon fa-fw"></i> Stumbleupon</a>
+
+		<!-- LinkedIn --> 
+		<a href="http://www.linkedin.com/shareArticle?mini=true&url=http://similar.city/&title=Compare cities at similar.city&summary=Culture. Economy. Weather. What makes a city? Explore the data and compare 1000 global cities." title="Share on LinkedIn" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--linkedin"><i class="fa fa-linkedin fa-fw"></i> LinkedIn</a>
+
+		<!-- Reddit --> 
+		<a href="http://www.reddit.com/submit?url=http://similar.city/" title="Reddit this!" target="_blank" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--reddit"><i class="fa fa-reddit fa-fw"></i> Reddit</a>
+	  </div>
+	  <div class="mdl-card__actions mdl-card--border">
+		  <div class="mdl-card__supporting-text">
+			Direct link URL:
+		  </div>
+		  <div class="mdl-textfield mdl-js-textfield">
+			<input class="mdl-textfield__input" type="text" id="directLinkURL" value="http://similar.city/" />
+		  </div>
+	  </div>
+	  <div class="mdl-card__actions mdl-card--border">
+		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="closeSocialShare">
+		  Close
+		</a>
+	  </div>	  
+	</div>	
+   </div>	
+	<!-- font awesome - used for social icons -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <script src="../material.min.js"></script>
+	<script>
+		if (getParameterByName("debug") != "true") {
+		  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		  ga('create', 'UA-65946158-1', 'auto');
+		  ga('send', 'pageview');
+		}
+	</script>  	
+	
+  </body>
+</html>
