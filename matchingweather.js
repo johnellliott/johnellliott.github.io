@@ -1317,9 +1317,14 @@
 			weather = limitSlider("weather");			
 		}
 		var total = parseFloat(culture) + parseFloat(economy) + parseFloat(weather);
-		console.log("culture = " + culture + ", economy = " + economy + ", weather = " + weather + ", total = " + total);
+		var sliderSettingsString = "C = " + Math.round(culture) + ", E = " + Math.round(economy) + ", W = " + Math.round(weather);
+		console.log(sliderSettingsString + ", T = " + total);
 		
 		recalculateCityData(false, false);
+		
+		if (getParameterByName("debug") != "true") {
+			ga('send', 'event', 'Settings', 'Weights', sliderSettingsString);
+		}
 	}
 
 	function limitSlider(field) {
