@@ -130,7 +130,7 @@ By changing the sliders in the left hand side, you can choose whether you want t
 		$(".article-share .mdl-button").click(function() {
 			if (getParameterByName("debug") != "true") {
 				ga('send', 'event', 'Social Share', 
-					$(".social-sharing-card .mdl-button").text().trim(), 
+					$(this).text().trim(), 
 					window.location.href);
 			}
 		});		
