@@ -157,8 +157,17 @@ By changing the sliders in the left hand side, you can choose whether you want t
       </main>
       </div>
     </div>
-	
-	
+
+<script>
+	$(".social-sharing-card .mdl-button").click(function() {
+		if (getParameterByName("debug") != "true") {
+			ga('send', 'event', 'Social Share', 
+				$(".social-sharing-card .mdl-button").text().trim(), 
+				window.location.href);
+		}
+	});
+
+</script>	
 	<!-- social sharing card -->
    <div class="centre-point-wrapper">
 	<div class="social-sharing-card mdl-card mdl-shadow--2dp">
