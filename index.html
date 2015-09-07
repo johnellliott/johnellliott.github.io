@@ -288,7 +288,20 @@
 	  <div id="legend">
 		  <img src="images/legend.png" />
 	  </div>	
-	
+
+<script>
+	$( document ).ready(function() {
+
+		$(".social-sharing-card .mdl-button").click(function() {
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'Social Share', 
+					$(this).text().trim(), 
+					window.location.href);
+			}
+		});		
+	});
+</script>	
+	  
 	<!-- social sharing card -->
    <div class="centre-point-wrapper">
 	<div class="social-sharing-card mdl-card mdl-shadow--2dp">

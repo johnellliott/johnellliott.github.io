@@ -233,8 +233,16 @@ To put this in some context, producing the final data set takes over two hours o
 		$(".article-share .mdl-button--linkedin").attr("href",$(".article-share .mdl-button--linkedin").attr("href") + pageName);
 		$(".article-share .mdl-button--reddit").attr("href",$(".article-share .mdl-button--reddit").attr("href") + pageName);
 	});
-
-</script>
+		
+		$(".article-share .mdl-button").click(function() {
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'Social Share', 
+					$(this).text().trim(), 
+					window.location.href);
+			}
+		});		
+	});
+</script>	
 
 	  <div class="mdl-card__supporting-text article-share" id="social-share-article">
 		<p>Share this article</p>
