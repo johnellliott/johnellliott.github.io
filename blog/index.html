@@ -126,9 +126,16 @@ By changing the sliders in the left hand side, you can choose whether you want t
 		$(".article-share .mdl-button--stumbleupon").attr("href",$(".article-share .mdl-button--stumbleupon").attr("href") + pageName);
 		$(".article-share .mdl-button--linkedin").attr("href",$(".article-share .mdl-button--linkedin").attr("href") + pageName);
 		$(".article-share .mdl-button--reddit").attr("href",$(".article-share .mdl-button--reddit").attr("href") + pageName);
+		
+		$(".article-share .mdl-button").click(function() {
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'Social Share', 
+					$(".social-sharing-card .mdl-button").text().trim(), 
+					window.location.href);
+			}
+		});		
 	});
-
-</script>
+</script>	
 
 	  <div class="mdl-card__supporting-text article-share" id="social-share-article">
 		<p>Share this article</p>
@@ -158,16 +165,6 @@ By changing the sliders in the left hand side, you can choose whether you want t
       </div>
     </div>
 
-<script>
-	$(".social-sharing-card .mdl-button").click(function() {
-		if (getParameterByName("debug") != "true") {
-			ga('send', 'event', 'Social Share', 
-				$(".social-sharing-card .mdl-button").text().trim(), 
-				window.location.href);
-		}
-	});
-
-</script>	
 	<!-- social sharing card -->
    <div class="centre-point-wrapper">
 	<div class="social-sharing-card mdl-card mdl-shadow--2dp">
