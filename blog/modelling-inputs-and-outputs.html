@@ -3,22 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.">
+    <meta name="description" content="Diagram of predictive model used in similar.city site showing input variables and output">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta property="og:url"                content="http://similar.city/blog/building-the-model-part1.html" />
-	<meta property="og:title"              content="similar.city Blog - Building the Model (Part 1)" />
-	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
+	<meta property="og:title"              content="similar.city Blog - Model Inputs and Outputs" />
+	<meta property="og:description"        content="Diagram of predictive model used in similar.city site showing input variables and output" />
 	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@johnellliott">
 	<meta name="twitter:creator" content="@johnellliott">
-	<meta name="twitter:title" content="similar.city Blog - Building the Model (Part 1)">
-	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
+	<meta name="twitter:title" content="similar.city Blog - Model Inputs and Outputs">
+	<meta name="twitter:description" content="Diagram of predictive model used in similar.city site showing input variables and output>
 	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
 
-    <title>similar.city Blog - Building the Model (Part 1)</title>
+    <title>similar.city Blog - Model Inputs and Outputs</title>
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../apple-icon-72x72.png">
@@ -96,74 +96,27 @@
           <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
           <div class="article-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             <div class="demo-crumbs mdl-color-text--grey-500">
-              September 5, 2015 11:23am
+              September 6, 2015 6:14pm
             </div>
-            <h3>Building the Model - Part 1: Collecting and Creating the Data Set</h3>
+            <h3>Model Inputs and Outputs</h3>
 <p>
-<img src="../images/r-logo-small.png" align="left" style="margin-right: 30px;margin-bottom: 20px;" />This article describes the process of building the predictive models used in similar.city. It is the first of two articles cover the process and is designed to be a sequential description of the process, rather than a general review or analysis of the results. The reader is assumed to have a reasonable degree of understanding of basic statistics and data processing, but low-level technical language is generally avoided.
+The predictive model used in the similar.city site is a multivariate model implemented using R. The diagram below illustrates the inputs to the model and how the results are combined into a single result, based on the weights selected by the site user.
 </p>
 <p>
-The modelling process involved the use of <a href="https://www.r-project.org/" target="_blank">R</a> for data manipulation and its library of predictive algorithms, Excel for data processing, and custom Java applications were written for data collection. For R, the <a href="http://www.revolutionanalytics.com/" target="_blank">Revolution R</a> integrated development environment (IDE) was used and for Java, I used <a href="https://eclipse.org/downloads/" target="_blank">Eclipse</a>. 
-</p>
-<h4>
-Initial goals
-</h4>
-<p>
-The process of producing the city matching algorithm used in similar.city started with a high level goal: quantify the difference between two cities based on a set of input variables. 
+In order to achieve an holistic assessment of city similarity across the cultural, economic and climate dimensions, input variables from a wide set of sources are included. This includes the IMF, OECD and UN for city size and economic data and professional and academic studies such as Hofstede's cultural dimensions theory, GaWC global cities study, the Corruption Perceptions Index and the Mercer Quality of Living ranking. 
 </p>
 <p>
-The high-level goal was underpinned by a hypothesis that suitable variables exist that can represent cities in terms of their culture, economy and climate. 
+<img src="../images/similar-city-model-inputs-and-outputs.png" style="width: 100%;" id="image-model-inputs-outputs" />
 </p>
 <p>
-Matching by weather (or climate) was first chosen as the proof-of-concept as there is readily available climate data. Therefore identifying candidate predictor variables was a fairly easy task for weather matching. Quantifying a city by its economy, and in particular its culture, would require some creative thinking to identify variables. 
-</p>
-<div style="width: 100%; text-align: center; margin-bottom: 50px;">
-<img src="../images/data-modelling-process-part1.png" style="" />
-<div class="je-blog-image-caption">Steps to prepare data in modelling process</div>
-</div>
-<h4>
-Data collection
-</h4>
-<p>
-One of the biggest challenges when identifying suitable predictors is finding those that can cover the whole data set. It's sensible to hypothesize that a climate variable such as relative humidity (or dew point) is an important differentiator between cities, but if that variable isn't available for all selected cities then I'm faced with the choice of reducing the number of cities or not including it as a predictor variable. (There is one other choice but I'll get to that later).
+The weightings for economy, culture and weather are selected via the sliders under 'Match Settings' on the left side of the site. This allows the user to choose which aspect to prioritize when matching cities.
 </p>
 <p>
-The wide availability of data is why monthly mean daytime high temperatures, monthly mean night-time low temperatures and monthly mean rainfall figures are the weather observations used. Coverage of other climate variables is patchy. 
+The output is a single match score value, calculated from the user-selected weighting of the raw input match scores for economy, culture and weather. This score then dictates the color and size of the markers shown in the map.
 </p>
 <p>
-The climate data was collected from Wikipedia using the <a href="http://jsoup.org/" target="_blank">jsoup library for Java</a>. I wrote a custom tool that parses a text file containing Wikipedia URLs. For each URL it reads the HTML of the page, scans for climate data and writes it out to a comma-separated text file (CSV).
+To browse the city data and view the results of this model, go to the <a href="http://similar.city/">similar.city map</a>.
 </p>
-<p>
-The economic model uses Wikipedia word counts, inspired by the research undertaken by <a href="https://books.google.com.au/books?id=SgBtHYMWQp8C&lpg=PP1&pg=PP1#v=onepage&q&f=false" target="_blank">Tawan Banchuen</a>. Another Java jsoup application was written, except this also takes in a list of words. For each word, it writes out a count of words for each city Wikipedia article. For its input I chose a range of words relating to the economic characteristics of a city. For example, I associated words such as 'port', 'seaport', 'harbour', 'harbor' and 'dock' as being associated with seaports. I hypothesized that there would be a positive correlation between the number of these words and the size/importance of a city's seaport. Likewise,  I associated 'bank', 'banking', 'insurance', 'finance' and 'financial' with a city's financial industry. 
-</p>
-<h4>Data preparation</h4>
-<p>
-Some new variables were calculated from existing observation variables.  One example of this is with the climate variables. Unfortunately, the three selected temperature and rainfall variables do not sufficiently explain the key climate feature of continentality. That is, the further away a city is from the sea, the further it is from its moderating effects and the more extreme its temperature variance is. The degree of continentality also changes with latitude. Therefore, to determine continentality I calculated Conrad's coefficient for each location, which uses latitude as one of its inputs. 
-</p>
-<p>
-Possibly the most important step of variable preparation was converting variables from being associated with only one location to quantifying the difference between two locations. A simple subtraction is used for this. For example, if City A has a summer mean daytime temperature of 32&deg;C and City B's is 26&deg;C then the difference is 6&deg;C. All variables used as inputs in the predictive model undergo a pairwise subtraction like this. 
-</p>
-<p>
-Due to strong annual seasonal patterns that are inverted in the northern and southern hemispheres, I also transformed southern hemisphere weather figures so that their summers and winters were matched with the north. 
-</p>
-<p>
-The final phase of data preparation was the aggregation and combination of multiple variables into those that can be used as predictors. The main techniques I used were to take the mean value and standard deviation of sets of associated variables of the same scale. For example, I took the standard deviation of the monthly historical rainfall means. Remember here that I am working with the difference of these variables between two cities. The standard deviation value is then used as a method of determining whether the rainfall patterns of two cities are similar. To take one example, two cities with monsoonal rainfall patterns should have a relatively low standard deviation of their difference (both should have high standard deviations when assessed independently, however when subtracted from each other the difference would be small). However, the standard deviation of the difference between a city with Mediterranean rainfall patterns and humid subtropical should be high (because the former has more rain in winter and the latter has more rain in the summer). 
-</p>
-<h4>Creating target variables</h4>
-<p>
-The matching models need something to predict so I chose to create a new variable with values ranging between 0 and 100 that represent the level of similarity between two cities. 100 represents a perfect match and 0 means that nothing is similar. This new variable is the 'match score' and is based on my own personal scoring for cities with which I am familiar. 
-</p>
-<p>
-This, for me, demonstrates one of the wonderful things about predictive modeling. You can take a relatively abstract concept that only really exists in my mind and create a mathematical representation of this that can be computed and visualized for anyone to explore. 
-</p>
-<p>
-I created approximately 100 'samples' for each match score target variable, meaning I scored a total of 300 city-to-city matches. This is a tiny fraction of the 1.5 million match scores produced as an output. 
-</p>
-
-<p>
-<i>The second part of this article will be available soon.</i> 
-</p>
-
 <script>
 	$( document ).ready(function() {
 		var pageName = "blog/building-the-model-part1.html";
