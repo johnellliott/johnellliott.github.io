@@ -113,6 +113,14 @@ html, body {
 	margin-left: 0px;
 }
 
+.chart-footer {
+	text-align: center;
+	color: #484848;
+	font-style: italic;
+	font-size: 15px;
+	margin-bottom: 45px;
+}
+
 .popupHeading {
 	font-size: 18px;
 	font-weight: bold;

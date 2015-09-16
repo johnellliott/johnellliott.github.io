@@ -912,13 +912,20 @@
 		var cityCol = parseInt(cityInfo.cityCol);
 		cityCol = cityCol+1;
 		
+		var weatherSource = "weatv4";
+		if (climateYear == 2050) {
+			weatherSource = "weatv4_2050";
+		} else if (climateYear == 2100) {
+			weatherSource = "weatv4_2100";
+		}
+		
 		var cityWeatherDataURL, cityEconomicDataURL, cityCultureDataURL;
 		if (getParameterByName("debug") == "true") {
-			cityWeatherDataURL = "weatv4/disk" + cityCol + ".csv";
+			cityWeatherDataURL = weatherSource + "/disk" + cityCol + ".csv";
 			cityEconomicDataURL = "econv2/disk" + cityCol + ".csv";
 			cityCultureDataURL = "cultv2/disk" + cityCol + ".csv";
 		} else {
-			cityWeatherDataURL = "http://similar.city/weatv4/disk" + cityCol + ".csv";
+			cityWeatherDataURL = "http://similar.city/" + weatherSource + "/disk" + cityCol + ".csv";
 			cityEconomicDataURL = "http://similar.city/econv2/disk" + cityCol + ".csv";
 			cityCultureDataURL = "http://similar.city/cultv2/disk" + cityCol + ".csv";
 		}
@@ -1098,12 +1105,94 @@
 			results = regex.exec(location.search);
 		return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
+	
+	var climateYear = 2015;
+	
+	function toggleClimateChangeMode(toggle) {
+		if (toggle) {
+			$("#timeToday").removeAttr("disabled");
+			$("#time2050").removeAttr("disabled");
+			$("#time2100").removeAttr("disabled");		
+			$("label[for='timeToday']").removeClass("is-disabled");
+			$("label[for='time2050']").removeClass("is-disabled");
+			$("label[for='time2100']").removeClass("is-disabled");
+			
+			
+			// disable sliders
+			$("#cultureSliderCheckbox").addClass("is-disabled");
+			$("#cultureSliderCheckbox input").attr("disabled", true);
+			$("#cultureSlider").attr("disabled", true);
+			$("#economySliderCheckbox").addClass("is-disabled");
+			$("#economySliderCheckbox input").attr("disabled", true);
+			$("#economySlider").attr("disabled", true);
+			$("#weatherSliderCheckbox").addClass("is-disabled");
+			$("#weatherSliderCheckbox input").attr("disabled", true);
+			$("#weatherSlider").attr("disabled", true);
+			$("#resetSettings").attr("disabled", true);
+			
+			$("#weatherSlider").val(100);
+			$("#cultureSlider").val(0);
+			$("#economySlider").val(0);
+			recalculateCityData(false, false);			
+		} else {
+			$("#timeToday").attr("disabled", true);
+			$("#time2050").attr("disabled", true);
+			$("#time2100").attr("disabled", true);
+			$("label[for='timeToday']").addClass("is-disabled");
+			$("label[for='time2050']").addClass("is-disabled");
+			$("label[for='time2100']").addClass("is-disabled");
+			$("#timeToday").attr('checked', 'checked');
+			$("#timeToday").removeAttr('checked');
+			$("#timeToday").removeAttr('checked');
+			$("label[for='timeToday']").addClass("is-checked");
+			$("label[for='time2050']").removeClass("is-checked");
+			$("label[for='time2100']").removeClass("is-checked");	
+
+			//enable sliders
+			$("#cultureSliderCheckbox").removeClass("is-disabled");
+			$("#cultureSliderCheckbox input").removeAttr("disabled");
+			$("#cultureSlider").removeAttr("disabled");
+			$("#economySliderCheckbox").removeClass("is-disabled");
+			$("#economySliderCheckbox input").removeAttr("disabled");
+			$("#economySlider").removeAttr("disabled");
+			$("#weatherSliderCheckbox").removeClass("is-disabled");
+			$("#weatherSliderCheckbox input").removeAttr("disabled");
+			$("#weatherSlider").removeAttr("disabled");
+			$("#resetSettings").removeAttr("disabled");
+			
+			$("#weatherSlider").val(33.3333);
+			$("#cultureSlider").val(33.3333);
+			$("#economySlider").val(33.3333);
+			recalculateCityData(false, false);			
+		}
+	}
+	
+	function changeClimateYear() {
+		if ($("#timeToday").is(":checked")) {
+			climateYear = 2015;
+		} else if ($("#time2050").is(":checked")) {
+			climateYear = 2050;
+		} else if ($("#time2100").is(":checked")) {
+			climateYear = 2100;
+		}
+		
+		selectCity(selectedCity, false, false);
+	}
 	  
 	$( document ).ready(function() {
 
 		if (getParameterByName("nowelcome") == "true") {
 			$(".welcome-screen").hide();
 		}	
+		
+		$('#predictClimateChangeToggle').change(function() {
+			toggleClimateChangeMode($(this).is(":checked"));
+		});
+		
+		$('.climateRadio').change(function() {
+			//toggleClimateChangeMode($(this).is(":checked"));
+			changeClimateYear();
+		});
 	
 		$('.cityRow').click(function() {
 			var row = $(this).attr('id');
@@ -1138,10 +1227,14 @@
 		
 		
 		$("#resetSettings").click(function() {
-			$("#weatherSlider").val(33.3333);
-			$("#cultureSlider").val(33.3333);
-			$("#economySlider").val(33.3333);
-			recalculateCityData(false, false);
+			if ($(this).attr("disabled") == "disabled") {
+				console.log("Can't reset this because it's disabled");
+			} else {
+				$("#weatherSlider").val(33.3333);
+				$("#cultureSlider").val(33.3333);
+				$("#economySlider").val(33.3333);
+				recalculateCityData(false, false);
+			}
 		});
 		
 		$("#btnCenterMap").click(function() {

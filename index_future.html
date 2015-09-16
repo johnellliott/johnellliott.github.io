@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.">
+    <meta name="description" content="Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map, including effects of climate change.">
     <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">	
 	<meta name="HandheldFriendly" content="true" />
 	<meta name="mobile-web-app-capable" content="yes">
 
 	<meta property="og:url"                content="http://similar.city/" />
 	<meta property="og:title"              content="Culture. Economy. Weather. What makes a city?" />
-	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map" />
+	<meta property="og:description"        content="Explore over 1000 global cities by matching your selected city in an interactive map, including climate change effects" />
 	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@johnellliott">
 	<meta name="twitter:creator" content="@johnellliott">
 	<meta name="twitter:title" content="Culture. Economy. Weather. What makes a city?">
-	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map">
+	<meta name="twitter:description" content="Explore over 1000 global cities by matching your selected city in an interactive map, including climate change effects">
 	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
 
     <title>similar.city - Culture. Economy. Weather. What makes a city? Explore global cities by matching your selected city in an interactive map.</title>
@@ -96,6 +96,36 @@
 		  </span>
 		  <span class="mdl-navigation__link je-drawer-link" id="btnCenterMapComparison">Center Map</span>
           <span class="mdl-navigation__link je-drawer-link btnSelectCity" href="">Select This City</span>
+
+          <div class="android-drawer-separator"></div>
+          <span class="mdl-navigation__link" href="">
+			Climate Change
+		  </span>
+		  <div class="je-drawer-label">
+			  <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="predictClimateChangeToggle" id="predictClimateChangeToggleWrapper">
+				  <input type="checkbox" id="predictClimateChangeToggle" class="mdl-switch__input" />
+				  <span class="mdl-switch__label">Predict Impact</span>
+			  </label>	  
+		  </div>
+		  <div class="je-drawer-radio-group">
+			  <div class="je-drawer-label">
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="timeToday">
+				  <input checked class="mdl-radio__button climateRadio" id="timeToday" name="time" type="radio" value="on" disabled>
+				  <span class="mdl-radio__label">Today's climate</span>
+				</label>
+			  </div>
+			  <div class="je-drawer-label">
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="time2050">
+				  <input class="mdl-radio__button climateRadio" id="time2050" name="time" type="radio" value="off" disabled>
+				  <span class="mdl-radio__label">2050</span>
+				</label>&nbsp;&nbsp;&nbsp;
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="time2100">
+				  <input class="mdl-radio__button climateRadio" id="time2100" name="time" type="radio" value="auto" disabled>
+				  <span class="mdl-radio__label">2100</span>
+				</label>
+			  </div>
+		  </div>
+
           <div class="android-drawer-separator"></div>
           <span class="mdl-navigation__link" href="">Match Settings</span>
 			

@@ -1,5 +1,3 @@
-google.load('visualization', '1', {packages: ['corechart', 'bar']});
-google.setOnLoadCallback(drawMatchChartDefault);
 
 function drawMatchChartDefault() {
 	drawMatchChart('Valencia', 24, 37, 27, 31);
@@ -52,4 +50,109 @@ function drawMatchChart(cityName, culture, economy, weather, total) {
 	var material = new google.visualization.ColumnChart(document.getElementById('comparison_chart'));
     material.draw(data, google.charts.Bar.convertOptions(options));
 	//material.draw(data, options);
+}
+
+
+/*
+ * Charts used in blog are below
+ */
+
+
+ 
+/*
+ * htmlRef - the string id of the HTML element in which this will be drawn
+ * data - the data used in populating the chart
+ */ 
+function createBarChart(htmlRef, data) {
+
+	var options = {
+		chartArea : {left:115,top:10,width:'95%',height:'85%'},  
+		bars: 'horizontal', // Required for Material Bar Charts.
+		colors:['rgb(3, 169, 244)','#8bc34a','#00acc1'],
+		legend: { position: 'bottom'},
+        bar: { groupWidth: '75%' },
+        isStacked: true,
+		hAxis : {
+			gridlines : {
+				count : 5
+			},
+            maxValue: 350
+		},	
+		
+		annotations: {
+			textStyle: {
+				fontName: 'Roboto',
+				fontSize: 15,
+				bold: false,
+				italic: false,
+				// The color of the text.
+				color: '#707070 ',
+				// The color of the text outline.
+				//auraColor: '#d799ae',
+				// The transparency of the text.
+				opacity: 0.8
+			},
+			alwaysOutside: true
+		}		
+	};
+
+	var chart = new google.visualization.BarChart(document.getElementById(htmlRef));
+	chart.draw(data, options);
+}
+
+
+function createBubbleChart(htmlRef, data) {
+
+	var options = {
+		chartArea : {left:115,top:10,width:'95%',height:'85%'},  
+		bubble: {textStyle: {fontSize: 11}},
+		legend: { position: 'bottom'},
+		hAxis : {
+			title: 'Weather Distance',
+			viewWindow : {
+				max: 100
+			}	
+		},	
+		vAxis : {
+			title: 'Economic & Cultural Distance',
+			viewWindow : {
+				max: 100
+			}	
+		},	
+		
+	};
+/*
+	var options = {
+		chartArea : {left:115,top:10,width:'95%',height:'85%'},  
+		bars: 'horizontal', // Required for Material Bar Charts.
+		colors:['rgb(3, 169, 244)','#8bc34a','#00acc1'],
+		legend: { position: 'bottom'},
+        bar: { groupWidth: '75%' },
+        isStacked: true,
+		hAxis : {
+			gridlines : {
+				count : 5
+			},
+            maxValue: 350
+		},	
+		
+		annotations: {
+			textStyle: {
+				fontName: 'Roboto',
+				fontSize: 15,
+				bold: false,
+				italic: false,
+				// The color of the text.
+				color: '#707070 ',
+				// The color of the text outline.
+				//auraColor: '#d799ae',
+				// The transparency of the text.
+				opacity: 0.8
+			},
+			alwaysOutside: true
+		}		
+	};*/
+
+	var chart = new google.visualization.BubbleChart(document.getElementById(htmlRef));
+	chart.draw(data, options);
 }

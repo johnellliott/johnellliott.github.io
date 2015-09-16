@@ -113,6 +113,19 @@ a img{
 	color: white;
 }
 
+.je-drawer-radio-group  {
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.je-drawer-radio-group .je-drawer-label {
+	padding: 8px 40px;
+}
+
+.mdl-switch__label, .mdl-radio__label {
+	font-size: 14px;
+}
+
 .je-drawer-label {
     display: block;
     -ms-flex-negative: 0;
