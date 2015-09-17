@@ -3,16 +3,28 @@ function drawMatchChartDefault() {
 	drawMatchChart('Valencia', 24, 37, 27, 31);
 }
 
+// #E6F7F9 lighest blue for culture/economy when in climate mode
+
 function drawMatchChart(cityName, culture, economy, weather, total) {
+
+	var cultureEcomomyBarColor = '#00acc1';
+	var totalColor = '#8bc34a';
+	if (climateMode) {
+		cultureEcomomyBarColor = "#E6F7F9";
+		totalColor = "#E6F7F9";
+	} else {
+		cultureEcomomyBarColor = "#00acc1";
+		totalColor = '#8bc34a';
+	}
 
 	total = Math.round(total);
 
 	var data = google.visualization.arrayToDataTable([
 				["Factor", "Score", { role: 'style' },{'type': 'string', 'role': 'tooltip', 'p': {'html': true}}],
-				["C", culture, '#00acc1', '<p class="chartTooltip">Culture<br/><b class="chartTooltip-matchNumber">' + culture + '</b></p>'],
-				["E", economy, '#00acc1', '<p class="chartTooltip">Economy<br/><b class="chartTooltip-matchNumber">' + economy + '</b></p>'],
+				["C", culture, cultureEcomomyBarColor, '<p class="chartTooltip">Culture<br/><b class="chartTooltip-matchNumber">' + culture + '</b></p>'],
+				["E", economy, cultureEcomomyBarColor, '<p class="chartTooltip">Economy<br/><b class="chartTooltip-matchNumber">' + economy + '</b></p>'],
 				["W", weather, '#00acc1', '<p class="chartTooltip">Weather<br/><b class="chartTooltip-matchNumber">' + weather + '</b></p>'],
-				["T", total, '#8bc34a', '<p class="chartTooltip">Total<br/><b class="chartTooltip-matchNumber">' + total + '</b></p>']
+				["T", total, totalColor, '<p class="chartTooltip">Total<br/><b class="chartTooltip-matchNumber">' + total + '</b></p>']
 			]);
 
 	var options = {
@@ -121,37 +133,6 @@ function createBubbleChart(htmlRef, data) {
 		},	
 		
 	};
-/*
-	var options = {
-		chartArea : {left:115,top:10,width:'95%',height:'85%'},  
-		bars: 'horizontal', // Required for Material Bar Charts.
-		colors:['rgb(3, 169, 244)','#8bc34a','#00acc1'],
-		legend: { position: 'bottom'},
-        bar: { groupWidth: '75%' },
-        isStacked: true,
-		hAxis : {
-			gridlines : {
-				count : 5
-			},
-            maxValue: 350
-		},	
-		
-		annotations: {
-			textStyle: {
-				fontName: 'Roboto',
-				fontSize: 15,
-				bold: false,
-				italic: false,
-				// The color of the text.
-				color: '#707070 ',
-				// The color of the text outline.
-				//auraColor: '#d799ae',
-				// The transparency of the text.
-				opacity: 0.8
-			},
-			alwaysOutside: true
-		}		
-	};*/
 
 	var chart = new google.visualization.BubbleChart(document.getElementById(htmlRef));
 	chart.draw(data, options);

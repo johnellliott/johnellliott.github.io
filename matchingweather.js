@@ -79,9 +79,11 @@
 			console.log('type change' + map.getMapTypeId());
 			if (map.getMapTypeId() == "hybrid" || map.getMapTypeId() == "satellite") {
 				$(".je-city-name-small-screen-title").css("color", "white");
+				$(".je-mode-small-screen-title").css("color", "white");
 				$(".mdl-layout__drawer-button .material-icons").css("color","white");
 			} else {
 				$(".je-city-name-small-screen-title").css("color", "#757575");
+				$(".je-mode-small-screen-title").css("color", "#757575");
 				$(".mdl-layout__drawer-button .material-icons").css("color","#757575");
 			}
 		});
@@ -157,6 +159,14 @@
 						arTotal: values[14],
 						population: values[16],
 						gdpCapita: values[17],
+						aht2050: values[18],
+						ahtMax2050: values[19],
+						ahtMin2050: values[20],
+						arTotal2050: values[21],
+						aht2100: values[22],
+						ahtMax2100: values[23],
+						ahtMin2100: values[24],
+						arTotal2100: values[25],
 						lat: lat,
 						lng: lng,
 						number: i
@@ -170,7 +180,7 @@
 					
 				}			
 				
-				console.log(getParameterByName("city").length);
+				//console.log(getParameterByName("city").length);
 				
 				if (getParameterByName("city").length > 0) { 
 					selectCity(getParameterByName("city"), false, false);
@@ -308,8 +318,9 @@
 		'<h1 class="popupHeading">' + cityInfo.name + '</h1>' +
 		'<div id="bodyContent">' + 
 		'<p class="country">' + cityInfo.country + '</p>' + 
-		countryFactsHTML(cityInfo.gdpCapita, cityInfo.population)  + 
-		tempFactsHTML(cityInfo.aht, cityInfo.ahtMax, cityInfo.ahtMin, cityInfo.arTotal) + 
+		countryFactsHTML(cityInfo.gdpCapita, cityInfo.population)  + "<br />" +
+		//tempFactsHTML(cityInfo.aht, cityInfo.ahtMax, cityInfo.ahtMin, cityInfo.arTotal) + 
+		weatherCompareHtml(cityInfo) +
 		'<div>' +
 		'<button style="float:left;" class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent btnSelectCity" id="btnSelectCity__' + cityInfo.key + '">' +
 		'Select City' +
@@ -498,6 +509,34 @@
 		return html;
 	}
 	
+	function formatCIVal(cityInfoValue) {
+		if (cityInfoValue == null) return "N/A";
+		else if (cityInfoValue == "") return "N/A";
+		else {
+			return Math.round(cityInfoValue);
+		}
+	}
+	
+	function weatherCompareHtml(cityInfo) {
+		var h = "";
+		h = h + "<table class='popupTempTable'>";
+		h = h + " <tr>";
+		h = h + "  <th></th><th>Mean daytime (°C)</th><th>Max. daytime (°C)</th><th>Min. daytime (°C)</th><th>Annual rainfall (mm)</th>";
+		h = h + " </tr>";		
+		h = h + " <tr>";
+		h = h + "  <td class='firstCol'>2015</td><td style='background-color:" + getTempColour(cityInfo.aht) + "'>" + formatCIVal(cityInfo.aht) + "</td><td style='background-color:" + getTempColour(cityInfo.ahtMax) + "'>" + formatCIVal(cityInfo.ahtMax) + "</td><td style='background-color:" + getTempColour(cityInfo.ahtMin) + "'>" + formatCIVal(cityInfo.ahtMin) + "</td><td style='background-color:" + getRainColour(cityInfo.arTotal) + "'>" + formatCIVal(cityInfo.arTotal) + "</td>";
+		h = h + " </tr>";
+		h = h + " <tr>";
+		h = h + "  <td class='firstCol'>2050</td><td style='background-color:" + getTempColour(cityInfo.aht2050) + "'>" + formatCIVal(cityInfo.aht2050) + "</td><td style='background-color:" + getTempColour(cityInfo.ahtMax2050) + "'>" + formatCIVal(cityInfo.ahtMax2050) + "</td><td style='background-color:" + getTempColour(cityInfo.ahtMin2050) + "'>" + formatCIVal(cityInfo.ahtMin2050) + "</td><td style='background-color:" + getRainColour(cityInfo.arTotal2050) + "'>" + formatCIVal(cityInfo.arTotal2050) + "</td>";
+		h = h + " </tr>";
+		h = h + " <tr>";
+		h = h + "  <td class='firstCol'>2100</td><td style='background-color:" + getTempColour(cityInfo.aht2100) + "'>" + formatCIVal(cityInfo.aht2100) + "</td><td style='background-color:" + getTempColour(cityInfo.ahtMax2100) + "'>" + formatCIVal(cityInfo.ahtMax2100) + "</td><td style='background-color:" + getTempColour(cityInfo.ahtMin2100) + "'>" + formatCIVal(cityInfo.ahtMin2100) + "</td><td style='background-color:" + getRainColour(cityInfo.arTotal2100) + "'>" + formatCIVal(cityInfo.arTotal2100) + "</td>";
+		h = h + " </tr>";
+		h = h + "</table>";
+		
+		return h;
+	}
+	
 	function isInt(n) {
 		return n % 1 === 0;
 	}
@@ -571,7 +610,8 @@
 	 * Gets an HTML colour for a specified temperature (in celsius)
 	 */
 	function getTempColour(temp) {
-		if (temp > 35) return "#ff0000";
+		if (temp == null || typeof temp === 'undefined' || temp === '') return "#FAFAFA";
+		else if (temp > 35) return "#ff0000";
 		else if (temp > 30) return "#ff4800";
 		else if (temp > 25) return "#ff8400";
 		else if (temp > 20) return "#ffd200"; // orange
@@ -582,14 +622,15 @@
 		else if (temp > -5) return "#00ffd8";
 		else if (temp > -10) return "#00c6ff";
 		else if (temp > -20) return "#007eff";
-		else if (temp > -30) return "#001eff";
+		else if (temp <= -20) return "#001eff";
 	}
 	
 	/**
 	 * Gets an HTML colour for a specified rainfall (in mm)
 	 */
 	function getRainColour(rainfall) {
-		if (rainfall > 3000) return "#359a32";
+		if (rainfall == null || typeof rainfall === 'undefined' || rainfall === '') return "#FAFAFA";
+		else if (rainfall > 3000) return "#359a32";
 		else if (rainfall > 2500) return "#47b244";
 		else if (rainfall > 2000) return "#4fbd4c";
 		else if (rainfall > 1500) return "#5bc958"; // orange
@@ -1107,9 +1148,12 @@
 	}
 	
 	var climateYear = 2015;
+	var climateMode = false;
 	
 	function toggleClimateChangeMode(toggle) {
 		if (toggle) {
+			climateMode = true;
+			$(".je-mode").html("(2015)");
 			$("#timeToday").removeAttr("disabled");
 			$("#time2050").removeAttr("disabled");
 			$("#time2100").removeAttr("disabled");		
@@ -1135,6 +1179,8 @@
 			$("#economySlider").val(0);
 			recalculateCityData(false, false);			
 		} else {
+			climateMode = false;
+			$(".je-mode").html("");
 			$("#timeToday").attr("disabled", true);
 			$("#time2050").attr("disabled", true);
 			$("#time2100").attr("disabled", true);
@@ -1157,7 +1203,7 @@
 			$("#economySlider").removeAttr("disabled");
 			$("#weatherSliderCheckbox").removeClass("is-disabled");
 			$("#weatherSliderCheckbox input").removeAttr("disabled");
-			$("#weatherSlider").removeAttr("disabled");
+			//$("#weatherSlider").removeAttr("disabled");
 			$("#resetSettings").removeAttr("disabled");
 			
 			$("#weatherSlider").val(33.3333);
@@ -1165,6 +1211,7 @@
 			$("#economySlider").val(33.3333);
 			recalculateCityData(false, false);			
 		}
+	
 	}
 	
 	function changeClimateYear() {
@@ -1175,8 +1222,11 @@
 		} else if ($("#time2100").is(":checked")) {
 			climateYear = 2100;
 		}
-		
+		$(".je-mode").html("(" + climateYear + ")");
 		selectCity(selectedCity, false, false);
+		if (getParameterByName("debug") != "true") {
+			ga('send', 'event', 'Settings', 'Climate Year', climateYear);
+		}
 	}
 	  
 	$( document ).ready(function() {
@@ -1185,13 +1235,26 @@
 			$(".welcome-screen").hide();
 		}	
 		
+		if (getParameterByName("climate") == "true") {
+			toggleClimateChangeMode(true);
+			$("#predictClimateChangeToggle").attr("checked",true);
+			$("#predictClimateChangeToggleWrapper").addClass("is-checked");
+		}	
+		
 		$('#predictClimateChangeToggle').change(function() {
 			toggleClimateChangeMode($(this).is(":checked"));
+			$("#matchInfo").hide();
+			$(".welcome-screen").hide();
+			if (getParameterByName("debug") != "true") {
+				ga('send', 'event', 'Settings', 'Climate Mode', $(this).is(":checked"));
+			}				
 		});
 		
 		$('.climateRadio').change(function() {
 			//toggleClimateChangeMode($(this).is(":checked"));
 			changeClimateYear();
+			$("#matchInfo").hide();
+			$(".welcome-screen").hide();
 		});
 	
 		$('.cityRow').click(function() {
@@ -1234,6 +1297,8 @@
 				$("#cultureSlider").val(33.3333);
 				$("#economySlider").val(33.3333);
 				recalculateCityData(false, false);
+				$("#matchInfo").fadeOut();
+				$(".welcome-screen").fadeOut();
 			}
 		});
 		
@@ -1246,7 +1311,7 @@
 		});
 		
 		$(".welcomeClose").click(function() {
-			$(".welcome-screen").hide();
+			$(".welcome-screen").fadeOut();
 		});
 		
 		$('#cityMatchInfo').prop("disabled",true);
@@ -1339,14 +1404,20 @@
 		
 		$("#weatherSlider").change(function() {	
 			updateSlider("weather");
+			$("#matchInfo").fadeOut();
+			$(".welcome-screen").fadeOut();
 		});
 		
 		$("#economySlider").change(function() {
 			updateSlider("economy");
+			$("#matchInfo").fadeOut();
+			$(".welcome-screen").fadeOut();
 		});
 
 		$("#cultureSlider").change(function() {
 			updateSlider("culture");
+			$("#matchInfo").fadeOut();
+			$(".welcome-screen").fadeOut();
 		});
 		
 	});

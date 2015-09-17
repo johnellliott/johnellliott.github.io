@@ -127,7 +127,32 @@ html, body {
 	margin: 8px 0px;
 }	
 
+.popupTempTable {
+    border-spacing: 0;
+    border-collapse: collapse;
+	margin-bottom: 20px;
+}
+
+.popupTempTable th {
+	font-size: 11px;
+	font-weight: normal;
+}
+
+.popupTempTable td {
+	text-align: right;
+	font-weight: bold;
+}
+
+.popupTempTable .firstCol {
+	text-align: left;
+	background-color: #F0FAFB;
+	width: 60px;
+}
+
 @media (min-width: 10px) and (max-width: 700px) {
+	.popupTempTable th {
+		font-size: 10px;
+	}
 	.desktop {
 	  display: none;
 	}

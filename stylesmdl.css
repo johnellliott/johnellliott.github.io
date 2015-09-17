@@ -64,7 +64,7 @@ a img{
 	right: -10px;
 }
 
-.je-city-name-large-screen-title {
+.je-city-name-wrapper-large {
 	position: absolute;
 	top: 13px;
 	left: 13px;
@@ -77,13 +77,23 @@ a img{
 	margin-left: 250px;
 }
 
-@media screen and (max-width: 1024px) {
-    .je-city-name-large-screen-title   {
-        display: none;
-    }
+.je-city-name-large-screen-title {
+
 }
 
-.je-city-name-small-screen-title {
+.je-mode-large-screen-title {
+
+}
+
+@media screen and (max-width: 1024px) {
+    .je-city-name-wrapper-large    {
+        display: none;
+    }
+	
+
+}
+
+.je-city-name-wrapper-small {
 	position: absolute;
 	top: 13px;
 	right: 13px;
@@ -94,8 +104,12 @@ a img{
 	display: none;
 }
 
+.je-city-name-small-screen-title {
+
+}
+
 @media screen and (max-width: 1024px) {
-    .je-city-name-small-screen-title   {
+    .je-city-name-wrapper-small   {
         display: inline;
     }
 }
