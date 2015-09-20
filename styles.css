@@ -113,6 +113,10 @@ html, body {
 	margin-left: 0px;
 }
 
+.blog-author-name {
+	color: #484848;
+}
+
 .chart-footer {
 	text-align: center;
 	color: #484848;
