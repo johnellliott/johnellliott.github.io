@@ -3,22 +3,22 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Interactive #dataviz showing US & Canada city matches shifting 300-450km south in the period 2015-2100 due to climate change">
+    <meta name="description" content="Sample code for reading NASA NEX-GDDP Data into R using the rhdf5 package">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-	<meta property="og:url"                content="http://similar.city/blog/us-and-canada-cities-shifting-south.html" />
-	<meta property="og:title"              content="similar.city Blog - US & Canada Cities: Shifting South 2015-2100" />
-	<meta property="og:description"        content="Interactive #dataviz: US & Canada city matches shifting south 2015-2100 due to #climatechange" />
+	<meta property="og:url"                content="http://similar.city/blog/accessing-nasa-nex-gddp-data.html" />
+	<meta property="og:title"              content="similar.city Blog - Reading NASA NEX-GDDP Data in R" />
+	<meta property="og:description"        content="Sample code for reading NASA NEX-GDDP Data into R" />
 	<meta property="og:image"              content="http://similar.city/images/fb-og-preview.png" />
 
 	<meta name="twitter:card" content="summary_large_image">
 	<meta name="twitter:site" content="@johnellliott">
 	<meta name="twitter:creator" content="@johnellliott">
-	<meta name="twitter:title" content="similar.city Blog - US & Canada Cities: Shifting South 2015-2100">
-	<meta name="twitter:description" content="Interactive #dataviz: US & Canada city matches shifting south 2015-2100 due to #climatechange">
+	<meta name="twitter:title" content="similar.city Blog - Reading NASA NEX-GDDP Data in R">
+	<meta name="twitter:description" content="Reading NASA NEX-GDDP Data in R">
 	<meta name="twitter:image" content="http://similar.city/images/fb-og-preview.png">
 
-    <title>similar.city Blog - US & Canada Cities: Shifting South 2015-2100</title>
+    <title>similar.city Blog - Reading NASA NEX-GDDP Data in R</title>
 
 	<link rel="apple-touch-icon" sizes="57x57" href="../apple-icon-57x57.png">
 	<link rel="apple-touch-icon" sizes="72x72" href="../apple-icon-72x72.png">
@@ -99,20 +99,115 @@
           <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
           <div class="article-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
             <div class="demo-crumbs mdl-color-text--grey-500">
-              September 21, 2015 8:31pm
+              September 23, 2015 22:34pm
             </div>
-            <h3>US & Canada Cities: Shifting South 2015-2100</h3>
+            <h3>Reading NASA NEX-GDDP Data in R</h3>
+<style>
+.tab {margin-left: 40px;}
+</style>		
 <p>
-Another visualization based on US & Canada global climate matches, following the recent <a href="inverted-us-and-canada-cities.html" target="_blank">interactive map</a>. This time, we're focusing on the change between matches in 2015, 2050 and 2100, using <a href="https://cds.nccs.nasa.gov/nex-gddp/" target="_blank">NASA NEX-GDDP climate data</a> for the future predictions.
+The NASA <a href="https://cds.nccs.nasa.gov/nex-gddp/" target="_blank">Earth Exchange Global Daily Downscaled Projections data</a> (NEX-GDDP) is a 12 terabyte set of climate model results. It covers historical data from 1950 to 2005 and future forecasts up to the year 2099 for the whole globe, at a spatial resolution of 25km x 25km per prediction.
 </p>
 <p>
-This parallel coordinates chart uses changes in color to highlight the net change between matches for the years 2015 and 2100. The first column (i.e. the first item on the horizontal x-axis) represents the actual distances from the equator of the US or Canadian city. Columns 2-4 represent the distance from the equator for climate matches for 2015, 2050 and 2100.
+While it is heavy on data, it is light on documentation, so I thought I would share some code to give you a head start in reading the data in R.
 </p>
 <p>
-<script type='text/javascript' src='https://public.tableau.com/javascripts/api/viz_v1.js'></script><div class='tableauPlaceholder' style='width: 100%; height: 800px;'><noscript><a href='http:&#47;&#47;similar.city&#47;blog&#47;us-and-canada-cities-shifting-south.html'><img alt='North America&#39;s March South ' src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;No&#47;NorthAmericasinexorableclimatemarchsouth&#47;NorthAmericasMarchSouth&#47;1_rss.png' style='border: none' /></a></noscript><object class='tableauViz' width='100%' height='800' style='display:none;'><param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' /> <param name='site_root' value='' /><param name='name' value='NorthAmericasinexorableclimatemarchsouth&#47;NorthAmericasMarchSouth' /><param name='tabs' value='no' /><param name='toolbar' value='no' /><param name='static_image' value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;No&#47;NorthAmericasinexorableclimatemarchsouth&#47;NorthAmericasMarchSouth&#47;1.png' /> <param name='animate_transition' value='yes' /><param name='display_static_image' value='yes' /><param name='display_spinner' value='yes' /><param name='display_overlay' value='yes' /><param name='display_count' value='yes' /><param name='showVizHome' value='no' /><param name='showTabs' value='y' /><param name='bootstrapWhenNotified' value='true' /></object></div>
+Let's start with the file format. They can be downloaded from the <a target="_blank" href="ftp://ftp.nccs.nasa.gov/BCSD/rcp85/day/atmos/tasmax/r1i1p1/v1.0/">NCCS FTP site</a> and have filenames such as <code>tasmax_day_BCSD_rcp85_r1i1p1_CESM1-BGC_2075.nc</code> (signifying, in this example, the maximum daily temperature forecast using RCP 8.5 with the CESM1.0 model for the year 2075). The <code>.nc</code> file extension is a red herring as this file is not a NetCDF file. Instead it is a 'Hierarchical Data Format, version 5' (HDF5) file - meaning that the you need to use an R library for HDF5 files. I used the <a href="https://www.bioconductor.org/packages/release/bioc/html/rhdf5.html" target="_blank">rhdf5 library</a>.
 </p>
 <p>
-Red lines represent a match closer to the equator in 2100 than 2015, and blue lines represent one more distant from the equator. Red lines clearly dominate the chart, illustrating a net shift towards the equator in US and Canadian climate analogs. This southward shift is quantified by mean figures in the bar chart at the bottom: all latitude bands show a mean shift towards the south.
+The code below reads in a CSV file containing decimal latitude and longitude fields (LAT_DEC and LNG_DEC), and writes out the <b>mean monthly maximum temperature</b> for each month in the year of the HDF5 file. By calling the <code>getWeatherVal</code> function, you can get a maximum temperature, minimum temperature or precipitation prediction for a specific year and month.
+</p>
+<p>
+<hr>
+<code style="color:#505050;">
+csvDataDir <- "C:/Users/John/Google Drive/Personal Projects/Cities with Similar Weather"<br/>
+csvData <- read.csv(file.path(csvDataDir,"city-coords-decimal-2015.09.13.csv"))<br/>
+<br/>
+library(rhdf5)<br/>
+path <- "O:/NASA_Climate_Projections"<br/>
+filename <- "O:/NASA_Climate_Projections/tasmax_day_BCSD_rcp85_r1i1p1_CESM1-BGC_2075.nc"<br/>
+<br/>
+# Read in the NEX-GDDP data from the HDF5 file, this can take 30 seconds +<br/>
+nasadata.lat <- h5read(filename, "/lat") # 720 - 720 latitude points -89.875 to +89.875<br/>
+nasadata.lon <- h5read(filename, "/lon") # 1440 - 1440 longitude points 0.125 to 359.875<br/>
+nasadata.val <- h5read(filename, "/tasmax") # 1440 x 720 x 365 - [lon,lat,time]<br/>
+<br/>
+# return array c() of days for a given month number 1-12<br/>
+daysForMonth <- function(monthNumber) {
+<div class="tab">
+	# To make this code more readable, I have removed this function.<br/>
+	# I created a function to return an R array of days 1-365 e.g. c(91,92,93,94) <br/>
+	# representing the month of the year.<br/>
+</div>
+} <br/>
+<br/>
+<br/>
+# monthNumber: Jan to Dec represented as integer 1-12<br/>
+# latDegs: decimal latitude value<br/>
+# lngDegs: decimal longitude value<br/>
+# matrix3d: 3D matrix of predicted weather values for one year with dimensions: longitude(1440) x latitude(720) x dayOfYear(365)<br/>
+getWeatherVal <- function(monthNumber, latDegs, lngDegs, matrix3d){<br/>
+<div class="tab">
+	if (is.na(latDegs) || is.na(lngDegs)) {<br/>
+		<span class="tab">return(NA)</span><br/>
+	}	<br/>
+	if(is.nan(monthNumber)) {<br/>
+		<span class="tab">print("monthNumber is NaN")<br/>
+		<span class="tab">return(NA)<br/></span>
+	}<br/>
+	if(is.nan(latDegs)) {<br/>
+		<span class="tab">print("latDegs is NaN")<br/>
+		<span class="tab">return(NA)</span><br/>
+	}<br/>
+	if(is.nan(lngDegs)) {<br/>
+		<span class="tab">print("lngDegs is NaN")<br/>
+		<span class="tab">return(NA)</span><br/>
+	}<br/>
+	<br/>
+	# Find index location for latitude<br/>
+	latIndex <- (latDegs + 89.875) / 0.25<br/>
+	latIndex <- round(latIndex, digits=0)<br/>
+	<br/>
+	if (lngDegs < 0) {<br/>
+		<span class="tab">lngDegs <- 360+lngDegs</span><br/>
+	}	<br/>
+	# Find index location for longitude<br/>
+	lonIndex <- (lngDegs - 0.125) / 0.25<br/>
+	lonIndex <- round(lonIndex, digits=0)<br/>
+<br/>
+	if(latIndex < 0) {<br/>
+		<span class="tab">print("latIndex is < 0")<br/>
+		<span class="tab">return(NA)</span><br/>
+	}<br/>
+	if(lonIndex == 0) lonIndex <- 1440<br/>
+	if(lonIndex < 0) {<br/>
+		<span class="tab">print("lonIndex is < 0")<br/>
+		<span class="tab">return(NA)</span><br/>
+	}<br/>
+	<br/>
+	temps <- matrix3d[lonIndex,latIndex,daysForMonth(monthNumber)]<br/>
+	# calculate the mean of the values for this month, then return result<br/>
+	return(mean(temps))<br/>
+</div>
+}<br/>
+<br/>
+#Simple Los Angeles Test<br/>
+# Test for January<br/>
+getWeatherVal(1,34.1,-118.2,nasadata.val)<br/>
+# Test for July<br/>
+getWeatherVal(7,34.1,-118.2,nasadata.val)<br/>
+<br/>
+# Now test this using apply to apply iteratively to each row in a dataframe<br/>
+# getWeatherVal <- function(monthNumber, latDegs, lngDegs, matrix3d){<br/>
+csvData$tasmax2075_01 <- apply(csvData[,c('Lat_Dec','Lng_Dec')], 1, function(y) getWeatherVal(1, y['Lat_Dec'],y['Lng_Dec'],nasadata.val))<br/>
+csvData$tasmax2075_02 <- apply(csvData[,c('Lat_Dec','Lng_Dec')], 1, function(y) getWeatherVal(2, y['Lat_Dec'],y['Lng_Dec'],nasadata.val))<br/>
+csvData$tasmax2075_03 <- apply(csvData[,c('Lat_Dec','Lng_Dec')], 1, function(y) getWeatherVal(3, y['Lat_Dec'],y['Lng_Dec'],nasadata.val))<br/>
+# ...etc... for each month of the year<br/>
+<br/>
+# write results to CSV file<br/>
+write.csv(csvData, file = paste(csvDataDir,"/nasa-projections.csv",sep=""))<br/>
+</code>
+<hr/>
 </p>
 <p>
 <b>To navigate matches for all of the cities in the global data set, check out the <a href="http://similar.city/">similar.city map</a>.</b>
@@ -122,7 +217,7 @@ Posted by <a href="https://twitter.com/JohnEllliott" target="_blank">John Elliot
 </p>
 <script>
 	$( document ).ready(function() {
-		var pageName = "blog/us-and-canada-cities-shifting-south.html";
+		var pageName = "blog/accessing-nasa-nex-gddp-data.html";
 		$(".article-share .mdl-button--twitter").attr("href",$(".article-share .mdl-button--twitter").attr("href") + pageName + " via @JohnEllliott");
 		$(".article-share .mdl-button--facebook").attr("href",$(".article-share .mdl-button--facebook").attr("href") + pageName);
 		$(".article-share .mdl-button--googleplus").attr("href",$(".article-share .mdl-button--googleplus").attr("href") + pageName);
